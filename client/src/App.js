@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+// import { Route, Switch, useHistory } from 'react-router';
+import Header from './components/Header'
+import RecipesPage from './components/RecipesPage'
+
 
 function App() {
+  // const [user, setUser] = useState(null);
+
+  // const history = useHistory();
+  // if(!user)history.push('/sign_up')
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <RecipesPage/>
     </div>
   );
 }
