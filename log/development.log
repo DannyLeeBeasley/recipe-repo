@@ -11,3 +11,287 @@ Migrating to CreateUsers (20210830181745)
   [1m[35m (33.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (198.1ms)[0m  [1m[35mCREATE DATABASE "recipe_share_development" ENCODING = 'unicode'[0m
+  [1m[35m (100.0ms)[0m  [1m[35mCREATE DATABASE "recipe_share_test" ENCODING = 'unicode'[0m
+  [1m[35m (30.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3324060334158253095)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210830181745)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (27.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210830181745"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipes (20210831143529)
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.5ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "user_id" bigint NOT NULL, "name" character varying, "image" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210831143529"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeIngredients (20210831145224)
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "recipe_id" bigint NOT NULL, "ingredient_id" bigint NOT NULL, "amount" decimal, "unit" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_176a228c1e"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+, CONSTRAINT "fk_rails_209d9afca6"
+FOREIGN KEY ("ingredient_id")
+  REFERENCES "ingredients" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3324060334158253095)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3324060334158253095)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateIngredients (20210831145224)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" bigserial primary key, "name" character varying, "image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210831145224"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRecipeIngredients (20210831145305)
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "recipe_id" bigint NOT NULL, "ingredient_id" bigint NOT NULL, "amount" decimal, "unit" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_176a228c1e"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+, CONSTRAINT "fk_rails_209d9afca6"
+FOREIGN KEY ("ingredient_id")
+  REFERENCES "ingredients" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_recipe_ingredients_on_recipe_id" ON "recipe_ingredients" ("recipe_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_recipe_ingredients_on_ingredient_id" ON "recipe_ingredients" ("ingredient_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210831145305"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-01 21:33:59.431436"], ["updated_at", "2021-09-01 21:33:59.431436"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3324060334158253095)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mIngredient Load (21.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (23.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "DannyLeeBeasley"], ["password_digest", "TrickyPassword13!"], ["created_at", "2021-09-01 21:33:59.732525"], ["updated_at", "2021-09-01 21:33:59.732525"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (19.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "KatieBeasley"], ["password_digest", "NeverGuess27!"], ["created_at", "2021-09-01 21:33:59.775968"], ["updated_at", "2021-09-01 21:33:59.775968"]]
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (2.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Salt"], ["image", "https://w2.chabad.org/media/images/745/WiIZ7453042.jpg"], ["created_at", "2021-09-01 21:33:59.838772"], ["updated_at", "2021-09-01 21:33:59.838772"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Cracked Black Pepper"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/1280x1280/products/5091/9704/black-pepper-cafe-restaraunt-grind__51833.1540751690.jpg?c=2"], ["created_at", "2021-09-01 21:33:59.855268"], ["updated_at", "2021-09-01 21:33:59.855268"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3324060334158253095)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3324060334158253095)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (3.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Destroy (0.7ms)[0m  [1m[31mDELETE FROM "ingredients" WHERE "ingredients"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Destroy (0.4ms)[0m  [1m[31mDELETE FROM "ingredients" WHERE "ingredients"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (70.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "DannyLeeBeasley"], ["password_digest", "TrickyPassword13!"], ["created_at", "2021-09-01 21:34:57.656367"], ["updated_at", "2021-09-01 21:34:57.656367"]]
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "KatieBeasley"], ["password_digest", "NeverGuess27!"], ["created_at", "2021-09-01 21:34:57.755840"], ["updated_at", "2021-09-01 21:34:57.755840"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (10.0ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Salt"], ["image", "https://w2.chabad.org/media/images/745/WiIZ7453042.jpg"], ["created_at", "2021-09-01 21:34:57.760861"], ["updated_at", "2021-09-01 21:34:57.760861"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (1.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Cracked Black Pepper"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/1280x1280/products/5091/9704/black-pepper-cafe-restaraunt-grind__51833.1540751690.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.785694"], ["updated_at", "2021-09-01 21:34:57.785694"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Crushed Red Pepper"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5097/9708/crushed-red-pepper__12390.1540713424.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.795116"], ["updated_at", "2021-09-01 21:34:57.795116"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Garlic Powder"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4950/10693/garlic-powder__80779.1540713339.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.805249"], ["updated_at", "2021-09-01 21:34:57.805249"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Chili Powder"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4871/11141/ChiliPowder__58800.1621928606.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.811324"], ["updated_at", "2021-09-01 21:34:57.811324"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ground Cumin"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4904/9607/ground-cumin-powder__07473.1540713307.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.814841"], ["updated_at", "2021-09-01 21:34:57.814841"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ground Cayenne"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5098/9709/red-cayene-pepper-ground__88154.1540751694.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.821067"], ["updated_at", "2021-09-01 21:34:57.821067"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ground Allspice"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4752/9542/ground-allspice__63984.1540713215.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.824737"], ["updated_at", "2021-09-01 21:34:57.824737"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Sweet Paprika"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5080/11023/paprika-hungarian-sweet__83203.1580303031.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.834979"], ["updated_at", "2021-09-01 21:34:57.834979"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Smoked Paprika"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5082/10749/paprika-smoked-sweet__12660.1540776008.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.839500"], ["updated_at", "2021-09-01 21:34:57.839500"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ground Cinnamon"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4882/9928/saigon-cinnamon__98142.1540713294.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.843117"], ["updated_at", "2021-09-01 21:34:57.843117"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dried Oregano"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5075/9695/mexican-oregano-greek-cut__33239.1540713410.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.847008"], ["updated_at", "2021-09-01 21:34:57.847008"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dried Basil"], ["image", "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4781/9557/dried-basil__03886.1540713234.jpg?c=2"], ["created_at", "2021-09-01 21:34:57.851949"], ["updated_at", "2021-09-01 21:34:57.851949"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Parsley"], ["image", "https://chefsmandala.com/wp-content/uploads/2018/03/Parsley-Fresh-Flat-IT.jpg"], ["created_at", "2021-09-01 21:34:57.856641"], ["updated_at", "2021-09-01 21:34:57.856641"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Cilantro"], ["image", "https://cdn.shopify.com/s/files/1/0095/6258/7195/products/cilantro.jpg?v=1575429635"], ["created_at", "2021-09-01 21:34:57.860790"], ["updated_at", "2021-09-01 21:34:57.860790"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Mint"], ["image", "https://kitchenlily.com/wp-content/uploads/2020/01/How-to-store-mint-keep-it-fresh-for-long.jpg"], ["created_at", "2021-09-01 21:34:57.864568"], ["updated_at", "2021-09-01 21:34:57.864568"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Oregano"], ["image", "https://envato-shoebox-0.imgix.net/25cf/1526-8c01-4216-a70d-c8c4a535866b/Canon_090919_0767.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=700&s=4b1919e16bdd65af461609858d6dfbb1"], ["created_at", "2021-09-01 21:34:57.869258"], ["updated_at", "2021-09-01 21:34:57.869258"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Basil"], ["image", "https://cdn.shopify.com/s/files/1/0257/5676/2202/products/AdobeStock_2353758_1024x1024.jpg?v=1579366807"], ["created_at", "2021-09-01 21:34:57.873264"], ["updated_at", "2021-09-01 21:34:57.873264"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Baby Spinach"], ["image", "https://solidstarts.com/wp-content/uploads/Spinach-for-Babies-scaled.jpg"], ["created_at", "2021-09-01 21:34:57.879043"], ["updated_at", "2021-09-01 21:34:57.879043"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "White Onion"], ["image", "https://i5.walmartimages.com/asr/da6d7d4b-2004-4603-ad6a-38664278af05_1.cbba93cf3e8555bb2386d1f508ac2dd7.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"], ["created_at", "2021-09-01 21:34:57.887195"], ["updated_at", "2021-09-01 21:34:57.887195"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shallots"], ["image", "https://assets.bonappetit.com/photos/57bf2ffc6a6acdf3485df79f/master/w_1600%2Cc_limit/shallot-silo.jpg"], ["created_at", "2021-09-01 21:34:57.894583"], ["updated_at", "2021-09-01 21:34:57.894583"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Green Onion"], ["image", "https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_1078b6b8-f905-4e82-bb5d-f2d613bfa162.jpg"], ["created_at", "2021-09-01 21:34:57.901718"], ["updated_at", "2021-09-01 21:34:57.901718"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Garlic"], ["image", "https://www.mcgill.ca/oss/files/oss/styles/hd/public/garlic.jpg?itok=GlTU4c3n&timestamp=1486146272"], ["created_at", "2021-09-01 21:34:57.908504"], ["updated_at", "2021-09-01 21:34:57.908504"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tomatillos"], ["image", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2019%2F10%2F01%2Ftomatillos-2000.jpg"], ["created_at", "2021-09-01 21:34:57.914979"], ["updated_at", "2021-09-01 21:34:57.914979"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Red Bell Pepper"], ["image", "https://m.media-amazon.com/images/S/assets.wholefoodsmarket.com/PIE/product/56ea234b340e3111001bffd6_365_-red-bell-peppers.1-copy.jpg"], ["created_at", "2021-09-01 21:34:57.923430"], ["updated_at", "2021-09-01 21:34:57.923430"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Yellow Bell Pepper"], ["image", "https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_4fdf8171-7dae-458a-a500-ae2969af48fd.jpg"], ["created_at", "2021-09-01 21:34:57.929406"], ["updated_at", "2021-09-01 21:34:57.929406"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Fresno"], ["image", "https://d2d8wwwkmhfcva.cloudfront.net/800x/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_5526c385-f34d-4c40-a6e8-8dcf7dae5c4a.jpg"], ["created_at", "2021-09-01 21:34:57.935739"], ["updated_at", "2021-09-01 21:34:57.935739"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fresh Jalepeno"], ["image", "https://holylandbrand.com/shop/wp-content/uploads/2020/09/jalapeno.jpg"], ["created_at", "2021-09-01 21:34:57.942088"], ["updated_at", "2021-09-01 21:34:57.942088"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Zucchini"], ["image", "https://i5.walmartimages.com/asr/33be66a0-cbfc-4d37-bd3f-38b06cfe39d6_1.a3a9085102f3a8f794f5965143a363c1.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"], ["created_at", "2021-09-01 21:34:57.954293"], ["updated_at", "2021-09-01 21:34:57.954293"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carrots"], ["image", "https://media.istockphoto.com/photos/fresh-carrots-isolated-on-white-background-picture-id545454816?k=20&m=545454816&s=612x612&w=0&h=zTbL2GTPiWKU7kNyC1mqsQfbBvQIQNKtRgm_uLzUKkk="], ["created_at", "2021-09-01 21:34:57.957756"], ["updated_at", "2021-09-01 21:34:57.957756"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lime"], ["image", "https://chefsmandala.com/wp-content/uploads/2018/03/Lime-Whole-Half.jpg"], ["created_at", "2021-09-01 21:34:57.961081"], ["updated_at", "2021-09-01 21:34:57.961081"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Diced Tomatoes"], ["image", "https://www.jessicagavin.com/wp-content/uploads/2020/08/types-of-canned-tomatoes-diced-600x400.jpg"], ["created_at", "2021-09-01 21:34:57.964600"], ["updated_at", "2021-09-01 21:34:57.964600"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Chipotle In Adobo"], ["image", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F01%2FGettyImages-625853150-2000.jpg&q=85"], ["created_at", "2021-09-01 21:34:57.968393"], ["updated_at", "2021-09-01 21:34:57.968393"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Black Beans"], ["image", "https://www.isabeleats.com/wp-content/uploads/2020/01/how-to-cook-canned-black-beans-small-3.jpg"], ["created_at", "2021-09-01 21:34:57.972262"], ["updated_at", "2021-09-01 21:34:57.972262"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Kidney Beans"], ["image", "https://static8.depositphotos.com/1009864/929/i/950/depositphotos_9293175-stock-photo-canned-red-kidney-beans.jpg"], ["created_at", "2021-09-01 21:34:57.975619"], ["updated_at", "2021-09-01 21:34:57.975619"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "All Purpose Flour"], ["image", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/flour-in-bowl-bread-flour-vs-all-purpose-flour-1611940896.jpg?crop=0.631xw:1.00xh;0.311xw,0&resize=640:*"], ["created_at", "2021-09-01 21:34:57.979262"], ["updated_at", "2021-09-01 21:34:57.979262"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Panko Breadcrumbs"], ["image", "https://www.chopstickchronicles.com/wp-content/uploads/2019/10/Panko-LR-edited-10-2-e1571979163688-500x500.jpg"], ["created_at", "2021-09-01 21:34:57.983115"], ["updated_at", "2021-09-01 21:34:57.983115"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Flour Tortillas"], ["image", "https://www.cookingclassy.com/wp-content/uploads/2020/03/flour-tortillas-11.jpg"], ["created_at", "2021-09-01 21:34:57.987039"], ["updated_at", "2021-09-01 21:34:57.987039"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Wide Rice Noodles"], ["image", "https://www.westpointnaturals.com/wp-content/uploads/2017/10/White-Rice-Noodles-Wide.jpg"], ["created_at", "2021-09-01 21:34:57.990516"], ["updated_at", "2021-09-01 21:34:57.990516"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cheese Tortellini"], ["image", "https://www.maxdelivery.com/nkz/gifs/60084497.jpg"], ["created_at", "2021-09-01 21:34:57.994160"], ["updated_at", "2021-09-01 21:34:57.994160"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Monterey Jack Cheese"], ["image", "https://static.onecms.io/wp-content/uploads/sites/9/2017/06/how-monterey-jack-got-its-name-fwx.jpg"], ["created_at", "2021-09-01 21:34:57.997654"], ["updated_at", "2021-09-01 21:34:57.997654"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ground Beef"], ["image", "https://embed.widencdn.net/img/beef/4hh1pywcnj/800x600px/Grind_Fine_85.psd?keep=c&u=7fueml"], ["created_at", "2021-09-01 21:34:58.001124"], ["updated_at", "2021-09-01 21:34:58.001124"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Italian Sausage"], ["image", "https://tasteofartisan.com/wp-content/uploads/2019/12/Italian-sausage-recipe-2-500x375.jpg"], ["created_at", "2021-09-01 21:34:58.004827"], ["updated_at", "2021-09-01 21:34:58.004827"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Skirt Steak"], ["image", "https://www.farm2fork.co.uk/wp-content/uploads/2016/05/Beef-Skirt-Steak.jpg"], ["created_at", "2021-09-01 21:34:58.008432"], ["updated_at", "2021-09-01 21:34:58.008432"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Salmon Filet"], ["image", "https://cdn.shopify.com/s/files/1/0066/8493/4205/products/scottish_salmon_2_large.jpg?v=1541976322"], ["created_at", "2021-09-01 21:34:58.011916"], ["updated_at", "2021-09-01 21:34:58.011916"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shredded Rotisserie Chicken"], ["image", "https://www.gimmesomeoven.com/wp-content/uploads/2013/09/Easy-Slow-Cooker-Shredded-Chicken-1.jpg"], ["created_at", "2021-09-01 21:34:58.015515"], ["updated_at", "2021-09-01 21:34:58.015515"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Canola Oil"], ["image", "https://naturallivingfamily.com/wp-content/uploads/2017/05/canola-oil-nutrition-facts-pros-cons-what-you-need-to-know.jpg"], ["created_at", "2021-09-01 21:34:58.019326"], ["updated_at", "2021-09-01 21:34:58.019326"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Refined Sesame Oil"], ["image", "https://www.gardeningknowhow.com/wp-content/uploads/2018/07/sesame-oil.jpg"], ["created_at", "2021-09-01 21:34:58.022992"], ["updated_at", "2021-09-01 21:34:58.022992"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Unsalted Butter"], ["image", "https://fortmyersoliveoil.com/wp-content/uploads/2016/06/butter_2.jpg"], ["created_at", "2021-09-01 21:34:58.026702"], ["updated_at", "2021-09-01 21:34:58.026702"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Extra Virgin Olive Oil"], ["image", "https://hakeemnatures.com/wp-content/uploads/2018/11/185042080.jpg"], ["created_at", "2021-09-01 21:34:58.030181"], ["updated_at", "2021-09-01 21:34:58.030181"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Red Wine Vinegar"], ["image", "https://mk0nutritionadvxtj6i.kinstacdn.com/wp-content/uploads/2017/07/composition-of-red-wine-vinegar.jpg"], ["created_at", "2021-09-01 21:34:58.034465"], ["updated_at", "2021-09-01 21:34:58.034465"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Chicken Broth"], ["image", "https://keviniscooking.com/wp-content/uploads/2020/04/How-to-Make-Chicken-Stock-5.jpg"], ["created_at", "2021-09-01 21:34:58.038352"], ["updated_at", "2021-09-01 21:34:58.038352"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dijon Mustard"], ["image", "https://www.thespruceeats.com/thmb/POjGKVz1EfRY5F3LsAQjUgPJzaA=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-56110366-588542c43df78c2ccdafa3bc.jpg"], ["created_at", "2021-09-01 21:34:58.041758"], ["updated_at", "2021-09-01 21:34:58.041758"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Soy Sauce"], ["image", "https://thenymelrosefamily.com/wp-content/uploads/2019/11/homemade-soy-sauce-in-a-white-dish.jpg"], ["created_at", "2021-09-01 21:34:58.045179"], ["updated_at", "2021-09-01 21:34:58.045179"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Oyster Sauce"], ["image", "https://fullofplants.com/wp-content/uploads/2021/04/vegan-oyster-sauce-vegetarian-mushroom-strir-fry-sauce-thumb-2.jpg"], ["created_at", "2021-09-01 21:34:58.048643"], ["updated_at", "2021-09-01 21:34:58.048643"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fish Sauce"], ["image", "https://miro.medium.com/max/700/1*TJiNLOvmLBDrisNShh9B_g.jpeg"], ["created_at", "2021-09-01 21:34:58.052422"], ["updated_at", "2021-09-01 21:34:58.052422"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Honey"], ["image", "https://www.jessicagavin.com/wp-content/uploads/2019/02/honey-pin.jpg"], ["created_at", "2021-09-01 21:34:58.055748"], ["updated_at", "2021-09-01 21:34:58.055748"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Light Brown Sugar"], ["image", "https://woodlandfoods.com/img/WF_Images/H388-light-brown-sugar-main.jpg"], ["created_at", "2021-09-01 21:34:58.059571"], ["updated_at", "2021-09-01 21:34:58.059571"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Hershey Kisses"], ["image", "https://static.wikia.nocookie.net/the_candy_encyclopedia/images/9/97/Hershey%27s_Kisses.jpg/revision/latest?cb=20200512003410"], ["created_at", "2021-09-01 21:34:58.062832"], ["updated_at", "2021-09-01 21:34:58.062832"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Instant Coffee"], ["image", "https://www.takaski.com/wp-content/uploads/2019/06/UCC-The-Blend-114-Instant-Coffee-Made-in-Japan3.jpg"], ["created_at", "2021-09-01 21:34:58.066140"], ["updated_at", "2021-09-01 21:34:58.066140"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Red Wine"], ["image", "https://cdn.hiconsumption.com/wp-content/uploads/2017/02/Sempli-Vaso-Vino-Wine-Decanter.jpg"], ["created_at", "2021-09-01 21:34:58.070075"], ["updated_at", "2021-09-01 21:34:58.070075"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Light Lager"], ["image", "https://cdn.shopify.com/s/files/1/2785/6868/products/420x-ThisBeersForYou_ba6bd4e5-21b8-41d6-a21d-d01b47f2adbd_x700.jpg?v=1605567722"], ["created_at", "2021-09-01 21:34:58.073605"], ["updated_at", "2021-09-01 21:34:58.073605"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
