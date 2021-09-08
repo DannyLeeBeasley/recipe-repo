@@ -54,6 +54,7 @@ flour_tortillas = Ingredient.create(name: "Flour Tortillas", image: "https://www
 wide_rice_noodles = Ingredient.create(name: "Wide Rice Noodles", image: "https://www.westpointnaturals.com/wp-content/uploads/2017/10/White-Rice-Noodles-Wide.jpg")
 cheese_tortellini = Ingredient.create(name: "Cheese Tortellini", image: "https://www.maxdelivery.com/nkz/gifs/60084497.jpg")
 
+parmesan = Ingredient.create(name: "Parmesan Cheese", image: "https://oliveoilmarketplace.com/wp-content/uploads/imported/Parmesan.jpg")
 monterey_jack = Ingredient.create(name: "Monterey Jack Cheese", image: "https://static.onecms.io/wp-content/uploads/sites/9/2017/06/how-monterey-jack-got-its-name-fwx.jpg")
 
 ground_beef = Ingredient.create(name: "Ground Beef", image: "https://embed.widencdn.net/img/beef/4hh1pywcnj/800x600px/Grind_Fine_85.psd?keep=c&u=7fueml")
@@ -76,7 +77,7 @@ fish_sauce = Ingredient.create(name: "Fish Sauce", image: "https://miro.medium.c
 honey = Ingredient.create(name: "Honey", image: "https://www.jessicagavin.com/wp-content/uploads/2019/02/honey-pin.jpg")
 
 light_brown_sugar = Ingredient.create(name: "Light Brown Sugar", image: "https://woodlandfoods.com/img/WF_Images/H388-light-brown-sugar-main.jpg")
-hershey_kisses = Ingredient.create(name: "Hershey Kisses", image: "https://static.wikia.nocookie.net/the_candy_encyclopedia/images/9/97/Hershey%27s_Kisses.jpg/revision/latest?cb=20200512003410")
+hershey_kisses = Ingredient.create(name: "Hershey Kisses", image: "https://www.candywarehouse.com/item-images/125880-01_hersheys-kisses-large-milk-chocolate-kisses-6-piece-box.jpg?resizeid=102&resizeh=500&resizew=500")
 instant_coffee = Ingredient.create(name: "Instant Coffee", image: "https://www.takaski.com/wp-content/uploads/2019/06/UCC-The-Blend-114-Instant-Coffee-Made-in-Japan3.jpg")
 red_wine = Ingredient.create(name: "Red Wine", image: "https://cdn.hiconsumption.com/wp-content/uploads/2017/02/Sempli-Vaso-Vino-Wine-Decanter.jpg")
 light_lager = Ingredient.create(name: "Light Lager", image: "https://cdn.shopify.com/s/files/1/2785/6868/products/420x-ThisBeersForYou_ba6bd4e5-21b8-41d6-a21d-d01b47f2adbd_x700.jpg?v=1605567722")
