@@ -12,6 +12,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  display: flex;
 }
 
 .ingredient-name{
@@ -25,5 +26,29 @@
 
 /* On mouse-over, add a deeper shadow */
 .ingredient-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.recipe-card {
+  /* Add shadows to create the "card" effect */
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  display: flex;
+}
+
+.recipe-name{
+  padding-left: 15px;
+}
+
+.recipe-image {
+  height: 90%;
+  width: 90%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.recipe-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

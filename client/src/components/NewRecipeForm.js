@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
+  const [userId, setUserId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -23,7 +24,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: user.id,
+        user_id: userId,
         name: name,
         image: image,
         description: description,
@@ -39,6 +40,19 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
     <div className="new-recipe-form">
       <h1 className="new-recipe-form-head">New Recipe</h1>
       <form onSubmit={handleSubmit}>
+      <label>
+          User ID
+          <input
+            type="text"
+            name="userID"
+            placeholder="User ID"
+            value={userId}
+            onChange={(e) => {
+              setUserId(e.target.value);
+            }}
+          ></input>
+        </label>
+        <br />
         <label>
           Recipe Name
           <input
@@ -64,6 +78,19 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
             }}
           ></input>
         </label>
+        <br />
+        <label>
+          Description
+          <input
+            type="text"
+            name="recipeDescription"
+            placeholder="Brief Description"
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          ></input>
+        </label>
         <select
           name="ingredient"
           value={selectedIngredientId}
@@ -81,15 +108,13 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           value="Add Ingredient"
           onClick={handleAddClick}
         ></input>
-        {/* <h2>Signal </h2>
-        <h2>←Output←←←Input←</h2> */}
         <div className="new-recipe-body">
           {recipeIngredients.map((ingredient, i) => (
             <RecipeIngredientCard
-              // handleRemoveClick={handleRemoveClick}
               setRecipeIngredients={setRecipeIngredients}
               recipeIngredients={recipeIngredients}
               name={ingredient.name}
+              ingredient={ingredient}
               key={i}
               ingredientIndex={i}
             />

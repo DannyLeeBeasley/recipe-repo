@@ -1,7 +1,7 @@
 import React from "react";
 import IngredientCard from "./IngredientCard";
 
-function IngredientList({ ingredients }) {
+function IngredientList({ ingredients, handleDeleteIngredient }) {
   return (
     <ul className="cards">
       {ingredients.map((ingredient) => {
@@ -11,6 +11,7 @@ function IngredientList({ ingredients }) {
             name={ingredient.name}
             image={ingredient.image}
             description={ingredient.description}
+            handleDeleteIngredient={handleDeleteIngredient}
           />
         );
       })}

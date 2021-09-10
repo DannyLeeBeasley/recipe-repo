@@ -1,11 +1,48 @@
 import React from "react";
 
-function RecipeCard({ name, image, description }) {
+function RecipeCard({ recipe, name, image, description, deleteRecipe }) {
   return (
-    <li className="card">
-      <h4>{name}</h4>
-      <img src={image} alt={"recipe image"} />
-      <p>{description}</p>
+    <li className="recipe-card">
+      <h4 className="recipe-name">{name}</h4>
+      <img className="recipe-image" src={image} alt={"recipe image"} />
+      <p className="recipe-description">{description}</p>
+      <button
+        className="submit"
+        onClick={(e) => {
+          fetch(`/recipes/${recipe.id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((deletedRecipe) => {
+              deleteRecipe(deletedRecipe);
+            });
+        }}
+      >
+        Delete Recipe
+      </button>
+      {/* <button
+        className="submit"
+        onClick={(e) => {
+          fetch(`/recipes/${recipe.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              name: name,
+              image: image,
+              description: description,
+              ingredient_ids: 
+            })
+          })
+            .then((res) => res.json())
+            .then((updatedRecipe) => {
+              updateRecipe(updatedRecipe);
+            });
+        }}
+      >
+        Update Recipe
+      </button> */}
     </li>
   );
 }

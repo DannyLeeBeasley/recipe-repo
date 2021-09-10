@@ -82,5 +82,9 @@ instant_coffee = Ingredient.create(name: "Instant Coffee", image: "https://www.t
 red_wine = Ingredient.create(name: "Red Wine", image: "https://cdn.hiconsumption.com/wp-content/uploads/2017/02/Sempli-Vaso-Vino-Wine-Decanter.jpg")
 light_lager = Ingredient.create(name: "Light Lager", image: "https://cdn.shopify.com/s/files/1/2785/6868/products/420x-ThisBeersForYou_ba6bd4e5-21b8-41d6-a21d-d01b47f2adbd_x700.jpg?v=1605567722")
 
+puts "Creating Recipes..."
+tortellini_soup = Recipe.create(user_id: 1, name: "Tortellini Soup", image: "https://cdn.loveandlemons.com/wp-content/uploads/2021/01/tortellini-soup-1.jpg", description: "Papaw's recipe; a favorite of his in his workplace cafeteria, he ate it every week and tried to recreate it until he honed in on this recipe.", ingredient_ids: [1, 2, 12, 13, 19, 20, 23, 32, 40, 41, 44, 51, 53])
+enchiladas = Recipe.create(user_id: 2, name: "Chicken Enchiladas Roasted Tomatillo Salsa", image: "https://www.rickbayless.com/wp-content/uploads/2015/04/EnchiladasRotate.jpg", description: "The roasted vegetables in these enchiladas create a depth of flavor that you will just get lost in", ingredient_ids: [1, 2, 6, 15, 20, 23, 24, 28, 31, 36, 38, 42, 47, 51, 53])
+
 puts "✅ Done seeding!"
 
