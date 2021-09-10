@@ -46,15 +46,20 @@ function RecipesPage( {user} ) {
       .then(() => console.log("item deleted"));
   }
 
-  function deleteRecipe(deletedRecipe) {
-    setRecipes(recipes.filter((recipe) => recipe.id !== deletedRecipe.id));
+  function handleDeleteRecipe(recipeToDeleteId) {
+    fetch(`/recipes/${recipeToDeleteId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => alert('Your Recipe has been deleted'));
+    setRecipes(recipes.filter((recipe) => recipe.id !== recipeToDeleteId));
   }
 
   return (
     <main>
       <Router>
         <Route path="/">
-          <RecipeList recipes={recipes} deleteRecipe={deleteRecipe}/>
+          <RecipeList recipes={recipes} handleDeleteRecipe={handleDeleteRecipe}/>
         </Route>
         <Route path="/newrecipe">
           <NewRecipeForm ingredients={ingredients} addNewRecipe={addNewRecipe}/>

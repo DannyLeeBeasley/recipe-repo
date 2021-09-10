@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RecipeIngredientCard from "./RecipeIngredientCard";
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [userId, setUserId] = useState("");
@@ -28,8 +29,8 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         name: name,
         image: image,
         description: description,
-        ingredient_ids: recipeIngredients.map((ingredient) => {
-          return ingredient.id;
+        ingredient_ids: recipeIngredients.map((recipeIngredient) => {
+          return recipeIngredient.id;
         }),
       }),
     })
@@ -123,32 +124,6 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         <br></br>
         <input type="submit" value="Submit"></input>
       </form>
-    </div>
-  );
-}
-
-function RecipeIngredientCard({ ingredient, recipeIngredients, setRecipeIngredients, ingredientIndex }) {
-  function handleRemoveClick() {
-    const list = [...recipeIngredients];
-    list.splice(ingredientIndex, 1);
-    setRecipeIngredients(list);
-  }
-  return (
-    <div className="new-recipe-card">
-      <div>
-        <img
-          className="new-recipe-ingredient-img"
-          alt={ingredient.name}
-          src={ingredient.image}
-        ></img>
-      </div>
-
-      <div className="new-recipe-card-name">{ingredient.name}</div>
-      <input
-        type="button"
-        value="Remove Ingredient"
-        onClick={() => handleRemoveClick()}
-      ></input>
     </div>
   );
 }

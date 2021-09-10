@@ -1,6 +1,6 @@
 import React from "react";
 
-function RecipeCard({ recipe, name, image, description, deleteRecipe }) {
+function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
   return (
     <li className="recipe-card">
       <h4 className="recipe-name">{name}</h4>
@@ -8,15 +8,7 @@ function RecipeCard({ recipe, name, image, description, deleteRecipe }) {
       <p className="recipe-description">{description}</p>
       <button
         className="submit"
-        onClick={(e) => {
-          fetch(`/recipes/${recipe.id}`, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((deletedRecipe) => {
-              deleteRecipe(deletedRecipe);
-            });
-        }}
+        onClick={(e) => {handleDeleteRecipe(recipe.id)}}
       >
         Delete Recipe
       </button>

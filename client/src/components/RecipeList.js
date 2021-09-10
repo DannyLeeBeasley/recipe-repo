@@ -1,7 +1,7 @@
 import React from "react";
 import RecipeCard from "./RecipeCard";
 
-function RecipeList({ recipes, deleteRecipe }) {
+function RecipeList({ recipes, handleDeleteRecipe }) {
   return (
     <ul className="cards">
       {recipes.map((recipe) => {
@@ -12,7 +12,7 @@ function RecipeList({ recipes, deleteRecipe }) {
          name={recipe.name}
          image={recipe.image}
          description={recipe.description}
-         deleteRecipe={deleteRecipe}
+         handleDeleteRecipe={handleDeleteRecipe}
         />
         );
       })}
