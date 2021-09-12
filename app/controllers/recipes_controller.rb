@@ -14,7 +14,6 @@ class RecipesController < ApplicationController
 
     def create 
         recipe = Recipe.create(recipe_params)
-        byebug
         render json: recipe, status: :created
     end
 

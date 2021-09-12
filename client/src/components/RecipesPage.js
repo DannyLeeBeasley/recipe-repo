@@ -5,6 +5,9 @@ import IngredientList from "./IngredientList";
 import NewIngredientForm from "./NewIngredientForm";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import Header from "./Header";
+import NavBar from "./NavBar";
+
 // import Search from "./Search";
 
 function RecipesPage( {user} ) {
@@ -58,15 +61,21 @@ function RecipesPage( {user} ) {
   return (
     <main>
       <Router>
+      <Header />
+      <NavBar />
         <Route path="/">
           <RecipeList recipes={recipes} handleDeleteRecipe={handleDeleteRecipe}/>
         </Route>
         <Route path="/newrecipe">
           <NewRecipeForm ingredients={ingredients} addNewRecipe={addNewRecipe}/>
         </Route>
-        <NewIngredientForm addNewIngredient={addNewIngredient} />
-        <IngredientList ingredients={ingredients} handleDeleteIngredient={handleDeleteIngredient}/>
-      </Router>
+        <Route path="/ingredients">
+          <IngredientList ingredients={ingredients} handleDeleteIngredient={handleDeleteIngredient}/>
+        </Route>
+        <Route path="/newingredient">
+          <NewIngredientForm addNewIngredient={addNewIngredient} />
+        </Route>
+        </Router>
     </main>
   );
 }

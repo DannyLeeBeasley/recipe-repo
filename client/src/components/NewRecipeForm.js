@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RecipeIngredientCard from "./RecipeIngredientCard";
+import RecipeIngredient from "./RecipeIngredientForm";
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [userId, setUserId] = useState("");
@@ -7,17 +8,9 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
-  const [selectedIngredientId, setSelectedIngredientId] = useState(0);
-
-  function handleAddClick() {
-    if (selectedIngredientId === 0) return;
-    setRecipeIngredients([
-      ...recipeIngredients,
-      ingredients.find((ingredient) => ingredient.id === selectedIngredientId),
-    ]);
-  }
 
   function handleSubmit(e) {
+    console.log("hi");
     e.preventDefault();
     fetch("/recipes", {
       method: "POST",
@@ -41,7 +34,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
     <div className="new-recipe-form">
       <h1 className="new-recipe-form-head">New Recipe</h1>
       <form onSubmit={handleSubmit}>
-      <label>
+        <label>
           User ID
           <input
             type="text"
@@ -92,36 +85,21 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
             }}
           ></input>
         </label>
-        <select
-          name="ingredient"
-          value={selectedIngredientId}
-          onChange={(e) => {
-            setSelectedIngredientId(Number(e.target.value));
-          }}
-        >
-          <option>-Select Ingredient-</option>
-          {ingredients.map((ingredient) => {
-            return <option value={ingredient.id}>{ingredient.name}</option>;
-          })}
-        </select>
-        <input
-          type="button"
-          value="Add Ingredient"
-          onClick={handleAddClick}
-        ></input>
-        <div className="new-recipe-body">
-          {recipeIngredients.map((ingredient, i) => (
-            <RecipeIngredientCard
-              setRecipeIngredients={setRecipeIngredients}
-              recipeIngredients={recipeIngredients}
-              name={ingredient.name}
-              ingredient={ingredient}
-              key={i}
-              ingredientIndex={i}
-            />
-          ))}
-        </div>
+        <br />
+        <RecipeIngredient ingredients={ingredients} setRecipeIngredients={setRecipeIngredients}/>
         <br></br>
+        <div className="new-recipe-body">
+        {recipeIngredients.map((ingredient, i) => (
+          <RecipeIngredientCard
+            setRecipeIngredients={setRecipeIngredients}
+            recipeIngredients={recipeIngredients}
+            name={ingredient.name}
+            ingredient={ingredient}
+            key={i}
+            ingredientIndex={i}
+          />
+        ))}
+      </div>
         <input type="submit" value="Submit"></input>
       </form>
     </div>

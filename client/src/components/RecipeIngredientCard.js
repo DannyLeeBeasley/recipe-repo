@@ -11,6 +11,8 @@ function RecipeIngredientCard({
     list.splice(ingredientIndex, 1);
     setRecipeIngredients(list);
   }
+  
+  console.log(ingredient)
 
   return (
     <div className="new-recipe-card">
@@ -21,7 +23,12 @@ function RecipeIngredientCard({
           src={ingredient.image}
         ></img>
       </div>
-
+      <div className="new-recipe-ingredient-amount">
+        {ingredient.amount}
+      </div>
+      <div className="new-recipe-ingredient-unit">
+        {ingredient.unit}
+      </div>
       <div className="new-recipe-card-name">{ingredient.name}</div>
       <input
         type="button"
