@@ -2,11 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   background-color: #ffc34d;
 }
 .header {
-  text-align:  center;
+  text-align: center;
 }
 
 .ui.grid {
@@ -16,16 +16,20 @@
 }
 
 .ingredient-card {
-  /* Add shadows to create the "card" effect */
-  height: 200px;
-  width: 200px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  display: flex;
+  position: relative;
+  text-align: center;
+  /* border: grey solid 1px; */
+  width: 360px;
+  height: 360px;
+  background: white;
+  border-radius: 5%;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 10px 12px #353333;
+  background-color: rgb(255, 255, 255);
 }
 
-.ingredient-name{
+.ingredient-name {
   padding-left: 15px;
 }
 
@@ -36,7 +40,10 @@
 
 /* On mouse-over, add a deeper shadow */
 .ingredient-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+ul {
+  display: flex;
 }
 
 .recipe-card {
@@ -45,34 +52,45 @@
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 50vh;
-  width: 50vw;
+  height: auto;
+  width: auto;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   background-clip: border-box;
   margin: 1rem, 2rem;
-  background-color: #ffffe6;
+  background-color: transparent;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-.recipe-name{
+.recipe-name {
   padding-left: 15px;
   text-align: center;
   font-size: 30px;
 }
 
 .recipe-image {
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 50vh;
+  max-width: 50vw;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .recipe-description {
+  margin-top: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* On mouse-over, add a deeper shadow */
 .recipe-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.submit {
+  margin-top: 10px;
+  position: relative;
+  display: solid;
+  z-index: 1000;
 }

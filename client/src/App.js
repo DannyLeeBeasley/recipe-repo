@@ -6,14 +6,14 @@ import NavBar from "./components/NavBar";
 import RecipesPage from "./components/RecipesPage";
 
 function App() {
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   // const history = useHistory();
-  // if(!user)history.push('/sign_up')
+  // if(!user)history.push('/signin')
 
   return (
     <div className="App">
-        <RecipesPage />
+        <RecipesPage user={user} setUser={setUser}/>
     </div>
   );
 }

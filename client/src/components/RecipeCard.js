@@ -5,10 +5,14 @@ function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
     <li className="recipe-card">
       <h4 className="recipe-name">{name}</h4>
       <img className="recipe-image" src={image} alt={"recipe image"} />
+     
       <p className="recipe-description">{description}</p>
+
       <button
         className="submit"
-        onClick={(e) => {handleDeleteRecipe(recipe.id)}}
+        onClick={(e) => {
+          handleDeleteRecipe(recipe.id);
+        }}
       >
         Delete Recipe
       </button>

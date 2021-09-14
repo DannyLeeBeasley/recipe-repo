@@ -15,7 +15,7 @@ function RecipeIngredientCard({
   console.log(ingredient)
 
   return (
-    <div className="new-recipe-card">
+    <div className="new-recipe-card" >
       <div>
         <img
           className="new-recipe-ingredient-img"

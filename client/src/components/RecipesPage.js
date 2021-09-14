@@ -7,10 +7,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 import NavBar from "./NavBar";
+import LoginPage from "./LoginPage";
 
 // import Search from "./Search";
 
-function RecipesPage( {user} ) {
+function RecipesPage({ user, setUser }) {
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
 
@@ -23,7 +24,10 @@ function RecipesPage( {user} ) {
   useEffect(() => {
     fetch("/recipes")
       .then((r) => r.json())
-      .then((recipesArr) => setRecipes(recipesArr));
+      .then((recipesArr) => {
+        console.log("recipesArr", recipesArr);
+        setRecipes(recipesArr);
+      });
   }, []);
 
   function addNewIngredient(newIngredient) {
@@ -54,28 +58,40 @@ function RecipesPage( {user} ) {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then(() => alert('Your Recipe has been deleted'));
+      .then(() => alert("Your Recipe has been deleted"));
     setRecipes(recipes.filter((recipe) => recipe.id !== recipeToDeleteId));
   }
 
   return (
     <main>
       <Router>
-      <Header />
-      <NavBar />
-        <Route path="/">
-          <RecipeList recipes={recipes} handleDeleteRecipe={handleDeleteRecipe}/>
+        <Header />
+        <NavBar />
+        <Route exact path="/">
+          <RecipeList
+            recipes={recipes}
+            handleDeleteRecipe={handleDeleteRecipe}
+          />
         </Route>
         <Route path="/newrecipe">
-          <NewRecipeForm ingredients={ingredients} addNewRecipe={addNewRecipe}/>
+          <NewRecipeForm
+            ingredients={ingredients}
+            addNewRecipe={addNewRecipe}
+          />
         </Route>
         <Route path="/ingredients">
-          <IngredientList ingredients={ingredients} handleDeleteIngredient={handleDeleteIngredient}/>
+          <IngredientList
+            ingredients={ingredients}
+            handleDeleteIngredient={handleDeleteIngredient}
+          />
         </Route>
         <Route path="/newingredient">
           <NewIngredientForm addNewIngredient={addNewIngredient} />
         </Route>
-        </Router>
+        <Route path="/signin">
+          <LoginPage setUser={setUser} />
+        </Route>
+      </Router>
     </main>
   );
 }
