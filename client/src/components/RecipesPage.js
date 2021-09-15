@@ -9,7 +9,9 @@ import Header from "./Header";
 import NavBar from "./NavBar";
 import LoginPage from "./LoginPage";
 import UpdateRecipeForm from "./UpdateRecipeForm";
-import NewUserPage from "./NewUserPage"
+import NewUserPage from "./NewUserPage";
+import ViewRecipe from "./ViewRecipe";
+import AboutPage from "./AboutPage";
 
 
 // import Search from "./Search";
@@ -100,11 +102,17 @@ function RecipesPage({ user, setUser }) {
         <Route path="/updaterecipe/:id">
           <UpdateRecipeForm ingredients={ingredients} recipes={recipes} updateRecipe={updateRecipe}/>
         </Route>
+        <Route path="/viewrecipe/:id">
+          <ViewRecipe ingredients={ingredients} recipes={recipes} updateRecipe={updateRecipe}/>
+        </Route>
         <Route exact path="/signin">
           <LoginPage setUser={setUser} />
         </Route>
         <Route exact path="/signup">
           <NewUserPage setUser={setUser} />
+        </Route>
+        <Route exact path="/about">
+          <AboutPage />
         </Route>
       </Router>
     </main>
