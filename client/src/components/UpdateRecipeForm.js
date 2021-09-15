@@ -44,7 +44,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
     })
       .then((res) => res.json())
       .then((updatedRecipe) => {
-        updateRecipe(updatedRecipe)
+        updateRecipe(updatedRecipe);
         history.push("/");
       });
   }

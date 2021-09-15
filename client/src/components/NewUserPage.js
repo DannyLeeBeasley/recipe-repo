@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
 function NewUserPage() {
-  const [user, setUser] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,10 +12,8 @@ function NewUserPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
         username: username,
-        email: email,
-        password: password,
+        password: password
       }),
     })
     .then((res) => res.json())
@@ -28,26 +23,6 @@ function NewUserPage() {
     <div>
       <h1 className="new-user-head">New User</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="text"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          ></input>
-        </label>
-        <br />
-        <label>
-          Name
-          <input
-            type="text"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          ></input>
-        </label>
-        <br />
         <label>
           Username
           <input
@@ -74,4 +49,4 @@ function NewUserPage() {
   );
 }
 
-export default NewUser;
+export default NewUserPage;

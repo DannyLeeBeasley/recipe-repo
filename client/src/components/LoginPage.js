@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { Link, useHistory } from 'react-router-dom';
 
 function LoginPage({ setUser }) {
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
 
   const [errors, setErrors] = useState([]);
 
-  const signup = "New User? Sign Up Here";
+  
 
   function onSubmit(e) {
     e.preventDefault();
@@ -29,6 +31,7 @@ function LoginPage({ setUser }) {
           setErrors(json.error);
         } else {
           setUser(json);
+          history.push("/");
         }
       });
   }
@@ -56,7 +59,7 @@ function LoginPage({ setUser }) {
         </label>
         <input type="submit" value="Login!" onClick={() => setLogin(true)} />
       </form>
-      <p>"New User? Sign Up Here"</p>
+      <h4><Link to="/signup">"New User? Sign Up Here"</Link></h4>
       {/* {errors ? errors.map((e) => <Errors>{e}</Errors>) : null} */}
     </>
   );

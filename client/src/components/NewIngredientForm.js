@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function NewIngredientForm({ addNewIngredient }) {
+  let history = useHistory();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,7 +19,10 @@ function NewIngredientForm({ addNewIngredient }) {
       }),
     })
       .then((res) => res.json())
-      .then(newIngredient => addNewIngredient(newIngredient));
+      .then(newIngredient => {
+        addNewIngredient(newIngredient);
+        history.push("/ingredients");
+      });
   }
 
   return (
