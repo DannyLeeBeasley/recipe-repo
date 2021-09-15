@@ -3,7 +3,8 @@ import IngredientCard from "./IngredientCard";
 
 function IngredientList({ ingredients, handleDeleteIngredient }) {
   return (
-    <ul className="cards">
+    <div className="ingredients-list">
+      <ul>
       {ingredients.map((ingredient) => {
         return (
           <IngredientCard
@@ -16,6 +17,7 @@ function IngredientList({ ingredients, handleDeleteIngredient }) {
         );
       })}
     </ul>
+    </div>
   );
 }
 

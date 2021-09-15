@@ -5,6 +5,7 @@
   font-family: "Dancing Script", cursive;
   background-color: #ffc34d;
 }
+
 .header {
   text-align: center;
 }
@@ -18,7 +19,6 @@
 .ingredient-card {
   position: relative;
   text-align: center;
-  /* border: grey solid 1px; */
   width: 360px;
   height: 360px;
   background: white;
@@ -93,4 +93,11 @@ ul {
   position: relative;
   display: solid;
   z-index: 1000;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 5vw;
 }

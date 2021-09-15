@@ -2,10 +2,11 @@ puts "🌱 Seeding..."
 puts "Deleting old data..."
 User.destroy_all
 Ingredient.destroy_all
+Recipe.destroy_all
 
 puts "Creating users..."
-dan = User.create(username: "DannyLeeBeasley", password_digest: "TrickyPassword13!")
-katie = User.create(username: "KatieBeasley", password_digest: "NeverGuess27!")
+dan = User.create(username: "DannyLeeBeasley", password: "TrickyPassword13!")
+katie = User.create(username: "KatieBeasley", password: "NeverGuess27!")
 
 puts "Creating ingredients..."
 salt = Ingredient.create(name: "Salt", image:"https://w2.chabad.org/media/images/745/WiIZ7453042.jpg")

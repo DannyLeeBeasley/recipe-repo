@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
     wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    # skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         recipes = Recipe.all   

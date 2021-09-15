@@ -3,22 +3,23 @@ import { NavBarItems } from "./NavBarItems";
 import { Button } from "./Button";
 import { Link } from 'react-router-dom';
 import "./NavBar.css";
+import { useState } from "react/cjs/react.development";
 
-class NavBar extends Component {
+function NavBar( {user, setUser} ){
 
-    state = { clicked: false }
+    const [clicked, setClicked] = useState(false)
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
+    function handleClick(){
+        setClicked(!clicked)
     }
 
-    render() {
-        return(
+    function handleLogout(){
+        fetch('/logout')
+        .then(() => setUser(null))
+      }
+      
+      return(
         <nav className= "NavBarItems">
-            <h1 className="navbar-logo"></h1>
-            <div className="menu-icon" onClick={this.handleClick}>
-                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
-            </div>
             <ul className={this.state.clicked ? "nav-menu-active" : "nav-menu"}>
                 {NavBarItems.map((item, index) => {
                     return (
@@ -29,9 +30,10 @@ class NavBar extends Component {
                     );
                 })}
             </ul>
+            <button onClick={handleLogout}>{user ? 'Logout' :null}</button>
         </nav>
     );
 }
-}
+
 
 export default NavBar;
