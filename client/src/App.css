@@ -101,3 +101,21 @@ ul {
   flex-wrap: wrap;
   max-width: 5vw;
 }
+
+.logout-button {
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s
+}
+
+.logout-button:hover {
+  background-color:red; /* Green */
+  color: white;
+}

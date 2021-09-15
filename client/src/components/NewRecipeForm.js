@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RecipeIngredientCard from "./RecipeIngredientCard";
-import RecipeIngredient from "./RecipeIngredientForm";
+import RecipeIngredientForm from "./RecipeIngredientForm";
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [userId, setUserId] = useState("");
@@ -86,7 +86,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           ></input>
         </label>
         <br />
-        <RecipeIngredient ingredients={ingredients} setRecipeIngredients={setRecipeIngredients}/>
+        <RecipeIngredientForm ingredients={ingredients} setRecipeIngredients={setRecipeIngredients}/>
         <br></br>
         <div className="new-recipe-body">
         {recipeIngredients.map((ingredient, i) => (

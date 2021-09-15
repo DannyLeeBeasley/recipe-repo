@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavBarItems } from "./NavBarItems";
-import { Button } from "./Button";
 import { Link } from 'react-router-dom';
 import "./NavBar.css";
 import { useState } from "react/cjs/react.development";
@@ -20,7 +19,7 @@ function NavBar( {user, setUser} ){
       
       return(
         <nav className= "NavBarItems">
-            <ul className={this.state.clicked ? "nav-menu-active" : "nav-menu"}>
+            <ul>
                 {NavBarItems.map((item, index) => {
                     return (
                         <li key={index}><Link className={item.cName} to={item.url}>
@@ -30,7 +29,7 @@ function NavBar( {user, setUser} ){
                     );
                 })}
             </ul>
-            <button onClick={handleLogout}>{user ? 'Logout' :null}</button>
+            <button className="logout-button" onClick={handleLogout}>{user ? 'Logout' :null}</button>
         </nav>
     );
 }

@@ -8,6 +8,8 @@ import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import LoginPage from "./LoginPage";
+import UpdateRecipeForm from "./UpdateRecipeForm";
+
 
 // import Search from "./Search";
 
@@ -62,6 +64,12 @@ function RecipesPage({ user, setUser }) {
     setRecipes(recipes.filter((recipe) => recipe.id !== recipeToDeleteId));
   }
 
+  function updateRecipe(recipeToUpdate){
+    const recipesNotToUpdate = recipes.filter(recipe => recipe.id != recipeToUpdate.id)
+    const updatedRecipeArray = [...recipesNotToUpdate, recipeToUpdate];
+    setRecipes(updatedRecipeArray);
+  }
+
   return (
     <main>
       <Router>
@@ -73,22 +81,25 @@ function RecipesPage({ user, setUser }) {
             handleDeleteRecipe={handleDeleteRecipe}
           />
         </Route>
-        <Route path="/newrecipe">
+        <Route exact path="/newrecipe">
           <NewRecipeForm
             ingredients={ingredients}
             addNewRecipe={addNewRecipe}
           />
         </Route>
-        <Route path="/ingredients">
+        <Route exact path="/ingredients">
           <IngredientList
             ingredients={ingredients}
             handleDeleteIngredient={handleDeleteIngredient}
           />
         </Route>
-        <Route path="/newingredient">
+        <Route exact path="/newingredient">
           <NewIngredientForm addNewIngredient={addNewIngredient} />
         </Route>
-        <Route path="/signin">
+        <Route path="/updaterecipe/:id">
+          <UpdateRecipeForm ingredients={ingredients} recipes={recipes} updateRecipe={updateRecipe}/>
+        </Route>
+        <Route exact path="/signin">
           <LoginPage setUser={setUser} />
         </Route>
       </Router>

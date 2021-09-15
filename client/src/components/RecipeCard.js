@@ -1,13 +1,20 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push(`/updaterecipe/${recipe.id}`);
+  }
+
   return (
-    <li className="recipe-card" >
+    <li className="recipe-card">
       <h4 className="recipe-name">{name}</h4>
       <img className="recipe-image" src={image} alt={"recipe image"} />
-     
-      <p className="recipe-description">{description}</p>
 
+      <p className="recipe-description">{description}</p>
+      <button onClick={handleClick}>Update Recipe</button>
       <button
         className="submit"
         onClick={(e) => {
@@ -16,9 +23,6 @@ function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
       >
         Delete Recipe
       </button>
-      {/* <button onClick={}>
-        Update Recipe
-      </button> */}
     </li>
   );
 }
