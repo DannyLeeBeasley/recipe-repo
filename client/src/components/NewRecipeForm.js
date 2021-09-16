@@ -101,7 +101,11 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           />
         ))}
       </div>
-        <input type="submit" value="Submit"></input>
+        <input 
+        className="submit-recipe-button"
+        type="submit" 
+        value="Submit">
+        </input>
       </form>
     </div>
   );

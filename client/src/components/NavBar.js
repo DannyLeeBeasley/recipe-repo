@@ -19,17 +19,17 @@ function NavBar( {user, setUser} ){
       
       return(
         <nav className= "NavBarItems">
-            <ul>
+            <div>
                 {NavBarItems.map((item, index) => {
                     return (
-                        <li key={index}><Link className={item.cName} to={item.url}>
+                        <span key={index}><Link className={item.cName} to={item.url}>
                             {item.name}
                             </Link>
-                        </li>
+                        </span>
                     );
                 })}
-            </ul>
-            <button className="logout-button" onClick={handleLogout}>{user ? 'Logout' :null}</button>
+            </div>
+            <button className="logout-button" onClick={handleLogout}>Log Out</button>
         </nav>
     );
 }

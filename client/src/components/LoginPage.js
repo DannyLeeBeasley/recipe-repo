@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
+import "./LoginPage.css"
 
 function LoginPage({ setUser }) {
   let history = useHistory();
@@ -59,7 +60,7 @@ function LoginPage({ setUser }) {
         </label>
         <input type="submit" value="Login!" onClick={() => setLogin(true)} />
       </form>
-      <h4><Link to="/signup">"New User? Sign Up Here"</Link></h4>
+      <h2 className="new-user-link"><Link to="/signup">"New User? Sign Up Here"</Link></h2>
       {/* {errors ? errors.map((e) => <Errors>{e}</Errors>) : null} */}
     </>
   );

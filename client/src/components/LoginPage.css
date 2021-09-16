@@ -1,0 +1,36 @@
+input[type="text"] {
+  width: 80%;
+  padding: 10px 17px;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 0 10%;
+}
+
+input[type="password"] {
+  width: 80%;
+  padding: 10px 17px;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 0 10%;
+}
+
+input[type="submit"] {
+  width: 60%;
+  padding: 10px 17px;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 0 10%;
+  background-color: rgb(177, 114, 20);
+}
+
+.new-user-link {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}

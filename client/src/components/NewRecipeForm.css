@@ -1,6 +1,36 @@
-/* .new-recipe-body {
-    display: grid;
-    width: 50%;
-    grid-template-columns: ;
-} */
+.submit-recipe-button {
+  background-color: rgb(243, 74, 32); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.new-recipe-form-head {
+  text-align: center;
+  font-size: 25;
+  margin: 0 10% 0 10%;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px 17px;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 0 10%;
+}
+
+.new-recipe-form {
+  width: 65%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 10% 0 10%;
+}

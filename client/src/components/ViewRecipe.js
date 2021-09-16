@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import RecipeIngredientCard from "./RecipeIngredientCard";
+import RecipeIngredient from "./RecipeIngredientForm";
 
 function ViewRecipe({ recipes, ingredients }) {
   let { id } = useParams();
