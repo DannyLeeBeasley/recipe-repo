@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import RecipeIngredientCard from "./RecipeIngredientCard";
 import RecipeIngredientForm from "./RecipeIngredientForm";
+import { useHistory } from "react-router-dom";
 import "./NewRecipeForm.css"
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
+  let history = useHistory();
+  
   const [userId, setUserId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -29,7 +32,10 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
       }),
     })
       .then((res) => res.json())
-      .then((newRecipe) => addNewRecipe(newRecipe));
+      .then((newRecipe) => {
+        addNewRecipe(newRecipe)
+        history.push("/");
+      });
   }
   return (
     <div className="new-recipe-form">
@@ -102,6 +108,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         ))}
       </div>
         <input 
+
         className="submit-recipe-button"
         type="submit" 
         value="Submit">
