@@ -74,7 +74,6 @@ function RecipesPage({ user, setUser }) {
   }
 
   return (
-    <main>
       <Router>
         <Header />
         <NavBar />
@@ -115,7 +114,6 @@ function RecipesPage({ user, setUser }) {
           <AboutPage />
         </Route>
       </Router>
-    </main>
   );
 }
 

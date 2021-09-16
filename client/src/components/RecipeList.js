@@ -3,7 +3,7 @@ import RecipeCard from "./RecipeCard";
 
 function RecipeList({ recipes, handleDeleteRecipe }) {
   return (
-    <ul>
+    <main className="recipe-list">
       {recipes.map((recipe) => {
         return (
           <RecipeCard
@@ -17,7 +17,7 @@ function RecipeList({ recipes, handleDeleteRecipe }) {
           />
         );
       })}
-    </ul>
+    </main>
   );
 }
 

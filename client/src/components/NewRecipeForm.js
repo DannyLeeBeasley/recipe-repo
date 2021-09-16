@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RecipeIngredientCard from "./RecipeIngredientCard";
 import RecipeIngredientForm from "./RecipeIngredientForm";
+import "./NewRecipeForm.css"
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [userId, setUserId] = useState("");

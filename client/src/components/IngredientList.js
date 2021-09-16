@@ -1,6 +1,7 @@
 import React from "react";
 import IngredientCard from "./IngredientCard";
 import { useHistory } from "react-router-dom";
+import "./IngredientList.css"
 
 function IngredientList({ ingredients, handleDeleteIngredient }) {
 
@@ -14,7 +15,7 @@ function IngredientList({ ingredients, handleDeleteIngredient }) {
     <>
     <button onClick={handleClick}>Add New Ingredient</button>
     <div className="ingredients-list">
-      <ul>
+      <main className="ingredient-list">
       {ingredients.map((ingredient) => {
         return (
           <IngredientCard
@@ -26,7 +27,7 @@ function IngredientList({ ingredients, handleDeleteIngredient }) {
           />
         );
       })}
-    </ul>
+    </main>
     </div>
     </>
   );

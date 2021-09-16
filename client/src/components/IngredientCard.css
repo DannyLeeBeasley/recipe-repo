@@ -1,0 +1,28 @@
+.ingredient-card {
+  position: relative;
+  text-align: center;
+  width: 65%;
+  height: 65%;
+  background: white;
+  border-radius: 5%;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 10px 12px #353333;
+  background-color: rgb(236, 181, 97);
+  justify-items: center;
+}
+
+.ingredient-name {
+  padding-left: 15px;
+  background-color: rgb(236, 181, 97);
+}
+
+.ingredient-image {
+  max-height: 73%;
+  max-width: 73%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.ingredient-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
