@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 function Recipe({ recipe }) {
   return (

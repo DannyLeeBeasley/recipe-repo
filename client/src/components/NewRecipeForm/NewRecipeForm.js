@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import RecipeIngredientCard from "./RecipeIngredientCard";
-import RecipeIngredientForm from "./RecipeIngredientForm";
 import { useHistory } from "react-router-dom";
+import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
+import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
 import "./NewRecipeForm.css"
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {

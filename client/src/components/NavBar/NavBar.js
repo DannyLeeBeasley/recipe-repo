@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavBarItems } from "./NavBarItems";
 import { Link } from 'react-router-dom';
-import "./NavBar.css";
 import { useState } from "react/cjs/react.development";
+import "./NavBar.css";
 
 function NavBar( {user, setUser} ){
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import RecipeIngredientCard from "./RecipeIngredientCard";
-import RecipeIngredient from "./RecipeIngredientForm";
 import { useHistory } from "react-router-dom";
+import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
+import RecipeIngredient from "../RecipeIngredientForm/RecipeIngredientForm";
 
 function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) {
   let {id} = useParams()

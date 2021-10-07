@@ -39,6 +39,7 @@ function LoginPage({ setUser }) {
 
   return (
     <>
+    <h1 className="login-head">Login</h1>
       <form onSubmit={onSubmit}>
         <label>
           Username

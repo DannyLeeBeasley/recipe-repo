@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import NewRecipeForm from "./NewRecipeForm";
-import RecipeList from "./RecipeList";
-import IngredientList from "./IngredientList";
-import NewIngredientForm from "./NewIngredientForm";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
-import Header from "./Header";
-import NavBar from "./NavBar";
-import LoginPage from "./LoginPage";
-import UpdateRecipeForm from "./UpdateRecipeForm";
-import NewUserPage from "./NewUserPage";
-import ViewRecipe from "./ViewRecipe";
-import AboutPage from "./AboutPage";
+
+import NewRecipeForm from "../NewRecipeForm/NewRecipeForm";
+import RecipeList from "../RecipeList/RecipeList";
+import IngredientList from "../IngredientList/IngredientList";
+import NewIngredientForm from "../NewIngredientForm/NewIngredientForm";
+import Header from "../Header/Header";
+import NavBar from "../NavBar/NavBar";
+import LoginPage from "../LoginPage/LoginPage";
+import UpdateRecipeForm from "../UpdateRecipeForm/UpdateRecipeForm";
+import NewUserPage from "../NewUserPage/NewUserPage";
+import ViewRecipe from "../ViewRecipe/ViewRecipe";
+import AboutPage from "../AboutPage/AboutPage";
 
 
 // import Search from "./Search";

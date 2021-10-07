@@ -24850,3 +24850,258 @@ No serializer found for resource: {"id"=>1, "user_id"=>1, "name"=>"Tortellini So
 Completed 200 OK in 581ms (Views: 24.1ms | ActiveRecord: 106.5ms | Allocations: 26635)
 
 
+Started GET "/recipes" for 127.0.0.1 at 2021-09-17 13:21:25 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-09-17 13:21:25 -0500
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mRecipe Load (7.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mIngredient Load (3.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.3ms)
+Completed 200 OK in 96ms (Views: 50.2ms | ActiveRecord: 40.7ms | Allocations: 23289)
+
+
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+No serializer found for resource: {"id"=>1, "user_id"=>1, "name"=>"Tortellini Soup", "image"=>"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/2/19/0/FN_Spinach-Tortellini-Soup_s4x3.jpg.rend.hgtvcom.826.620.suffix/1392869571244.jpeg", "description"=>"Papaw's recipe; a favorite of his in his workplace cafeteria, he ate it every week and tried to recreate it until he honed in on this recipe.", "created_at"=>"2021-09-15T18:47:52.472Z", "updated_at"=>"2021-09-15T18:47:52.472Z", "ingredient_ids"=>[1, 2, 12, 13, 19, 20, 23, 32, 40, 41, 44, 51, 53], "recipe_ingredients"=>[{"id"=>1, "recipe_id"=>1, "ingredient_id"=>1, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.475Z", "updated_at"=>"2021-09-15T18:47:52.475Z"}, {"id"=>2, "recipe_id"=>1, "ingredient_id"=>2, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.479Z", "updated_at"=>"2021-09-15T18:47:52.479Z"}, {"id"=>3, "recipe_id"=>1, "ingredient_id"=>12, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.481Z", "updated_at"=>"2021-09-15T18:47:52.481Z"}, {"id"=>4, "recipe_id"=>1, "ingredient_id"=>13, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.483Z", "updated_at"=>"2021-09-15T18:47:52.483Z"}, {"id"=>5, "recipe_id"=>1, "ingredient_id"=>19, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.485Z", "updated_at"=>"2021-09-15T18:47:52.485Z"}, {"id"=>6, "recipe_id"=>1, "ingredient_id"=>20, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.488Z", "updated_at"=>"2021-09-15T18:47:52.488Z"}, {"id"=>7, "recipe_id"=>1, "ingredient_id"=>23, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.490Z", "updated_at"=>"2021-09-15T18:47:52.490Z"}, {"id"=>8, "recipe_id"=>1, "ingredient_id"=>32, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.492Z", "updated_at"=>"2021-09-15T18:47:52.492Z"}, {"id"=>9, "recipe_id"=>1, "ingredient_id"=>40, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.494Z", "updated_at"=>"2021-09-15T18:47:52.494Z"}, {"id"=>10, "recipe_id"=>1, "ingredient_id"=>41, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.496Z", "updated_at"=>"2021-09-15T18:47:52.496Z"}, {"id"=>11, "recipe_id"=>1, "ingredient_id"=>44, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.498Z", "updated_at"=>"2021-09-15T18:47:52.498Z"}, {"id"=>12, "recipe_id"=>1, "ingredient_id"=>51, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.500Z", "updated_at"=>"2021-09-15T18:47:52.500Z"}, {"id"=>13, "recipe_id"=>1, "ingredient_id"=>53, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.502Z", "updated_at"=>"2021-09-15T18:47:52.502Z"}]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (19.9ms)
+Completed 200 OK in 218ms (Views: 23.1ms | ActiveRecord: 76.6ms | Allocations: 44941)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-09-17 13:22:34 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"DAnnyLeeBeasley", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "DAnnyLeeBeasley"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 10ms (Views: 1.5ms | ActiveRecord: 1.5ms | Allocations: 2496)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-09-17 13:22:35 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"DAnnyLeeBeasley", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "DAnnyLeeBeasley"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 619)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-09-17 13:22:39 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"DAnnyLeeBeasley", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "DAnnyLeeBeasley"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 619)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-09-17 13:23:27 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"DannyLeeBeasley", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "DannyLeeBeasley"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 267ms (Views: 6.6ms | ActiveRecord: 3.7ms | Allocations: 4164)
+
+
+Started POST "/ingredients" for 127.0.0.1 at 2021-09-17 13:24:21 -0500
+Processing by IngredientsController#create as */*
+  Parameters: {"name"=>"Rhubarb", "image"=>"https://veggiesinfo.com/wp-content/uploads/2015/02/rhubarb.jpg"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authorize'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/ingredients_controller.rb:12:in `create'
+  [1m[36mIngredient Create (11.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Rhubarb"], ["image", "https://veggiesinfo.com/wp-content/uploads/2015/02/rhubarb.jpg"], ["created_at", "2021-09-17 18:24:21.566744"], ["updated_at", "2021-09-17 18:24:21.566744"]]
+  ↳ app/controllers/ingredients_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/ingredients_controller.rb:12:in `create'
+[active_model_serializers] Rendered IngredientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 201 Created in 27ms (Views: 0.7ms | ActiveRecord: 16.2ms | Allocations: 2844)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2021-09-17 13:27:08 -0500
+Processing by RecipesController#create as */*
+  Parameters: {"user_id"=>"1", "name"=>"Biscuits and Gravy", "image"=>"https://wpcdn.us-east-1.vip.tn-cloud.net/www.wccbcharlotte.com/content/uploads/2017/05/biscuits-and-gravy.jpg", "description"=>"Granny's B&G", "ingredient_ids"=>[66, 50, 36, 65, 67, 1, 2]}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authorize'
+  [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN ($1, $2, $3, $4, $5, $6, $7)[0m  [[nil, 66], [nil, 50], [nil, 36], [nil, 65], [nil, 67], [nil, 1], [nil, 2]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipe Create (2.0ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "name", "image", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["name", "Biscuits and Gravy"], ["image", "https://wpcdn.us-east-1.vip.tn-cloud.net/www.wccbcharlotte.com/content/uploads/2017/05/biscuits-and-gravy.jpg"], ["description", "Granny's B&G"], ["created_at", "2021-09-17 18:27:08.482904"], ["updated_at", "2021-09-17 18:27:08.482904"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (9.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 66], ["created_at", "2021-09-17 18:27:08.489511"], ["updated_at", "2021-09-17 18:27:08.489511"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (2.0ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 50], ["created_at", "2021-09-17 18:27:08.501349"], ["updated_at", "2021-09-17 18:27:08.501349"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (3.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 36], ["created_at", "2021-09-17 18:27:08.505831"], ["updated_at", "2021-09-17 18:27:08.505831"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 65], ["created_at", "2021-09-17 18:27:08.511161"], ["updated_at", "2021-09-17 18:27:08.511161"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (1.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 67], ["created_at", "2021-09-17 18:27:08.514315"], ["updated_at", "2021-09-17 18:27:08.514315"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (1.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 1], ["created_at", "2021-09-17 18:27:08.518034"], ["updated_at", "2021-09-17 18:27:08.518034"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mRecipeIngredient Create (1.0ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 2], ["created_at", "2021-09-17 18:27:08.521389"], ["updated_at", "2021-09-17 18:27:08.521389"]]
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:17:in `create'
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (0.77ms)
+Completed 201 Created in 70ms (Views: 5.7ms | ActiveRecord: 25.1ms | Allocations: 15540)
+
+
+Started PATCH "/recipes/8" for 127.0.0.1 at 2021-09-17 13:28:02 -0500
+Processing by RecipesController#update as */*
+  Parameters: {"name"=>"Biscuits and Gravy", "image"=>"https://wpcdn.us-east-1.vip.tn-cloud.net/www.wccbcharlotte.com/content/uploads/2017/05/biscuits-and-gravy.jpg", "description"=>"Granny's B&G", "ingredient_ids"=>[1, 2, 36, 50, 65, 66, 67, 3], "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authorize'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:40:in `find_recipe'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+  [1m[36mIngredient Load (3.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [[nil, 1], [nil, 2], [nil, 36], [nil, 50], [nil, 65], [nil, 66], [nil, 67], [nil, 3]]
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+  [1m[36mRecipeIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["ingredient_id", 3], ["created_at", "2021-09-17 18:28:02.667351"], ["updated_at", "2021-09-17 18:28:02.667351"]]
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:23:in `update'
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 201 Created in 29ms (Views: 1.3ms | ActiveRecord: 6.9ms | Allocations: 6644)
+
+
+Started DELETE "/recipes/8" for 127.0.0.1 at 2021-09-17 13:28:18 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authorize'
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:40:in `find_recipe'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Load (2.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 76]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 77]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (4.5ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 78]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (0.6ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 79]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (1.6ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 80]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (2.5ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 81]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (1.3ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 82]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipeIngredient Destroy (0.5ms)[0m  [1m[31mDELETE FROM "recipe_ingredients" WHERE "recipe_ingredients"."id" = $1[0m  [["id", 83]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mRecipe Destroy (1.4ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:29:in `destroy'
+Completed 204 No Content in 48ms (ActiveRecord: 19.0ms | Allocations: 8204)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-10-07 15:30:10 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-10-07 15:30:10 -0500
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IngredientsController#index as */*
+Processing by RecipesController#index as */*
+  [1m[36mIngredient Load (46.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.23ms)
+Completed 200 OK in 129ms (Views: 39.7ms | ActiveRecord: 59.5ms | Allocations: 19118)
+
+
+  [1m[36mRecipe Load (28.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (20.7ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.5ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (0.7ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+No serializer found for resource: {"id"=>1, "user_id"=>1, "name"=>"Tortellini Soup", "image"=>"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/2/19/0/FN_Spinach-Tortellini-Soup_s4x3.jpg.rend.hgtvcom.826.620.suffix/1392869571244.jpeg", "description"=>"Papaw's recipe; a favorite of his in his workplace cafeteria, he ate it every week and tried to recreate it until he honed in on this recipe.", "created_at"=>"2021-09-15T18:47:52.472Z", "updated_at"=>"2021-09-15T18:47:52.472Z", "ingredient_ids"=>[1, 2, 12, 13, 19, 20, 23, 32, 40, 41, 44, 51, 53], "recipe_ingredients"=>[{"id"=>1, "recipe_id"=>1, "ingredient_id"=>1, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.475Z", "updated_at"=>"2021-09-15T18:47:52.475Z"}, {"id"=>2, "recipe_id"=>1, "ingredient_id"=>2, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.479Z", "updated_at"=>"2021-09-15T18:47:52.479Z"}, {"id"=>3, "recipe_id"=>1, "ingredient_id"=>12, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.481Z", "updated_at"=>"2021-09-15T18:47:52.481Z"}, {"id"=>4, "recipe_id"=>1, "ingredient_id"=>13, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.483Z", "updated_at"=>"2021-09-15T18:47:52.483Z"}, {"id"=>5, "recipe_id"=>1, "ingredient_id"=>19, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.485Z", "updated_at"=>"2021-09-15T18:47:52.485Z"}, {"id"=>6, "recipe_id"=>1, "ingredient_id"=>20, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.488Z", "updated_at"=>"2021-09-15T18:47:52.488Z"}, {"id"=>7, "recipe_id"=>1, "ingredient_id"=>23, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.490Z", "updated_at"=>"2021-09-15T18:47:52.490Z"}, {"id"=>8, "recipe_id"=>1, "ingredient_id"=>32, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.492Z", "updated_at"=>"2021-09-15T18:47:52.492Z"}, {"id"=>9, "recipe_id"=>1, "ingredient_id"=>40, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.494Z", "updated_at"=>"2021-09-15T18:47:52.494Z"}, {"id"=>10, "recipe_id"=>1, "ingredient_id"=>41, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.496Z", "updated_at"=>"2021-09-15T18:47:52.496Z"}, {"id"=>11, "recipe_id"=>1, "ingredient_id"=>44, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.498Z", "updated_at"=>"2021-09-15T18:47:52.498Z"}, {"id"=>12, "recipe_id"=>1, "ingredient_id"=>51, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.500Z", "updated_at"=>"2021-09-15T18:47:52.500Z"}, {"id"=>13, "recipe_id"=>1, "ingredient_id"=>53, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.502Z", "updated_at"=>"2021-09-15T18:47:52.502Z"}]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (2.31ms)
+Completed 200 OK in 282ms (Views: 9.2ms | ActiveRecord: 112.6ms | Allocations: 40889)
+
+
+Started GET "/ingredients" for 127.0.0.1 at 2021-10-07 15:34:19 -0500
+Started GET "/recipes" for 127.0.0.1 at 2021-10-07 15:34:19 -0500
+Processing by IngredientsController#index as */*
+Processing by RecipesController#index as */*
+  [1m[36mIngredient Load (21.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.07ms)
+Completed 200 OK in 81ms (Views: 58.4ms | ActiveRecord: 21.2ms | Allocations: 8246)
+
+
+  [1m[36mRecipe Load (24.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (6.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (4.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (7.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (10.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ingredients"."id" FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+  [1m[36mRecipeIngredient Load (4.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/controllers/recipes_controller.rb:8:in `index'
+No serializer found for resource: {"id"=>1, "user_id"=>1, "name"=>"Tortellini Soup", "image"=>"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/2/19/0/FN_Spinach-Tortellini-Soup_s4x3.jpg.rend.hgtvcom.826.620.suffix/1392869571244.jpeg", "description"=>"Papaw's recipe; a favorite of his in his workplace cafeteria, he ate it every week and tried to recreate it until he honed in on this recipe.", "created_at"=>"2021-09-15T18:47:52.472Z", "updated_at"=>"2021-09-15T18:47:52.472Z", "ingredient_ids"=>[1, 2, 12, 13, 19, 20, 23, 32, 40, 41, 44, 51, 53], "recipe_ingredients"=>[{"id"=>1, "recipe_id"=>1, "ingredient_id"=>1, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.475Z", "updated_at"=>"2021-09-15T18:47:52.475Z"}, {"id"=>2, "recipe_id"=>1, "ingredient_id"=>2, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.479Z", "updated_at"=>"2021-09-15T18:47:52.479Z"}, {"id"=>3, "recipe_id"=>1, "ingredient_id"=>12, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.481Z", "updated_at"=>"2021-09-15T18:47:52.481Z"}, {"id"=>4, "recipe_id"=>1, "ingredient_id"=>13, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.483Z", "updated_at"=>"2021-09-15T18:47:52.483Z"}, {"id"=>5, "recipe_id"=>1, "ingredient_id"=>19, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.485Z", "updated_at"=>"2021-09-15T18:47:52.485Z"}, {"id"=>6, "recipe_id"=>1, "ingredient_id"=>20, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.488Z", "updated_at"=>"2021-09-15T18:47:52.488Z"}, {"id"=>7, "recipe_id"=>1, "ingredient_id"=>23, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.490Z", "updated_at"=>"2021-09-15T18:47:52.490Z"}, {"id"=>8, "recipe_id"=>1, "ingredient_id"=>32, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.492Z", "updated_at"=>"2021-09-15T18:47:52.492Z"}, {"id"=>9, "recipe_id"=>1, "ingredient_id"=>40, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.494Z", "updated_at"=>"2021-09-15T18:47:52.494Z"}, {"id"=>10, "recipe_id"=>1, "ingredient_id"=>41, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.496Z", "updated_at"=>"2021-09-15T18:47:52.496Z"}, {"id"=>11, "recipe_id"=>1, "ingredient_id"=>44, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.498Z", "updated_at"=>"2021-09-15T18:47:52.498Z"}, {"id"=>12, "recipe_id"=>1, "ingredient_id"=>51, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.500Z", "updated_at"=>"2021-09-15T18:47:52.500Z"}, {"id"=>13, "recipe_id"=>1, "ingredient_id"=>53, "amount"=>nil, "unit"=>nil, "created_at"=>"2021-09-15T18:47:52.502Z", "updated_at"=>"2021-09-15T18:47:52.502Z"}]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (2.66ms)
+Completed 200 OK in 194ms (Views: 4.1ms | ActiveRecord: 64.2ms | Allocations: 22889)
+
+

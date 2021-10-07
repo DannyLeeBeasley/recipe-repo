@@ -1,6 +1,6 @@
 import React from "react";
-import IngredientCard from "./IngredientCard";
 import { useHistory } from "react-router-dom";
+import IngredientCard from "../IngredientCard/IngredientCard";
 import "./IngredientList.css"
 
 function IngredientList({ ingredients, handleDeleteIngredient }) {
