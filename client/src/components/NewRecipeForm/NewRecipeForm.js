@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
 import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
-import "./NewRecipeForm.css"
+import "./NewRecipeForm.css";
 
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   let history = useHistory();
-  
+
   const [userId, setUserId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -16,26 +16,28 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   function handleSubmit(e) {
     console.log("hi");
     e.preventDefault();
-    fetch("/recipes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user_id: userId,
-        name: name,
-        image: image,
-        description: description,
-        ingredient_ids: recipeIngredients.map((recipeIngredient) => {
-          return recipeIngredient.id;
+    console.log(recipeIngredients);
+      fetch("/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: userId,
+          name: name,
+          image: image,
+          description: description,
+          ingredient_ids: recipeIngredients.map((recipeIngredient) => {
+            return recipeIngredient.id;
+          }),
+          recipe_ingredients: recipeIngredients,
         }),
-      }),
-    })
-      .then((res) => res.json())
-      .then((newRecipe) => {
-        addNewRecipe(newRecipe)
-        history.push("/");
-      });
+      })
+        .then((res) => res.json())
+        .then((newRecipe) => {
+          addNewRecipe(newRecipe);
+          history.push("/");
+        });
   }
   return (
     <div className="new-recipe-form">
@@ -93,26 +95,28 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           ></input>
         </label>
         <br />
-        <RecipeIngredientForm ingredients={ingredients} setRecipeIngredients={setRecipeIngredients}/>
+        <RecipeIngredientForm
+          ingredients={ingredients}
+          setRecipeIngredients={setRecipeIngredients}
+        />
         <br></br>
         <div className="new-recipe-body">
-        {recipeIngredients.map((ingredient, i) => (
-          <RecipeIngredientCard
-            setRecipeIngredients={setRecipeIngredients}
-            recipeIngredients={recipeIngredients}
-            name={ingredient.name}
-            ingredient={ingredient}
-            key={i}
-            ingredientIndex={i}
-          />
-        ))}
-      </div>
-        <input 
-
-        className="submit-recipe-button"
-        type="submit" 
-        value="Submit">
-        </input>
+          {recipeIngredients.map((ingredient, i) => (
+            <RecipeIngredientCard
+              setRecipeIngredients={setRecipeIngredients}
+              recipeIngredients={recipeIngredients}
+              name={ingredient.name}
+              ingredient={ingredient}
+              key={i}
+              ingredientIndex={i}
+            />
+          ))}
+        </div>
+        <input
+          className="submit-recipe-button"
+          type="submit"
+          value="Submit"
+        ></input>
       </form>
     </div>
   );

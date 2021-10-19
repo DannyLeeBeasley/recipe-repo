@@ -15,6 +15,21 @@ class RecipesController < ApplicationController
 
     def create 
         recipe = Recipe.create(recipe_params)
+
+        # recipe_params.recipe_ingredients.each do |recipe_ingredient|
+            
+        #     recipe_ingredient_params = {}
+        #     recipe_ingredient_params.recipe_id = recipe.id
+        #     recipe_ingredient_params.ingredient_id = recipe_ingredient.id
+        #     recipe_ingredient_params.amount = recipe_ingredient.amount
+        #     recipe_ingredient_params.unit = recipe_ingredient.unit
+
+        #     recipe_ingredient = RecipeIngredient.create(recipe_ingredient_params)
+        #     print(recipe_ingredient)
+        # end
+
+        # # create recipe ingridient records
+
         render json: recipe, status: :created
     end
 
@@ -33,7 +48,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.permit(:user_id, :name, :image, :description, :ingredient_ids => [])
+        params.permit(:user_id, :name, :image, :description, :ingredient_ids =>[])
     end
 
     def find_recipe

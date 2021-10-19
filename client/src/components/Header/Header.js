@@ -7,7 +7,7 @@ function Header() {
         <span className="logo" role="img">
           🧄 🌶 🧀 🥕
         </span>
-        Recipe Share
+        Recipe Repo
         <span className="logo" role="img">
           🥩 🧅 🥦 🍇
         </span>
