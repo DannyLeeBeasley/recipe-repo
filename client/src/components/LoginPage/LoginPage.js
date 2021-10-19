@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import "./LoginPage.css"
 
-function LoginPage({ setUser }) {
+function LoginPage({ setUser, user }) {
   let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const [login, setLogin] = useState("");
-
   const [errors, setErrors] = useState([]);
 
-  
 
   function onSubmit(e) {
     e.preventDefault();
@@ -62,7 +61,6 @@ function LoginPage({ setUser }) {
         <input type="submit" value="Login!" onClick={() => setLogin(true)} />
       </form>
       <h2 className="new-user-link"><Link to="/signup">"New User? Sign Up Here"</Link></h2>
-      {/* {errors ? errors.map((e) => <Errors>{e}</Errors>) : null} */}
     </>
   );
 }

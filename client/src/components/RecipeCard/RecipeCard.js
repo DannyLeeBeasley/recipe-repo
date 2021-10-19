@@ -2,7 +2,14 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./RecipeCard.css";
 
-function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
+function RecipeCard({
+  recipe,
+  name,
+  image,
+  description,
+  handleDeleteRecipe,
+  user,
+}) {
   let history = useHistory();
 
   function handleClick() {
@@ -23,9 +30,12 @@ function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
         onClick={viewRecipe}
       />
       <p className="recipe-description">{description}</p>
+      {/* {recipe.user_id === user.id ? ( */}
       <button className="update-recipe-button" onClick={handleClick}>
         Update Recipe
       </button>
+      {/* ) : null} */}
+      {/* {recipe.user_id === user.id ? ( */}
       <button
         className="delete-recipe-button"
         onClick={(e) => {
@@ -34,6 +44,7 @@ function RecipeCard({ recipe, name, image, description, handleDeleteRecipe }) {
       >
         Delete Recipe
       </button>
+      {/* ) : null} */}
     </li>
   );
 }

@@ -8,9 +8,6 @@ import RecipesPage from "./components/RecipesPage/RecipesPage";
 function App() {
   const [user, setUser] = useState(null);
 
-  // const history = useHistory();
-  // if(!user)history.push('/signin')
-
   return (
     <div className="App">
         <RecipesPage user={user} setUser={setUser}/>

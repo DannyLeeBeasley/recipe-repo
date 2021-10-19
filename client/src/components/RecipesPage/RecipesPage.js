@@ -14,10 +14,10 @@ import NewUserPage from "../NewUserPage/NewUserPage";
 import ViewRecipe from "../ViewRecipe/ViewRecipe";
 import AboutPage from "../AboutPage/AboutPage";
 
-
 // import Search from "./Search";
 
 function RecipesPage({ user, setUser }) {
+  console.log(user)
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
 
@@ -68,53 +68,68 @@ function RecipesPage({ user, setUser }) {
     setRecipes(recipes.filter((recipe) => recipe.id !== recipeToDeleteId));
   }
 
-  function updateRecipe(recipeToUpdate){
-    const recipesNotToUpdate = recipes.filter(recipe => recipe.id != recipeToUpdate.id)
+  function updateRecipe(recipeToUpdate) {
+    const recipesNotToUpdate = recipes.filter(
+      (recipe) => recipe.id != recipeToUpdate.id
+    );
     const updatedRecipeArray = [...recipesNotToUpdate, recipeToUpdate];
     setRecipes(updatedRecipeArray);
   }
 
   return (
-      <Router>
-        <Header />
-        <NavBar />
-        <Route exact path="/">
-          <RecipeList
-            recipes={recipes}
-            handleDeleteRecipe={handleDeleteRecipe}
-          />
-        </Route>
-        <Route exact path="/newrecipe">
-          <NewRecipeForm
-            ingredients={ingredients}
-            addNewRecipe={addNewRecipe}
-          />
-        </Route>
-        <Route exact path="/ingredients">
-          <IngredientList
-            ingredients={ingredients}
-            handleDeleteIngredient={handleDeleteIngredient}
-          />
-        </Route>
-        <Route exact path="/newingredient">
-          <NewIngredientForm addNewIngredient={addNewIngredient} />
-        </Route>
-        <Route path="/updaterecipe/:id">
-          <UpdateRecipeForm ingredients={ingredients} recipes={recipes} updateRecipe={updateRecipe}/>
-        </Route>
-        <Route path="/viewrecipe/:id">
-          <ViewRecipe ingredients={ingredients} recipes={recipes} updateRecipe={updateRecipe}/>
-        </Route>
-        <Route exact path="/signin">
-          <LoginPage setUser={setUser} />
-        </Route>
-        <Route exact path="/signup">
-          <NewUserPage setUser={setUser} />
-        </Route>
-        <Route exact path="/about">
-          <AboutPage />
-        </Route>
-      </Router>
+    <Router>
+      <Header />
+      <NavBar />
+      <Route exact path="/">
+        <RecipeList
+          user={user}
+          recipes={recipes}
+          handleDeleteRecipe={handleDeleteRecipe}
+        />
+      </Route>
+      <Route exact path="/newrecipe">
+        <NewRecipeForm
+          user={user}
+          ingredients={ingredients}
+          addNewRecipe={addNewRecipe}
+        />
+      </Route>
+      <Route exact path="/ingredients">
+        <IngredientList
+          user={user}
+          ingredients={ingredients}
+          handleDeleteIngredient={handleDeleteIngredient}
+        />
+      </Route>
+      <Route exact path="/newingredient">
+        <NewIngredientForm addNewIngredient={addNewIngredient} user={user} />
+      </Route>
+      <Route path="/updaterecipe/:id">
+        <UpdateRecipeForm
+          ingredients={ingredients}
+          recipes={recipes}
+          updateRecipe={updateRecipe}
+          user={user}
+        />
+      </Route>
+      <Route path="/viewrecipe/:id">
+        <ViewRecipe
+          ingredients={ingredients}
+          recipes={recipes}
+          updateRecipe={updateRecipe}
+          user={user}
+        />
+      </Route>
+      <Route exact path="/signin">
+        <LoginPage setUser={setUser} />
+      </Route>
+      <Route exact path="/signup">
+        <NewUserPage setUser={setUser} />
+      </Route>
+      <Route exact path="/about">
+        <AboutPage />
+      </Route>
+    </Router>
   );
 }
 

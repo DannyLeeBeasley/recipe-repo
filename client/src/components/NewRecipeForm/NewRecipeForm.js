@@ -14,7 +14,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   const [recipeIngredients, setRecipeIngredients] = useState([]);
 
   function handleSubmit(e) {
-    console.log("hi");
+    console.log(user);
     e.preventDefault();
     console.log(recipeIngredients);
       fetch("/recipes", {
@@ -23,7 +23,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: userId,
+          user_id: user.id,
           name: name,
           image: image,
           description: description,
@@ -43,7 +43,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
     <div className="new-recipe-form">
       <h1 className="new-recipe-form-head">New Recipe</h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        {/* <label>
           User ID
           <input
             type="text"
@@ -54,7 +54,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
               setUserId(e.target.value);
             }}
           ></input>
-        </label>
+        </label> */}
         <br />
         <label>
           Recipe Name
