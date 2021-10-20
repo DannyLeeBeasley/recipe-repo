@@ -13,6 +13,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
   let recipeToUpdate = recipes.find(recipe => recipe.id == id)
   console.log(recipeToUpdate)
 
+  const [recipeId, setRecipeId] = useState(recipeToUpdate.id);
   const [userId, setUserId] = useState(recipeToUpdate.user_id);
   const [name, setName] = useState(recipeToUpdate.name);
   const [image, setImage] = useState(recipeToUpdate.image);
@@ -33,13 +34,15 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id: recipeId,
         user_id: userId,
         name: name,
         image: image,
         description: description,
-        ingredient_ids: recipeIngredients.map((recipeIngredient) => {
-          return recipeIngredient.id;
-        }),
+        // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
+        //   return recipeIngredient.id;
+        // }),
+        recipe_ingredients: recipeIngredients
       }),
     })
       .then((res) => res.json())

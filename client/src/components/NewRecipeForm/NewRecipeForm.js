@@ -27,9 +27,9 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
           name: name,
           image: image,
           description: description,
-          ingredient_ids: recipeIngredients.map((recipeIngredient) => {
-            return recipeIngredient.id;
-          }),
+          // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
+          //   return recipeIngredient.id;
+          // }),
           recipe_ingredients: recipeIngredients,
         }),
       })
