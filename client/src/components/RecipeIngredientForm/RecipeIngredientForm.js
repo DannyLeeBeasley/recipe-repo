@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./RecipeIngredientForm.css"
 
-function RecipeIngredientForm( {ingredients , setRecipeIngredients} ) {
+function RecipeIngredientForm( {ingredients , recipeIngredients, setRecipeIngredients} ) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");

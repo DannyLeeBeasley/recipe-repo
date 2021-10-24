@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./RecipeIngredientCard.css";
 
 function RecipeIngredientCard({
-  ingredient,
+  recipeIngredient,
   recipeIngredients,
   setRecipeIngredients,
   ingredientIndex,
@@ -13,17 +13,18 @@ function RecipeIngredientCard({
     setRecipeIngredients(list);
   }
 
-  console.log(ingredient);
+  console.log(recipeIngredient);
 
   return (
+    <>
     <div className="recipe-ingredient">
       <p className="new-recipe-ingredient-text">
-        {ingredient.amount}&nbsp;{ingredient.unit}&nbsp;{ingredient.name}
+        {recipeIngredient.amount}&nbsp;{recipeIngredient.unit}&nbsp;{recipeIngredient.ingredient.name}
       </p>
       <img
         className="new-recipe-ingredient-img"
-        alt={ingredient.name}
-        src={ingredient.image}
+        alt={recipeIngredient.ingredient.name}
+        src={recipeIngredient.ingredient.image}
       ></img>
       <input className="recipe-ingredient-delete-button"
         type="button"
@@ -31,6 +32,7 @@ function RecipeIngredientCard({
         onClick={() => handleRemoveClick()}
       ></input>
     </div>
+    </>
   );
 }
 

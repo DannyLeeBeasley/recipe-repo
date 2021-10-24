@@ -89,5 +89,78 @@ enchiladas = Recipe.create(user_id: 2, name: "Chicken Enchiladas Roasted Tomatil
 skirt_steak_chimichurri = Recipe.create(user_id: 1, name: "Grilled Skirt Steak with Green and Smokey Red Chimichurri", image: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/7/22/0/QF0111H_grilled-skirt-steak-with-green-and-smokey-red-chimichurri_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371599786530.jpeg", description: "The red and green chimichurri compliment each other beuatifully. Perfect for an outdoor summer dinner date!", ingredient_ids: [1, 2, 3, 10, 14, 16, 17, 23, 33, 45, 48, 51, 52])
 thai_thai_drunken_noodles = Recipe.create(user_id: 2, name: "Thai Drunken Noodles", image: "https://data.thefeedfeed.com/static/2020/02/28/15829232455e597dede79c2.jpg", description: "Get your veggies in AND get your pasta fix with this gluten free comfort bowl!", ingredient_ids: [18, 21, 22, 23, 25, 26, 28, 29, 30, 31, 39, 47, 49, 55, 56, 57, 58])
 
+puts "Creating Recipe Ingredients..."
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 1, amount: 1, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 2, amount: 1, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 12, amount: 1, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 13, amount: 1, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 19, amount: 2, unit: "Cups")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 20, amount: 1, unit: "")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 23, amount: 2, unit: "Cloves")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 32, amount: 60, unit: "Oz")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 40, amount: 12, unit: "Oz")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 44, amount: 1, unit: "Lbs")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 51, amount: 2, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 1, ingredient_id: 53, amount: 48, unit: "Oz")
+
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 24, amount: 1, unit: "Lbs")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 20, amount: 1.5, unit: "")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 23, amount: 7, unit: "Cloves")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 28, amount: 2, unit: "")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 6, amount: 3.5, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 1, amount: 3, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 15, amount: 1, unit: "Cups")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 31, amount: 0.5, unit: "")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 51, amount: 2, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 36, amount: 0.25, unit: "Cups")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 53, amount: 2, unit: "Cups")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 47, amount: 3, unit: "Cups")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 2, amount: 2, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 38, amount: 10, unit: "")
+RecipeIngredient.create(recipe_id: 2, ingredient_id: 42, amount: 0.5, unit: "Lbs")
+
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 45, amount: 1.5, unit: "Lbs")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 14, amount: 3, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 16, amount: 0.5, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 17, amount: 0.5, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 48, amount: 0.5, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 52, amount: 0.25, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 3, amount: 1.5, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 23, amount: 11, unit: "Cloves")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 45, amount: 1.5, unit: "Lbs")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 51, amount: 0.5, unit: "Cups")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 17, amount: 2, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 33, amount: 1, unit: "Tlbs")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 10, amount: 1, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 1, amount: 2, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 3, ingredient_id: 2, amount: 1, unit: "Tbls")
+
+
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 39, amount: 8, unit: "Oz")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 55, amount: 0.33, unit: "Cup")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 56, amount: 3, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 57, amount: 1, unit: "Tbls")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 58, amount: 2, unit: "Tsp")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 49, amount: 2, unit: "Tbsp")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 47, amount: 1, unit: "Cup")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 21, amount: 2, unit: "")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 23, amount: 3, unit: "Cloves")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 27, amount: 2, unit: "")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 29, amount: 1, unit: "")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 25, amount: 1, unit: "")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 30, amount: 2, unit: "")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 18, amount: 1, unit: "Cup")
+RecipeIngredient.create(recipe_id: 4, ingredient_id: 22, amount: , unit: "")
+# RecipeIngredient.create(ingredient_id: 1, recipe_id: 1, )
+# recipe_ids = Recipe.all.map(&:id)
+# ingredient_ids = Ingredient.all.map(&:id)
+# amounts = [.2, .5, .75, 1, 2, 5]
+# units = ['cups', 'teaspoons', 'tablespoons', 'pinch', 'pound', 'ounce']
+# ingredient_ids.each do |i_id|
+#   recipe_ids.each do |r_id|
+#     RecipeIngredient.create(recipe_id: r_id, ingredient_id: i_id, amount: amounts.sample, unit: units.sample)
+#   end
+# end
+
 puts "✅ Done seeding!"
 

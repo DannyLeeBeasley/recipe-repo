@@ -17,9 +17,10 @@ import AboutPage from "../AboutPage/AboutPage";
 // import Search from "./Search";
 
 function RecipesPage({ user, setUser }) {
-  console.log(user)
+  console.log(user);
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [recipeIngredients, setRecipeIngredients] = useState([]);
 
   useEffect(() => {
     fetch("/ingredients")
@@ -31,8 +32,15 @@ function RecipesPage({ user, setUser }) {
     fetch("/recipes")
       .then((r) => r.json())
       .then((recipesArr) => {
-        console.log("recipesArr", recipesArr);
         setRecipes(recipesArr);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/recipe_ingredients")
+      .then((r) => r.json())
+      .then((recipeIngredientsArr) => {
+        setRecipeIngredients(recipeIngredientsArr);
       });
   }, []);
 
@@ -106,6 +114,8 @@ function RecipesPage({ user, setUser }) {
       </Route>
       <Route path="/updaterecipe/:id">
         <UpdateRecipeForm
+          setRecipeIngredients={setRecipeIngredients}
+          recipeIngredients={recipeIngredients}
           ingredients={ingredients}
           recipes={recipes}
           updateRecipe={updateRecipe}

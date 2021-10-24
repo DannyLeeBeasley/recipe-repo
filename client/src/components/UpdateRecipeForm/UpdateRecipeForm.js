@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
-import RecipeIngredient from "../RecipeIngredientForm/RecipeIngredientForm";
+import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
 
-function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) {
+function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRecipeIngredients, recipe, user, recipes }) {
   let {id} = useParams()
   let history = useHistory();
 
@@ -19,10 +19,10 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
   const [image, setImage] = useState(recipeToUpdate.image);
   const [description, setDescription] = useState(recipeToUpdate.description);
 
-  let updatedRecipeIngredientIds = recipeToUpdate.ingredient_ids
+  // let updatedRecipeIngredientIds = recipeToUpdate.ingredient_ids
   
-  let updatedRecipeIngredients = ingredients.filter(ingredient => updatedRecipeIngredientIds.includes(ingredient.id))
-  const [recipeIngredients, setRecipeIngredients] = useState(updatedRecipeIngredients);
+  let updatedRecipeIngredients = recipeIngredients.filter(recipeIngredient => recipeIngredient.recipe_id === recipeToUpdate.id)
+  // const [recipeIngredients, setRecipeIngredients] = useState(updatedRecipeIngredients);
 
 
   function handleSubmit(e) {
@@ -34,7 +34,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: recipeId,
+        id: user.id,
         user_id: userId,
         name: name,
         image: image,
@@ -55,7 +55,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
     <div className="new-recipe-form">
       <h1 className="new-recipe-form-head">Update Recipe</h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        {/* <label>
           User ID
           <input
             type="text"
@@ -67,7 +67,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
             }}
           ></input>
         </label>
-        <br />
+        <br /> */}
         <label>
           Recipe Name
           <input
@@ -107,15 +107,17 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipe, user, recipes }) 
           ></input>
         </label>
         <br />
-        <RecipeIngredient ingredients={ingredients} setRecipeIngredients={setRecipeIngredients}/>
+        <RecipeIngredientForm ingredients={ingredients} recipeIngredients={recipeIngredients} setRecipeIngredients={setRecipeIngredients}/>
         <br></br>
         <div className="new-recipe-body">
-        {recipeIngredients.map((ingredient, i) => (
+        {recipeIngredients.map((recipeIngredient, i) => (
           <RecipeIngredientCard
             setRecipeIngredients={setRecipeIngredients}
             recipeIngredients={recipeIngredients}
-            name={ingredient.name}
-            ingredient={ingredient}
+            amount={recipeIngredient.amount}
+            unit={recipeIngredient.unit}
+            name={recipeIngredient.ingredient.name}
+            recipeIngredient={recipeIngredient}
             key={i}
             ingredientIndex={i}
           />

@@ -7,37 +7,35 @@ import "./NewRecipeForm.css";
 function NewRecipeForm({ addNewRecipe, ingredients, user }) {
   let history = useHistory();
 
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
 
   function handleSubmit(e) {
-    console.log(user);
     e.preventDefault();
-    console.log(recipeIngredients);
-      fetch("/recipes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user.id,
-          name: name,
-          image: image,
-          description: description,
-          // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
-          //   return recipeIngredient.id;
-          // }),
-          recipe_ingredients: recipeIngredients,
-        }),
-      })
-        .then((res) => res.json())
-        .then((newRecipe) => {
-          addNewRecipe(newRecipe);
-          history.push("/");
-        });
+    fetch("/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        name: name,
+        image: image,
+        description: description,
+        // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
+        //   return recipeIngredient.id;
+        // }),
+        recipe_ingredients: recipeIngredients,
+      }),
+    })
+      .then((res) => res.json())
+      .then((newRecipe) => {
+        addNewRecipe(newRecipe);
+        history.push("/");
+      });
   }
   return (
     <div className="new-recipe-form">
@@ -115,7 +113,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         <input
           className="submit-recipe-button"
           type="submit"
-          value="Submit"
+          value="Submit Recipe"
         ></input>
       </form>
     </div>
