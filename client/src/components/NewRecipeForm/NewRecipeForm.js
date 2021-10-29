@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
+import NewRecipeIngredientCard from "../NewRecipeIngredientCard/NewRecipeIngredientCard";
 import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
 import "./NewRecipeForm.css";
 
@@ -100,7 +100,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
         <br></br>
         <div className="new-recipe-body">
           {recipeIngredients.map((ingredient, i) => (
-            <RecipeIngredientCard
+            <NewRecipeIngredientCard
               setRecipeIngredients={setRecipeIngredients}
               recipeIngredients={recipeIngredients}
               name={ingredient.name}
