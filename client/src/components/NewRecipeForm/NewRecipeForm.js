@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import NewRecipeIngredientCard from "../NewRecipeIngredientCard/NewRecipeIngredientCard";
-import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
+import NewRecipeIngredientForm from "../NewRecipeIngredientForm/NewRecipeIngredientForm";
 import "./NewRecipeForm.css";
 
-function NewRecipeForm({ addNewRecipe, ingredients, user }) {
+function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredient }) {
   let history = useHistory();
 
   // const [userId, setUserId] = useState("");
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [recipeIngredients, setRecipeIngredients] = useState([]);
+  const [newRecipeName, setNewRecipeName] = useState("");
+  const [newRecipeImage, setNewRecipeImage] = useState("");
+  const [newRecipeDescription, setNewRecipeDescription] = useState("");
+  const [newRecipeIngredients, setNewRecipeIngredients] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,13 +22,10 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
       },
       body: JSON.stringify({
         user_id: user.id,
-        name: name,
-        image: image,
-        description: description,
-        // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
-        //   return recipeIngredient.id;
-        // }),
-        recipe_ingredients: recipeIngredients,
+        name: newRecipeName,
+        image: newRecipeImage,
+        description: newRecipeDescription,
+        recipe_ingredients: newRecipeIngredients,
       }),
     })
       .then((res) => res.json())
@@ -60,9 +57,9 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
             type="text"
             name="recipeName"
             placeholder="Recipe Name"
-            value={name}
+            value={newRecipeName}
             onChange={(e) => {
-              setName(e.target.value);
+              setNewRecipeName(e.target.value);
             }}
           ></input>
         </label>
@@ -73,9 +70,9 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
             type="text"
             name="recipeImage"
             placeholder="Recipe Image"
-            value={image}
+            value={newRecipeImage}
             onChange={(e) => {
-              setImage(e.target.value);
+              setNewRecipeImage(e.target.value);
             }}
           ></input>
         </label>
@@ -86,25 +83,27 @@ function NewRecipeForm({ addNewRecipe, ingredients, user }) {
             type="text"
             name="recipeDescription"
             placeholder="Brief Description"
-            value={description}
+            value={newRecipeDescription}
             onChange={(e) => {
-              setDescription(e.target.value);
+              setNewRecipeDescription(e.target.value);
             }}
           ></input>
         </label>
         <br />
-        <RecipeIngredientForm
+        <NewRecipeIngredientForm
           ingredients={ingredients}
-          setRecipeIngredients={setRecipeIngredients}
+          setNewRecipeIngredients={setNewRecipeIngredients}
         />
         <br></br>
         <div className="new-recipe-body">
-          {recipeIngredients.map((ingredient, i) => (
+          {newRecipeIngredients.map((newRecipeIngredient, i) => (
             <NewRecipeIngredientCard
-              setRecipeIngredients={setRecipeIngredients}
-              recipeIngredients={recipeIngredients}
-              name={ingredient.name}
-              ingredient={ingredient}
+              newRecipeIngredients={newRecipeIngredients}
+              setNewRecipeIngredients={setNewRecipeIngredients}
+              associatedIngredient={findAssociatedIngredient(
+                newRecipeIngredient
+              )}
+              newRecipeIngredient={newRecipeIngredient}
               key={i}
               ingredientIndex={i}
             />

@@ -2,31 +2,40 @@ import React, { useState } from "react";
 import "./NewRecipeIngredientCard.css";
 
 function NewRecipeIngredientCard({
-  recipeToViewRecipeIngredient,
-  associatedIngredient
+  newRecipeIngredient,
+  associatedIngredient, 
+  ingredientIndex,
+  newRecipeIngredients,
+  setNewRecipeIngredients
 }) {
-  console.log(recipeToViewRecipeIngredient);
+  console.log(newRecipeIngredient);
   console.log(associatedIngredient);
+
+  function handleRemoveClick() {
+    const list = [...newRecipeIngredients];
+    list.splice(ingredientIndex, 1);
+    setNewRecipeIngredients(list);
+  }
 
   return (
     <>
       <div className="recipe-ingredient">
         <p className="new-recipe-ingredient-text">
-          {recipeToViewRecipeIngredient.amount}&nbsp;
-          {recipeToViewRecipeIngredient.unit}
-          &nbsp;{associatedIngredient.name}
+          {newRecipeIngredient.amount}&nbsp;
+          {newRecipeIngredient.unit}
+          &nbsp;{newRecipeIngredient.name}
         </p>
         <img
           className="new-recipe-ingredient-img"
-          alt={associatedIngredient.name}
-          src={associatedIngredient.image}
+          alt={newRecipeIngredient.name}
+          src={newRecipeIngredient.image}
         ></img>
-        {/* <input
+        <input
           className="recipe-ingredient-delete-button"
           type="button"
           value="Remove Ingredient"
           onClick={() => handleRemoveClick()}
-        ></input> */}
+        ></input>
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ViewRecipeIngredientCard from "../ViewRecipeIngredientCard/ViewRecipeIngredientCard";
 
-function ViewRecipe({ recipes, ingredients }) {
+function ViewRecipe({ recipes, ingredients, findAssociatedIngredient }) {
   let { id } = useParams();
 
   let recipeToView = recipes.find(recipe => recipe.id == id);
@@ -25,13 +25,6 @@ function ViewRecipe({ recipes, ingredients }) {
     )
   );
   console.log(recipeToViewIngredients);
-
-  function findAssociatedIngredient(recipeToViewRecipeIngredient) {
-    let foundAssociatedIngredient = ingredients.find(
-      (ingredient) => ingredient.id == recipeToViewRecipeIngredient.ingredient_id
-    );
-    return foundAssociatedIngredient;
-  }
 
   return (
     <div>

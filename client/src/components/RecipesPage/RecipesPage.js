@@ -83,6 +83,14 @@ function RecipesPage({ user, setUser }) {
     setRecipes(updatedRecipeArray);
   }
 
+  function findAssociatedIngredient(recipeIngredient) {
+    let foundAssociatedIngredient = ingredients.find(
+      (ingredient) =>
+        ingredient.id == recipeIngredient.ingredient_id
+    );
+    return foundAssociatedIngredient;
+  }
+
   return (
     <Router>
       <Header />
@@ -96,9 +104,10 @@ function RecipesPage({ user, setUser }) {
       </Route>
       <Route exact path="/newrecipe">
         <NewRecipeForm
+          user={user}
           ingredients={ingredients}
           recipes={recipes}
-          user={user}
+          findAssociatedIngredient={findAssociatedIngredient}
           addNewRecipe={addNewRecipe}
         />
       </Route>
@@ -114,21 +123,23 @@ function RecipesPage({ user, setUser }) {
       </Route>
       <Route path="/updaterecipe/:id">
         <UpdateRecipeForm
-          setRecipeIngredients={setRecipeIngredients}
-          recipeIngredients={recipeIngredients}
+          user={user}
           ingredients={ingredients}
           recipes={recipes}
+          recipeIngredients={recipeIngredients}
           updateRecipe={updateRecipe}
-          user={user}
+          findAssociatedIngredient={findAssociatedIngredient}
+          setRecipeIngredients={setRecipeIngredients}
         />
       </Route>
       <Route path="/viewrecipe/:id">
         <ViewRecipe
+          user={user}
           recipes={recipes}
           ingredients={ingredients}
           recipeIngredients={recipeIngredients}
           updateRecipe={updateRecipe}
-          user={user}
+          findAssociatedIngredient={findAssociatedIngredient}
         />
       </Route>
       <Route exact path="/signin">
