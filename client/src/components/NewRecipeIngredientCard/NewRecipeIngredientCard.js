@@ -9,6 +9,7 @@ function NewRecipeIngredientCard({
   setNewRecipeIngredients
 }) {
   console.log(newRecipeIngredient);
+  console.log(newRecipeIngredients);
   console.log(associatedIngredient);
 
   function handleRemoveClick() {

@@ -92,6 +92,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredie
         <br />
         <NewRecipeIngredientForm
           ingredients={ingredients}
+          newRecipeIngredients={newRecipeIngredients}
           setNewRecipeIngredients={setNewRecipeIngredients}
         />
         <br></br>

@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import "./NewRecipeIngredientForm.css"
 
-function RecipeIngredientForm( {ingredients , recipeIngredients, setNewRecipeIngredients} ) {
+function NewRecipeIngredientForm( {ingredients , recipeIngredients, setNewRecipeIngredients} ) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
+
+  // function handleAddClick() {
+  //   if (selectedIngredientId === 0) return;
+  //   setNewRecipeIngredients(previousNewRecipeIngredients => [
+  //     ...previousNewRecipeIngredients,
+  //     {
+  //       recipe_id: ,
+  //       ingredient_id: selectedIngredientId,
+  //       amount: ingredientAmount, 
+  //       unit: unitOfMeasurement
+  //     },
+  //   ]);
+  // }
 
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
@@ -66,4 +79,4 @@ function RecipeIngredientForm( {ingredients , recipeIngredients, setNewRecipeIng
   );
 }
 
-export default RecipeIngredientForm;
+export default NewRecipeIngredientForm;
