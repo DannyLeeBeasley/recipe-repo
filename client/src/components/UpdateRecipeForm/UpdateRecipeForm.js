@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
-import RecipeIngredientCard from "../RecipeIngredientCard/RecipeIngredientCard";
+import UpdateRecipeIngredientCard from "../UpdateRecipeIngredientCard/UpdateRecipeIngredientCard";
 import RecipeIngredientForm from "../RecipeIngredientForm/RecipeIngredientForm";
 
 function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRecipeIngredients, recipe, user, recipes }) {
@@ -10,14 +10,16 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
 
   console.log(id)
   console.log(recipes)
+
   let recipeToUpdate = recipes.find(recipe => recipe.id == id)
+
   console.log(recipeToUpdate)
 
-  const [recipeId, setRecipeId] = useState(recipeToUpdate.id);
+  // const [recipeId, setRecipeId] = useState(recipeToUpdate.id);
   const [userId, setUserId] = useState(recipeToUpdate.user_id);
-  const [name, setName] = useState(recipeToUpdate.name);
-  const [image, setImage] = useState(recipeToUpdate.image);
-  const [description, setDescription] = useState(recipeToUpdate.description);
+  const [recipeToUpdateName, setRecipeToUpdateName] = useState(recipeToUpdate.name);
+  const [recipeToUpdateImage, setRecipeToUpdateImage] = useState(recipeToUpdate.image);
+  const [recipeToUpdateDescription, setRecipeToUpdateDescription] = useState(recipeToUpdate.description);
 
   // let updatedRecipeIngredientIds = recipeToUpdate.ingredient_ids
   
@@ -36,9 +38,9 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
       body: JSON.stringify({
         id: user.id,
         user_id: userId,
-        name: name,
-        image: image,
-        description: description,
+        name: recipeToUpdateName,
+        image: recipeToUpdateImage,
+        description: recipeToUpdateDescription,
         // ingredient_ids: recipeIngredients.map((recipeIngredient) => {
         //   return recipeIngredient.id;
         // }),
@@ -74,9 +76,9 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
             type="text"
             name="recipeName"
             placeholder="Recipe Name"
-            value={name}
+            value={recipeToUpdateName}
             onChange={(e) => {
-              setName(e.target.value);
+              setRecipeToUpdateName(e.target.value);
             }}
           ></input>
         </label>
@@ -87,9 +89,9 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
             type="text"
             name="recipeImage"
             placeholder="Recipe Image"
-            value={image}
+            value={recipeToUpdateImage}
             onChange={(e) => {
-              setImage(e.target.value);
+              setRecipeToUpdateImage(e.target.value);
             }}
           ></input>
         </label>
@@ -100,9 +102,9 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
             type="text"
             name="recipeDescription"
             placeholder="Brief Description"
-            value={description}
+            value={recipeToUpdateDescription}
             onChange={(e) => {
-              setDescription(e.target.value);
+              setRecipeToUpdateDescription(e.target.value);
             }}
           ></input>
         </label>
@@ -111,7 +113,7 @@ function UpdateRecipeForm({ updateRecipe, ingredients, recipeIngredients, setRec
         <br></br>
         <div className="new-recipe-body">
         {recipeIngredients.map((recipeIngredient, i) => (
-          <RecipeIngredientCard
+          <UpdateRecipeIngredientCard
             setRecipeIngredients={setRecipeIngredients}
             recipeIngredients={recipeIngredients}
             amount={recipeIngredient.amount}

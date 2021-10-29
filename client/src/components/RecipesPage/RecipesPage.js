@@ -59,7 +59,6 @@ function RecipesPage({ user, setUser }) {
       (ingredient) => ingredient.id !== ingredientToDelete.id
     );
     setIngredients(updatedIngredientsArray);
-
     fetch(`/ingredients/${ingredientToDelete.id}`, {
       method: "DELETE",
     })
@@ -97,8 +96,9 @@ function RecipesPage({ user, setUser }) {
       </Route>
       <Route exact path="/newrecipe">
         <NewRecipeForm
-          user={user}
           ingredients={ingredients}
+          recipes={recipes}
+          user={user}
           addNewRecipe={addNewRecipe}
         />
       </Route>
@@ -124,8 +124,9 @@ function RecipesPage({ user, setUser }) {
       </Route>
       <Route path="/viewrecipe/:id">
         <ViewRecipe
-          ingredients={ingredients}
           recipes={recipes}
+          ingredients={ingredients}
+          recipeIngredients={recipeIngredients}
           updateRecipe={updateRecipe}
           user={user}
         />
