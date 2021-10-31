@@ -63,7 +63,7 @@ function RecipesPage({ user, setUser }) {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then(() => console.log("item deleted"));
+      .then(() => console.log("The Ingredient You Added Was Deleted"));
   }
 
   function handleDeleteRecipe(recipeToDeleteId) {
@@ -83,7 +83,15 @@ function RecipesPage({ user, setUser }) {
     setRecipes(updatedRecipeArray);
   }
 
-  function findAssociatedIngredient(recipeIngredient) {
+  function findAssociatedIngredientToView(recipeIngredient) {
+    let foundAssociatedIngredient = ingredients.find(
+      (ingredient) =>
+        ingredient.id == recipeIngredient.ingredient_id
+    );
+    return foundAssociatedIngredient;
+  }
+
+  function findAssociatedIngredientToUpdate(recipeIngredient){
     let foundAssociatedIngredient = ingredients.find(
       (ingredient) =>
         ingredient.id == recipeIngredient.ingredient_id
@@ -107,7 +115,7 @@ function RecipesPage({ user, setUser }) {
           user={user}
           ingredients={ingredients}
           recipes={recipes}
-          findAssociatedIngredient={findAssociatedIngredient}
+          findAssociatedIngredientToView={findAssociatedIngredientToView}
           addNewRecipe={addNewRecipe}
         />
       </Route>
@@ -128,7 +136,7 @@ function RecipesPage({ user, setUser }) {
           recipes={recipes}
           recipeIngredients={recipeIngredients}
           updateRecipe={updateRecipe}
-          findAssociatedIngredient={findAssociatedIngredient}
+          findAssociatedIngredientToUpdate={findAssociatedIngredientToUpdate}
           setRecipeIngredients={setRecipeIngredients}
         />
       </Route>
@@ -139,7 +147,7 @@ function RecipesPage({ user, setUser }) {
           ingredients={ingredients}
           recipeIngredients={recipeIngredients}
           updateRecipe={updateRecipe}
-          findAssociatedIngredient={findAssociatedIngredient}
+          findAssociatedIngredientToView={findAssociatedIngredientToView}
         />
       </Route>
       <Route exact path="/signin">

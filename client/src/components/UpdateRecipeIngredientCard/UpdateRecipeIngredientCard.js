@@ -3,10 +3,19 @@ import "./UpdateRecipeIngredientCard.css";
 
 function UpdateRecipeIngredientCard({
   recipeToUpdateRecipeIngredient,
+  recipeToUpdateRecipeIngredients,
+  setRecipeToUpdateRecipeIngredients,
   associatedIngredient,
+  ingredientIndex
 }) {
   console.log(recipeToUpdateRecipeIngredient);
   console.log(associatedIngredient);
+
+  function handleRemoveClick() {
+    const list = [...recipeToUpdateRecipeIngredients];
+    list.splice(ingredientIndex, 1);
+    setRecipeToUpdateRecipeIngredients(list);
+  }
 
   return (
     <>
@@ -21,12 +30,12 @@ function UpdateRecipeIngredientCard({
           alt={associatedIngredient.name}
           src={associatedIngredient.image}
         ></img>
-        {/* <input
+        <input
           className="recipe-ingredient-delete-button"
           type="button"
           value="Remove Ingredient"
           onClick={() => handleRemoveClick()}
-        ></input> */}
+        ></input>
       </div>
     </>
   );

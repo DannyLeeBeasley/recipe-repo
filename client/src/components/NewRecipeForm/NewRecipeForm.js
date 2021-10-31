@@ -4,7 +4,7 @@ import NewRecipeIngredientCard from "../NewRecipeIngredientCard/NewRecipeIngredi
 import NewRecipeIngredientForm from "../NewRecipeIngredientForm/NewRecipeIngredientForm";
 import "./NewRecipeForm.css";
 
-function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredient }) {
+function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredientToView }) {
   let history = useHistory();
 
   // const [userId, setUserId] = useState("");
@@ -101,7 +101,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredie
             <NewRecipeIngredientCard
               newRecipeIngredients={newRecipeIngredients}
               setNewRecipeIngredients={setNewRecipeIngredients}
-              associatedIngredient={findAssociatedIngredient(
+              associatedIngredient={findAssociatedIngredientToView(
                 newRecipeIngredient
               )}
               newRecipeIngredient={newRecipeIngredient}
