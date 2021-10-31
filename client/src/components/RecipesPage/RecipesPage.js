@@ -85,16 +85,17 @@ function RecipesPage({ user, setUser }) {
 
   function findAssociatedIngredientToView(recipeIngredient) {
     let foundAssociatedIngredient = ingredients.find(
-      (ingredient) =>
-        ingredient.id == recipeIngredient.ingredient_id
+      (ingredient) => ingredient.id == recipeIngredient.ingredient_id
     );
     return foundAssociatedIngredient;
   }
 
-  function findAssociatedIngredientToUpdate(recipeIngredient){
+  function findAssociatedIngredientToUpdate(recipeIngredient) {
+    console.log(ingredients);
+    console.log(recipeIngredient);
     let foundAssociatedIngredient = ingredients.find(
       (ingredient) =>
-        ingredient.id == recipeIngredient.ingredient_id
+        ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)
     );
     return foundAssociatedIngredient;
   }

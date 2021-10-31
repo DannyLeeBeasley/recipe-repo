@@ -31,7 +31,7 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView }) {
       <h1>{recipeToView.name}</h1>
       <img src={recipeToView.image} alt={recipeToView.name} />
       <h2>{recipeToView.description}</h2>
-      <ul>
+      <div>
         {recipeToViewRecipeIngredients.map(
           (recipeToViewRecipeIngredient, i) => (
             <ViewRecipeIngredientCard
@@ -43,7 +43,7 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView }) {
             />
           )
         )}
-      </ul>
+      </div>
     </div>
   );
 }

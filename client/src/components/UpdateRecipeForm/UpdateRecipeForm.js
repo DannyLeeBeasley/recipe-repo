@@ -45,6 +45,7 @@ function UpdateRecipeForm({
 
   function handleSubmit(e) {
     console.log("hi");
+    console.log(recipeToUpdateRecipeIngredients)
     e.preventDefault();
     fetch(`/recipes/${id}`, {
       method: "PATCH",

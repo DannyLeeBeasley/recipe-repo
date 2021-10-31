@@ -30,12 +30,11 @@ function RecipeCard({
         onClick={viewRecipe}
       />
       <p className="recipe-description">{description}</p>
-      {/* {recipe.user_id === user.id ? ( */}
+      {recipe.user_id === user?.id && (
       <button className="update-recipe-button" onClick={handleClick}>
         Update Recipe
-      </button>
-      {/* ) : null} */}
-      {/* {recipe.user_id === user.id ? ( */}
+      </button>)}
+      {recipe.user_id === user?.id && (
       <button
         className="delete-recipe-button"
         onClick={(e) => {
@@ -43,8 +42,7 @@ function RecipeCard({
         }}
       >
         Delete Recipe
-      </button>
-      {/* ) : null} */}
+      </button>)}
     </li>
   );
 }
