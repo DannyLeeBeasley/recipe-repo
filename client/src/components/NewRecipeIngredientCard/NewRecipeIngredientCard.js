@@ -24,12 +24,12 @@ function NewRecipeIngredientCard({
         <p className="new-recipe-ingredient-text">
           {newRecipeIngredient.amount}&nbsp;
           {newRecipeIngredient.unit}
-          &nbsp;{newRecipeIngredient.name}
+          &nbsp;{associatedIngredient.name}
         </p>
         <img
           className="new-recipe-ingredient-img"
-          alt={newRecipeIngredient.name}
-          src={newRecipeIngredient.image}
+          alt={associatedIngredient.name}
+          src={associatedIngredient.image}
         ></img>
         <input
           className="recipe-ingredient-delete-button"

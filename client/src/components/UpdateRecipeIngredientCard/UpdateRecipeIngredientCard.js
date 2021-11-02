@@ -6,7 +6,8 @@ function UpdateRecipeIngredientCard({
   recipeToUpdateRecipeIngredients,
   setRecipeToUpdateRecipeIngredients,
   associatedIngredient,
-  ingredientIndex
+  ingredientIndex,
+  recipeToUpdateRecipeId
 }) {
   console.log(recipeToUpdateRecipeIngredient);
   console.log(associatedIngredient);

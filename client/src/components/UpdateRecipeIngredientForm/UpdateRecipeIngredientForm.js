@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./UpdateRecipeIngredientForm.css"
 
-function UpdateRecipeIngredientForm( {ingredients , recipeIngredients, setRecipeToUpdateRecipeIngredients} ) {
+function UpdateRecipeIngredientForm( {ingredients , recipeIngredients, setRecipeToUpdateRecipeIngredients, recipeToUpdateRecipeId} ) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
@@ -21,10 +21,12 @@ function UpdateRecipeIngredientForm( {ingredients , recipeIngredients, setRecipe
 
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
-    setRecipeToUpdateRecipeIngredients(previousUpdatedRecipeIngredients => [
-      ...previousUpdatedRecipeIngredients,
+    setRecipeToUpdateRecipeIngredients(RecipeToUpdateRecipeIngredients => [
+      ...RecipeToUpdateRecipeIngredients,
       {
-        ...ingredients.find((ingredient) => ingredient.id === selectedIngredientId),
+        recipe_id: recipeToUpdateRecipeId,
+        ingredient_id: selectedIngredientId,
+        // ...ingredients.find((ingredient) => ingredient.id === selectedIngredientId),
         amount: ingredientAmount, 
         unit: unitOfMeasurement
       },

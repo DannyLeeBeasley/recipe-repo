@@ -20,8 +20,10 @@ function UpdateRecipeForm({
   console.log(id);
 
   let recipeToUpdate = recipes.find((recipe) => recipe.id == id);
+  let recipeToUpdateRecipeId = recipeToUpdate.id
 
   console.log(recipeToUpdate);
+  console.log(recipeToUpdateRecipeId);
 
   const [userId, setUserId] = useState(recipeToUpdate.user_id);
   const [recipeToUpdateName, setRecipeToUpdateName] = useState(
@@ -123,11 +125,13 @@ function UpdateRecipeForm({
         </label>
         <br />
         <UpdateRecipeIngredientForm
+        recipeToUpdateRecipeId={recipeToUpdateRecipeId}
           ingredients={ingredients}
           recipeToUpdateRecipeIngredients={recipeToUpdateRecipeIngredients}
           setRecipeToUpdateRecipeIngredients={
             setRecipeToUpdateRecipeIngredients
           }
+          recipeToUpdateRecipeId={recipeToUpdateRecipeId}
         />
         <br></br>
         <div className="new-recipe-body">
@@ -143,6 +147,7 @@ function UpdateRecipeForm({
                 associatedIngredient={findAssociatedIngredientToUpdate(
                   recipeToUpdateRecipeIngredient
                 )}
+                recipeToUpdateRecipeId={recipeToUpdateRecipeId}
               />
             )
           )}

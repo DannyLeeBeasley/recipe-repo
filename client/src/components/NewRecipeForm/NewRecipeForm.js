@@ -4,7 +4,7 @@ import NewRecipeIngredientCard from "../NewRecipeIngredientCard/NewRecipeIngredi
 import NewRecipeIngredientForm from "../NewRecipeIngredientForm/NewRecipeIngredientForm";
 import "./NewRecipeForm.css";
 
-function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredientToView }) {
+function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredientNewRecipe }) {
   let history = useHistory();
 
   // const [userId, setUserId] = useState("");
@@ -12,6 +12,8 @@ function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredie
   const [newRecipeImage, setNewRecipeImage] = useState("");
   const [newRecipeDescription, setNewRecipeDescription] = useState("");
   const [newRecipeIngredients, setNewRecipeIngredients] = useState([]);
+
+  console.log(newRecipeIngredients)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -101,7 +103,7 @@ function NewRecipeForm({ addNewRecipe, ingredients, user, findAssociatedIngredie
             <NewRecipeIngredientCard
               newRecipeIngredients={newRecipeIngredients}
               setNewRecipeIngredients={setNewRecipeIngredients}
-              associatedIngredient={findAssociatedIngredientToView(
+              associatedIngredient={findAssociatedIngredientNewRecipe(
                 newRecipeIngredient
               )}
               newRecipeIngredient={newRecipeIngredient}

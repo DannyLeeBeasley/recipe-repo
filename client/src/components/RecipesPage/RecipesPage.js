@@ -90,6 +90,16 @@ function RecipesPage({ user, setUser }) {
     return foundAssociatedIngredient;
   }
 
+  function findAssociatedIngredientNewRecipe(recipeIngredient) {
+    console.log(ingredients);
+    console.log(recipeIngredient);
+    let foundAssociatedIngredient = ingredients.find(
+      (ingredient) =>
+        ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)
+    );
+    return foundAssociatedIngredient;
+  }
+
   function findAssociatedIngredientToUpdate(recipeIngredient) {
     console.log(ingredients);
     console.log(recipeIngredient);
@@ -116,7 +126,7 @@ function RecipesPage({ user, setUser }) {
           user={user}
           ingredients={ingredients}
           recipes={recipes}
-          findAssociatedIngredientToView={findAssociatedIngredientToView}
+          findAssociatedIngredientNewRecipe={findAssociatedIngredientNewRecipe}
           addNewRecipe={addNewRecipe}
         />
       </Route>

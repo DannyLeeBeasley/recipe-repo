@@ -26,7 +26,8 @@ function NewRecipeIngredientForm( {ingredients , recipeIngredients, setNewRecipe
       {
         ...ingredients.find((ingredient) => ingredient.id === selectedIngredientId),
         amount: ingredientAmount, 
-        unit: unitOfMeasurement
+        unit: unitOfMeasurement,
+        // ingredient_id: selectedIngredientId
       },
     ]);
   }
