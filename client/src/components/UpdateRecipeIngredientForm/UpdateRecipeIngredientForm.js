@@ -21,8 +21,8 @@ function UpdateRecipeIngredientForm( {ingredients , recipeIngredients, setRecipe
 
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
-    setRecipeToUpdateRecipeIngredients(RecipeToUpdateRecipeIngredients => [
-      ...RecipeToUpdateRecipeIngredients,
+    setRecipeToUpdateRecipeIngredients(recipeToUpdateRecipeIngredients => [
+      ...recipeToUpdateRecipeIngredients,
       {
         recipe_id: recipeToUpdateRecipeId,
         ingredient_id: selectedIngredientId,

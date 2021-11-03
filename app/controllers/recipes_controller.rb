@@ -24,12 +24,12 @@ class RecipesController < ApplicationController
     end
 
     def update
+        # byebug
         recipe = find_recipe
         recipe_attributes = recipe_params.slice("user_id", "name", "image", "description")
         recipe.update(recipe_attributes)
-        RecipeIngredient.where(recipe: recipe).destroy_all
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
-            RecipeIngredient.create(ingredient_id: recipe_ingredient["id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
+            update_or_create_recipe_ingredient(recipe_ingredient)
         end
         render json: recipe, status: :created 
     end
@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
 
     def recipe_params
         # params.require(:recipe).permit(:user_id, :name, :image, :description, :recipe_ingredients =>[])
-        @recipe_params ||= params.permit(:id, :user_id, :name, :image, :description, :recipe_ingredients =>[:id, :name, :image, :amount, :unit])
+        @recipe_params ||= params.permit(:id, :user_id, :name, :image, :description, :recipe_ingredients => [:id, :recipe_id, :ingredient_id, :amount, :unit])
     end
 
     def find_recipe
@@ -53,6 +53,14 @@ class RecipesController < ApplicationController
 
     def render_not_found_response
         render json: { error: recipe.errors.full_messages }, status: :not_found 
+    end
+
+    def update_or_create_recipe_ingredient(recipe_ingredient)
+        if recipe_ingredient["id"].present?
+            RecipeIngredient.find(recipe_ingredient["id"]).update(recipe_ingredient)  
+        else
+            RecipeIngredient.create(recipe_ingredient)
+        end
     end
         
 end

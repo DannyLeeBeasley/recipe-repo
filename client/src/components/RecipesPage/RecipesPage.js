@@ -14,10 +14,8 @@ import NewUserPage from "../NewUserPage/NewUserPage";
 import ViewRecipe from "../ViewRecipe/ViewRecipe";
 import AboutPage from "../AboutPage/AboutPage";
 
-// import Search from "./Search";
-
 function RecipesPage({ user, setUser }) {
-  console.log(user);
+  // console.log(user);
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
@@ -91,8 +89,8 @@ function RecipesPage({ user, setUser }) {
   }
 
   function findAssociatedIngredientNewRecipe(recipeIngredient) {
-    console.log(ingredients);
-    console.log(recipeIngredient);
+    // console.log(ingredients);
+    // console.log(recipeIngredient);
     let foundAssociatedIngredient = ingredients.find(
       (ingredient) =>
         ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)
@@ -101,8 +99,8 @@ function RecipesPage({ user, setUser }) {
   }
 
   function findAssociatedIngredientToUpdate(recipeIngredient) {
-    console.log(ingredients);
-    console.log(recipeIngredient);
+    // console.log(ingredients);
+    // console.log(recipeIngredient);
     let foundAssociatedIngredient = ingredients.find(
       (ingredient) =>
         ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)

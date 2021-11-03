@@ -17,13 +17,13 @@ function UpdateRecipeForm({
   let { id } = useParams();
   let history = useHistory();
 
-  console.log(id);
+  // console.log(id);
 
   let recipeToUpdate = recipes.find((recipe) => recipe.id == id);
   let recipeToUpdateRecipeId = recipeToUpdate.id
 
-  console.log(recipeToUpdate);
-  console.log(recipeToUpdateRecipeId);
+  // console.log(recipeToUpdate);
+  // console.log(recipeToUpdateRecipeId);
 
   const [userId, setUserId] = useState(recipeToUpdate.user_id);
   const [recipeToUpdateName, setRecipeToUpdateName] = useState(
