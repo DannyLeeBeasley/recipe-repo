@@ -140,6 +140,7 @@ function UpdateRecipeForm({
               <UpdateRecipeIngredientCard
                 key={i}
                 recipeToUpdateRecipeIngredient={recipeToUpdateRecipeIngredient}
+                recipeToUpdateRecipeIngredients={recipeToUpdateRecipeIngredients}
                 setRecipeToUpdateRecipeIngredients={
                   setRecipeToUpdateRecipeIngredients
                 }

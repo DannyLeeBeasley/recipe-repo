@@ -16,7 +16,6 @@ class RecipesController < ApplicationController
     def create
         recipe_attributes = recipe_params.slice("user_id", "name", "image", "description")
         recipe = Recipe.create(recipe_attributes)
-
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
             RecipeIngredient.create(ingredient_id: recipe_ingredient["id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
         end
@@ -31,6 +30,9 @@ class RecipesController < ApplicationController
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
             update_or_create_recipe_ingredient(recipe_ingredient)
         end
+        # recipe.recipe_ingredients each do |recipe_ingredient|
+        #     delete_recipe_ingredient(recipe_ingredient)
+        # end
         render json: recipe, status: :created 
     end
 
@@ -62,5 +64,11 @@ class RecipesController < ApplicationController
             RecipeIngredient.create(recipe_ingredient)
         end
     end
-        
+
+    # def delete_recipe_ingredient(recipe_ingredient)
+    #     unless recipe_params[].includes?(recipe_ingredient["id"])
+    #         RecipeIngredient.find_by(recipe_ingredient["id"]).destroy
+    #     end
+    # end
+            
 end

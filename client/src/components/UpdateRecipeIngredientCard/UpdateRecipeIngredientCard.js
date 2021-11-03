@@ -11,6 +11,7 @@ function UpdateRecipeIngredientCard({
 }) {
   console.log(recipeToUpdateRecipeIngredient);
   console.log(associatedIngredient);
+  console.log(recipeToUpdateRecipeIngredients);
 
   function handleRemoveClick() {
     const list = [...recipeToUpdateRecipeIngredients];
