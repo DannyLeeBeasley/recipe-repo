@@ -1,5 +1,6 @@
 import React from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
+import './RecipeList.css'
 
 function RecipeList({ recipes, handleDeleteRecipe, user }) {
   return (

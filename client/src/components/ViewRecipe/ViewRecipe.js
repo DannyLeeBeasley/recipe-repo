@@ -29,9 +29,9 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user
 
   return (
     <div>
-      <h1>{recipeToView.name}</h1>
-      <img src={recipeToView.image} alt={recipeToView.name} />
-      <h2>{recipeToView.description}</h2>
+      <h1 className="recipe-name">{recipeToView.name}</h1>
+      <img className="recipe-image" src={recipeToView.image} alt={recipeToView.name} />
+      <h2 className="recipe-description">{recipeToView.description}</h2>
       <div>
         {recipeToViewRecipeIngredients.map(
           (recipeToViewRecipeIngredient, i) => (

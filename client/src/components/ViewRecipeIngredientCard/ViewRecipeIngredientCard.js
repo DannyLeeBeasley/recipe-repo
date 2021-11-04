@@ -11,22 +11,16 @@ function ViewRecipeIngredientCard({
   return (
     <>
       <div className="recipe-ingredient">
+      <img
+          className="new-recipe-ingredient-img"
+          alt={associatedIngredient.name}
+          src={associatedIngredient.image}
+        ></img>
         <p className="new-recipe-ingredient-text">
           {recipeToViewRecipeIngredient.amount}&nbsp;
           {recipeToViewRecipeIngredient.unit}
           &nbsp;{associatedIngredient.name}
         </p>
-        <img
-          className="new-recipe-ingredient-img"
-          alt={associatedIngredient.name}
-          src={associatedIngredient.image}
-        ></img>
-        {/* <input
-          className="recipe-ingredient-delete-button"
-          type="button"
-          value="Remove Ingredient"
-          onClick={() => handleRemoveClick()}
-        ></input> */}
       </div>
     </>
   );

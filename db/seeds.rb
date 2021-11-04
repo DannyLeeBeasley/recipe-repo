@@ -68,7 +68,7 @@ shredded_rotisserie_chicken = Ingredient.create(name: "Shredded Rotisserie Chick
 conola_oil = Ingredient.create(name: "Canola Oil", image: "https://naturallivingfamily.com/wp-content/uploads/2017/05/canola-oil-nutrition-facts-pros-cons-what-you-need-to-know.jpg")
 refined_sesame_oil = Ingredient.create(name: "Refined Sesame Oil", image: "https://www.gardeningknowhow.com/wp-content/uploads/2018/07/sesame-oil.jpg")
 unsalted_butter = Ingredient.create(name: "Unsalted Butter", image: "https://fortmyersoliveoil.com/wp-content/uploads/2016/06/butter_2.jpg")
-evoo = Ingredient.create(name: "Extra Virgin Olive Oil", image: "https://hakeemnatures.com/wp-content/uploads/2018/11/185042080.jpg")
+evoo = Ingredient.create(name: "Extra Virgin Olive Oil", image: "https://media.istockphoto.com/photos/olives-and-oil-bottle-picture-id174778941?k=20&m=174778941&s=612x612&w=0&h=Vwt7CdzKAaZJTfuA6VAPVP05cLoyMPxF2GGLkSfhqBw=")
 
 red_wine_vinegar = Ingredient.create(name: "Red Wine Vinegar", image: "https://mk0nutritionadvxtj6i.kinstacdn.com/wp-content/uploads/2017/07/composition-of-red-wine-vinegar.jpg")
 chicken_broth = Ingredient.create(name: "Chicken Broth", image: "https://keviniscooking.com/wp-content/uploads/2020/04/How-to-Make-Chicken-Stock-5.jpg")

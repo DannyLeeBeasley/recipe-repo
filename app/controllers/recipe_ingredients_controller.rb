@@ -21,18 +21,18 @@ class RecipeIngredientsController < ApplicationController
 
     def destroy
         recipe_ingredient = find_recipe_ingredient
-        RecipeIngredient.destroy
+        recipe_ingredient.destroy
         head :no_content
     end
 
     private
 
     def recipe_ingredient_params
-        params.permit(:recipe_id, :ingredient_id, :amount, :unit)
+        params.permit(:id, :recipe_id, :ingredient_id, :amount, :unit)
     end
 
     def find_recipe_ingredient
-        recipe_Ingredient.find(params[:id])
+        RecipeIngredient.find(params[:id])
     end
 
     def render_not_found_response

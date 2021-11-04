@@ -21,16 +21,16 @@ function NewRecipeIngredientCard({
   return (
     <>
       <div className="recipe-ingredient">
+      <img
+          className="new-recipe-ingredient-img"
+          alt={associatedIngredient.name}
+          src={associatedIngredient.image}
+        ></img>
         <p className="new-recipe-ingredient-text">
           {newRecipeIngredient.amount}&nbsp;
           {newRecipeIngredient.unit}
           &nbsp;{associatedIngredient.name}
         </p>
-        <img
-          className="new-recipe-ingredient-img"
-          alt={associatedIngredient.name}
-          src={associatedIngredient.image}
-        ></img>
         <input
           className="recipe-ingredient-delete-button"
           type="button"

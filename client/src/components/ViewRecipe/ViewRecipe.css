@@ -1,0 +1,18 @@
+.recipe-name {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.recipe-description {
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

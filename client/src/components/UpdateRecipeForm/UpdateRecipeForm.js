@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import UpdateRecipeIngredientCard from "../UpdateRecipeIngredientCard/UpdateRecipeIngredientCard";
 import UpdateRecipeIngredientForm from "../UpdateRecipeIngredientForm/UpdateRecipeIngredientForm";
+import './UpdateRecipeForm.css'
 
 function UpdateRecipeForm({
   updateRecipe,
