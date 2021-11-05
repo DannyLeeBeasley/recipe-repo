@@ -13,15 +13,19 @@ function IngredientList({ ingredients, handleDeleteIngredient, user }) {
   return (
     <>
       {user ? (
+        <>
         <h2 className="ingredient-list-header">
-          These are the ingredients currently supposrted by Recipe Repo. Click
-          the button below to add a new ingredient to our database!
+          These are the ingredients currently supposrted by Recipe Repo.
         </h2>
+        <h2 className="ingredient-list-header">Click the button below to add a new ingredient to our database!</h2>
+        </>
       ) : (
+        <>
         <h2 className="ingredient-list-header">
-          These are the ingredients currently supposrted by Recipe Repo. Create
-          an Account or Log In to add ingredients and recipes to our database!
+          These are the ingredients currently supposrted by Recipe Repo.
         </h2>
+        <h2 className="ingredient-list-header">Create an Account or Log In to add ingredients and recipes to our database!</h2>
+        </>
       )}
       {user && (
         <button className="add-new-ingredient-button" onClick={handleClick}>

@@ -4,9 +4,10 @@
 }
 
 .update-recipe-ingredient-form > label{
-    display:flex;
+    /* display:flex;
     flex-direction: column;
-    margin-right: 1rem;
+    margin-right: 1rem; */
+    width: 11.5rem;
 }
 
 .update-recipe-ingredient-input {

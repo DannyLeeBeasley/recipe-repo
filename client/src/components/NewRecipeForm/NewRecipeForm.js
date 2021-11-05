@@ -47,7 +47,7 @@ function NewRecipeForm({
   }
   return (
     <>
-      <h1 className="new-recipe-form-head">New Recipe</h1>
+      <h1 className="new-recipe-form-head">Submit A New Recipe:</h1>
       <div className="new-recipe-form-container">
         <form onSubmit={handleSubmit}>
           <br />

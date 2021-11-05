@@ -10,19 +10,6 @@ function NewRecipeIngredientForm({
   const [ingredientAmount, setIngredientAmount] = useState("");
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
 
-  // function handleAddClick() {
-  //   if (selectedIngredientId === 0) return;
-  //   setNewRecipeIngredients(previousNewRecipeIngredients => [
-  //     ...previousNewRecipeIngredients,
-  //     {
-  //       recipe_id: ,
-  //       ingredient_id: selectedIngredientId,
-  //       amount: ingredientAmount,
-  //       unit: unitOfMeasurement
-  //     },
-  //   ]);
-  // }
-
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
     setNewRecipeIngredients((previousNewRecipeIngredients) => [
@@ -56,7 +43,7 @@ function NewRecipeIngredientForm({
           ></input>
         </div>
         <br />
-        <div className="new-recipe-ingredient-form">
+        <div className="new-recipe-ingredient-input">
           <label>Unit Of Measurement:</label>
           <input
             className="new-recipe-ingredient-input"

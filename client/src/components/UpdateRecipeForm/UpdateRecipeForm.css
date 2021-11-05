@@ -1,0 +1,61 @@
+.update-recipe-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update-recipe-form-container > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.submit-update-recipe-button {
+  background-color: rgb(243, 74, 32);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update-recipe-form-head {
+  text-align: center;
+  font-size: 25;
+  margin: 1% 10% 0 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update-recipe-input {
+  width: 80%;
+  padding: 10px 17px;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 0 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update-recipe-form {
+  width: 65%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 10% 0 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
