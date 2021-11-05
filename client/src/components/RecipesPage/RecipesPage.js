@@ -16,7 +16,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import './RecipesPage.css';
 
 function RecipesPage({ user, setUser }) {
-  // console.log(user);
+  console.log(user);
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
@@ -112,7 +112,7 @@ function RecipesPage({ user, setUser }) {
   return (
     <Router>
       <Header />
-      <NavBar />
+      <NavBar user={user}/>
       <Route exact path="/">
         <RecipeList
           user={user}

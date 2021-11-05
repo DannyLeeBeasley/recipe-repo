@@ -1,5 +1,13 @@
+.new-recipe-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .submit-recipe-button {
-  background-color: rgb(243, 74, 32); /* Green */
+  background-color: rgb(243, 74, 32);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -14,10 +22,10 @@
 .new-recipe-form-head {
   text-align: center;
   font-size: 25;
-  margin: 0 10% 0 10%;
+  margin: 1% 10% 0 10%;
 }
 
-input[type="text"] {
+.new-recipe-input {
   width: 80%;
   padding: 10px 17px;
   margin: 10px 10px;
@@ -33,4 +41,9 @@ input[type="text"] {
   align-content: center;
   justify-content: center;
   margin: 0 10% 0 10%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
 }

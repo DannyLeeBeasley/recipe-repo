@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
         recipe_attributes = recipe_params.slice("user_id", "name", "image", "description")
         recipe = Recipe.create(recipe_attributes)
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
-            RecipeIngredient.create(ingredient_id: recipe_ingredient["id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
+            rpi = RecipeIngredient.create(ingredient_id: recipe_ingredient["id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
+            # recipe.update(:recipe_ingredients => [:id, :recipe_id, :ingredient_id, :amount, :unit])
         end
         render json: recipe, status: :created
     end

@@ -1,0 +1,19 @@
+.update-recipe-ingredient-form {
+  display: flex;
+  align-items: center;
+}
+
+.update-recipe-ingredient-form > label{
+    display:flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.update-recipe-ingredient-input {
+  width: 80%;
+  padding: 0;
+  margin: 10px;
+  box-sizing: border-box;
+  /* justify-content: center;
+  align-content: center; */
+}

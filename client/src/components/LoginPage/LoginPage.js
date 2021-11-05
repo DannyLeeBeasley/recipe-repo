@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link, useHistory } from 'react-router-dom';
-import "./LoginPage.css"
+import { Link, useHistory } from "react-router-dom";
+import "./LoginPage.css";
 
 function LoginPage({ setUser, user }) {
   let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const [login, setLogin] = useState("");
   const [errors, setErrors] = useState([]);
-
 
   function onSubmit(e) {
     e.preventDefault();
@@ -29,6 +28,7 @@ function LoginPage({ setUser, user }) {
         console.log(json);
         if (json.error) {
           setErrors(json.error);
+          alert("Incorrect Username Or Password");
         } else {
           setUser(json);
           history.push("/");
@@ -37,13 +37,15 @@ function LoginPage({ setUser, user }) {
   }
 
   return (
-    <>
-    <h1 className="login-head">Login</h1>
+    <div className="login-container">
+      <h1 className="login-head">Welcome Back!</h1>
+      <h3>Log In Below</h3>
       <form onSubmit={onSubmit}>
         <label>
           Username
           <br />
           <input
+            className="login-username-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -53,15 +55,18 @@ function LoginPage({ setUser, user }) {
           Password
           <br />
           <input
+            className="login-password-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <input type="submit" value="Login!" onClick={() => setLogin(true)} />
+        <input className="login-button" type="submit" value="Login!" onClick={() => setLogin(true)} />
       </form>
-      <h2 className="new-user-link"><Link to="/signup">"New User? Sign Up Here"</Link></h2>
-    </>
+      <h2 className="new-user-link">
+        <Link to="/signup">"New User? Sign Up Here"</Link>
+      </h2>
+    </div>
   );
 }
 

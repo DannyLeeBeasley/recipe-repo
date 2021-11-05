@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ViewRecipeIngredientCard from "../ViewRecipeIngredientCard/ViewRecipeIngredientCard";
+import './ViewRecipe.css';
 
 function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user }) {
   let { id } = useParams();
@@ -28,11 +29,13 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user
   console.log(recipeToViewIngredients);
 
   return (
-    <div>
-      <h1 className="recipe-name">{recipeToView.name}</h1>
-      <img className="recipe-image" src={recipeToView.image} alt={recipeToView.name} />
-      <h2 className="recipe-description">{recipeToView.description}</h2>
-      <div>
+    <div className="view-recipe-container">
+      <h1 className="view-recipe-name">{recipeToView.name}</h1>
+      <div className="view-recipe-content">
+      <img className="view-recipe-image" src={recipeToView.image} alt={recipeToView.name} />
+      <p className="view-recipe-description">{recipeToView.description}</p>
+        </div>
+      <div className="view-recipe-ingredients">
         {recipeToViewRecipeIngredients.map(
           (recipeToViewRecipeIngredient, i) => (
             <ViewRecipeIngredientCard

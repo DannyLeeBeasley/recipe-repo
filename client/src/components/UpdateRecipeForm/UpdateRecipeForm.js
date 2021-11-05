@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import UpdateRecipeIngredientCard from "../UpdateRecipeIngredientCard/UpdateRecipeIngredientCard";
 import UpdateRecipeIngredientForm from "../UpdateRecipeIngredientForm/UpdateRecipeIngredientForm";
-import './UpdateRecipeForm.css'
+import "./UpdateRecipeForm.css";
 
 function UpdateRecipeForm({
   updateRecipe,
@@ -21,7 +21,7 @@ function UpdateRecipeForm({
   // console.log(id);
 
   let recipeToUpdate = recipes.find((recipe) => recipe.id == id);
-  let recipeToUpdateRecipeId = recipeToUpdate.id
+  let recipeToUpdateRecipeId = recipeToUpdate.id;
 
   // console.log(recipeToUpdate);
   // console.log(recipeToUpdateRecipeId);
@@ -48,7 +48,7 @@ function UpdateRecipeForm({
 
   function handleSubmit(e) {
     console.log("hi");
-    console.log(recipeToUpdateRecipeIngredients)
+    console.log(recipeToUpdateRecipeIngredients);
     e.preventDefault();
     fetch(`/recipes/${id}`, {
       method: "PATCH",
@@ -65,7 +65,10 @@ function UpdateRecipeForm({
     })
       .then((res) => res.json())
       .then((updatedRecipe) => {
-        updateRecipe(updatedRecipe);
+        updateRecipe({
+          ...updatedRecipe,
+          recipe_ingredients: recipeToUpdateRecipeIngredients,
+        });
         history.push("/");
       });
   }
@@ -126,7 +129,7 @@ function UpdateRecipeForm({
         </label>
         <br />
         <UpdateRecipeIngredientForm
-        recipeToUpdateRecipeId={recipeToUpdateRecipeId}
+          recipeToUpdateRecipeId={recipeToUpdateRecipeId}
           ingredients={ingredients}
           recipeToUpdateRecipeIngredients={recipeToUpdateRecipeIngredients}
           setRecipeToUpdateRecipeIngredients={
@@ -141,7 +144,9 @@ function UpdateRecipeForm({
               <UpdateRecipeIngredientCard
                 key={i}
                 recipeToUpdateRecipeIngredient={recipeToUpdateRecipeIngredient}
-                recipeToUpdateRecipeIngredients={recipeToUpdateRecipeIngredients}
+                recipeToUpdateRecipeIngredients={
+                  recipeToUpdateRecipeIngredients
+                }
                 setRecipeToUpdateRecipeIngredients={
                   setRecipeToUpdateRecipeIngredients
                 }

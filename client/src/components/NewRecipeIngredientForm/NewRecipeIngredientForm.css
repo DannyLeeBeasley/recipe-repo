@@ -1,0 +1,21 @@
+.new-recipe-ingredient-form {
+    display: flex;
+    align-items: center;
+  }
+  
+.new-recipe-ingredient-form > label{
+      /* display:flex;
+      flex-direction: column; */
+      /* margin-right: 1rem; */
+      width: 11.5rem;
+  }
+  
+.new-recipe-ingredient-input {
+    width: 80%;
+    padding: 0;
+    margin: 10px;
+    box-sizing: border-box;
+    /* justify-content: center;
+    align-content: center; */
+  }
+  
