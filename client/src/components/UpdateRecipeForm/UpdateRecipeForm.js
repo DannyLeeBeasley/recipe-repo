@@ -36,6 +36,7 @@ function UpdateRecipeForm({
   const [recipeToUpdateDescription, setRecipeToUpdateDescription] = useState(
     recipeToUpdate.description
   );
+  const [recipeToUpdateInstructions, setRecipeToUpdateInstructions] = useState(recipeToUpdate.instructions);
   const [recipeToUpdateRecipeIngredients, setRecipeToUpdateRecipeIngredients] =
     useState(recipeToUpdate.recipe_ingredients);
   console.log(recipeToUpdateRecipeIngredients);
@@ -60,6 +61,7 @@ function UpdateRecipeForm({
         name: recipeToUpdateName,
         image: recipeToUpdateImage,
         description: recipeToUpdateDescription,
+        instructions: recipeToUpdateInstructions,
         recipe_ingredients: recipeToUpdateRecipeIngredients,
       }),
     })
@@ -150,6 +152,20 @@ function UpdateRecipeForm({
             )
           )}
         </div>
+        <br />
+          <label>
+            Instructions
+            <input
+              className="update-recipe-input"
+              type="text"
+              name="recipeInstructions"
+              placeholder="Step-By-Step Instructions"
+              value={recipeToUpdateInstructions}
+              onChange={(e) => {
+                setRecipeToUpdateInstructions(e.target.value);
+              }}
+            ></input>
+          </label>
         <div className="submit-button">
         <input className="submit-update-recipe-button" type="submit" value="Submit"></input>
         </div>

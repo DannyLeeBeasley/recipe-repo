@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        recipe_attributes = recipe_params.slice("user_id", "name", "image", "description")
+        recipe_attributes = recipe_params.slice("user_id", "name", "image", "description", "instructions")
         recipe = Recipe.create(recipe_attributes)
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
             rpi = RecipeIngredient.create(ingredient_id: recipe_ingredient["id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
     def update
         # byebug
         recipe = find_recipe
-        recipe_attributes = recipe_params.slice("user_id", "name", "image", "description")
+        recipe_attributes = recipe_params.slice("user_id", "name", "image", "description", "instructions")
         recipe.update(recipe_attributes)
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
             update_or_create_recipe_ingredient(recipe_ingredient)

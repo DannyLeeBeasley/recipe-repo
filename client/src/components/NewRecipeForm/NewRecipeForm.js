@@ -16,6 +16,7 @@ function NewRecipeForm({
   const [newRecipeName, setNewRecipeName] = useState("");
   const [newRecipeImage, setNewRecipeImage] = useState("");
   const [newRecipeDescription, setNewRecipeDescription] = useState("");
+  const [newRecipeInstructions, setNewRecipeInstructions] = useState("");
   const [newRecipeIngredients, setNewRecipeIngredients] = useState([]);
 
   console.log(newRecipeIngredients);
@@ -32,6 +33,7 @@ function NewRecipeForm({
         name: newRecipeName,
         image: newRecipeImage,
         description: newRecipeDescription,
+        instructions: newRecipeInstructions,
         recipe_ingredients: newRecipeIngredients,
       }),
     })
@@ -113,6 +115,20 @@ function NewRecipeForm({
               />
             ))}
           </div>
+          <br />
+          <label>
+            Instructions
+            <input
+              className="new-recipe-input"
+              type="text"
+              name="recipeInstructions"
+              placeholder="Step-By-Step Instructions"
+              value={newRecipeInstructions}
+              onChange={(e) => {
+                setNewRecipeInstructions(e.target.value);
+              }}
+            ></input>
+          </label>
           <div className="submit-button">
           <input
             className="submit-recipe-button"
