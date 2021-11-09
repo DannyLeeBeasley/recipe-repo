@@ -48,6 +48,7 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user
           )
         )}
       </div>
+      <p className="view-recipe-instructions">{recipeToView.instructions}</p>
     </div>
   );
 }
