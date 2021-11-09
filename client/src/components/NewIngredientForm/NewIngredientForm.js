@@ -27,12 +27,14 @@ function NewIngredientForm({ addNewIngredient }) {
   }
 
   return (
-    <div className="new-ingredient">
-      <h1 className="new-ingredient-header">Add Ingredient</h1>
+    <div className="new-ingredient-container">
+      <h1 className="new-ingredient-head">Add Ingredient</h1>
       <form className="new-ingredient-form" onSubmit={handleSubmit}>
         <label>
           Ingredient Name
+          <br/>
           <input
+          className="new-ingredient-input"
             type="text"
             name="ingredientName"
             placeholder="Ingredient Name"
@@ -40,12 +42,14 @@ function NewIngredientForm({ addNewIngredient }) {
             onChange={(e) => {setName(e.target.value)}}
           />
         </label>
-        <br />
         <label>
           Image
+          <br/>
           <input
+          className="new-ingredient-input"
             type="text"
-            name="image"
+            name="ingredientImage"
+            placeholder="Ingredient JPG Link"
             value={image}
             onChange={(e) => {setImage(e.target.value)}}
           />

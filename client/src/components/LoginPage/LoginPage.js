@@ -61,6 +61,7 @@ function LoginPage({ setUser, user }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+        <br/>
         <input className="login-button" type="submit" value="Login!" onClick={() => setLogin(true)} />
       </form>
       <h2 className="new-user-link">
