@@ -3,8 +3,9 @@ import "./NewRecipeIngredientForm.css";
 
 function NewRecipeIngredientForm({
   ingredients,
-  recipeIngredients,
+  newRecipeIngredients,
   setNewRecipeIngredients,
+  newRecipeId
 }) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
@@ -12,17 +13,16 @@ function NewRecipeIngredientForm({
 
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
-    setNewRecipeIngredients((previousNewRecipeIngredients) => [
-      ...previousNewRecipeIngredients,
+    setNewRecipeIngredients((newRecipeIngredients) => [
+      ...newRecipeIngredients,
       {
-        ...ingredients.find(
-          (ingredient) => ingredient.id === selectedIngredientId
-        ),
+        recipe_id: newRecipeId,
+        ingredient_id: selectedIngredientId,
         amount: ingredientAmount,
         unit: unitOfMeasurement,
-        // ingredient_id: selectedIngredientId
       },
     ]);
+    console.log(newRecipeIngredients)
   }
 
   return (

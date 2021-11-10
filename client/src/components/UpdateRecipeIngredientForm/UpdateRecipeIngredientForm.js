@@ -3,7 +3,7 @@ import "./UpdateRecipeIngredientForm.css";
 
 function UpdateRecipeIngredientForm({
   ingredients,
-  recipeIngredients,
+  recipeToUpdateRecipeIngredients,
   setRecipeToUpdateRecipeIngredients,
   recipeToUpdateRecipeId,
 }) {

@@ -5,12 +5,16 @@ import NewRecipeIngredientForm from "../NewRecipeIngredientForm/NewRecipeIngredi
 import "./NewRecipeForm.css";
 
 function NewRecipeForm({
+  recipes,
   addNewRecipe,
   ingredients,
   user,
   findAssociatedIngredientNewRecipe,
 }) {
   let history = useHistory();
+
+  let newRecipeId = (recipes.length + 1)
+  console.log(newRecipeId)
 
   // const [userId, setUserId] = useState("");
   const [newRecipeName, setNewRecipeName] = useState("");
@@ -99,6 +103,7 @@ function NewRecipeForm({
             ingredients={ingredients}
             newRecipeIngredients={newRecipeIngredients}
             setNewRecipeIngredients={setNewRecipeIngredients}
+            newRecipeId={newRecipeId}
           />
           <br></br>
           <div className="new-recipe-body">
