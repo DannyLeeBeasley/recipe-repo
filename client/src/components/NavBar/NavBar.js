@@ -7,9 +7,9 @@ import "./NavBar.css";
 function NavBar({ user, setUser }) {
   const [clicked, setClicked] = useState(false);
 
-  function handleClick() {
-    setClicked(!clicked);
-  }
+  // function handleClick() {
+  //   setClicked(!clicked);
+  // }
 
   function handleLogout() {
     fetch("/logout").then(() => setUser(null));

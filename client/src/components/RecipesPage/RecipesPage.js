@@ -13,7 +13,7 @@ import UpdateRecipeForm from "../UpdateRecipeForm/UpdateRecipeForm";
 import NewUserPage from "../NewUserPage/NewUserPage";
 import ViewRecipe from "../ViewRecipe/ViewRecipe";
 import AboutPage from "../AboutPage/AboutPage";
-import './RecipesPage.css';
+import "./RecipesPage.css";
 
 function RecipesPage({ user, setUser }) {
   console.log(user);
@@ -112,7 +112,7 @@ function RecipesPage({ user, setUser }) {
   return (
     <Router>
       <Header />
-      <NavBar user={user}/>
+      <NavBar user={user} setUser={setUser} />
       <Route exact path="/">
         <RecipeList
           user={user}
