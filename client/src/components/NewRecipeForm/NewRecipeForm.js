@@ -44,10 +44,7 @@ function NewRecipeForm({
       .then((res) => res.json())
       .then((newRecipe) => {
         console.log(newRecipe);
-        addNewRecipe({
-          ...newRecipe,
-          recipe_ingredients: newRecipeIngredients,
-        });
+        addNewRecipe(newRecipe);
         history.push("/");
       });
   }

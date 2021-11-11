@@ -12,7 +12,9 @@ function NavBar({ user, setUser }) {
   // }
 
   function handleLogout() {
-    fetch("/logout").then(() => setUser(null));
+    fetch("/logout")
+    .then(() => setUser(null))
+    // history.push("/loggedout");
   }
 
   return (

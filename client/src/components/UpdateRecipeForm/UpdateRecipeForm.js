@@ -67,10 +67,7 @@ function UpdateRecipeForm({
     })
       .then((res) => res.json())
       .then((updatedRecipe) => {
-        updateRecipe({
-          ...updatedRecipe,
-          recipe_ingredients: recipeToUpdateRecipeIngredients,
-        });
+        updateRecipe(updatedRecipe);
         history.push("/");
       });
   }
