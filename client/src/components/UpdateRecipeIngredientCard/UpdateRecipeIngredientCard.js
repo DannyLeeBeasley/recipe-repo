@@ -7,7 +7,7 @@ function UpdateRecipeIngredientCard({
   setRecipeToUpdateRecipeIngredients,
   associatedIngredient,
   ingredientIndex,
-  recipeToUpdateRecipeId
+  recipeToUpdateRecipeId,
 }) {
   // console.log(recipeToUpdateRecipeIngredient);
   // console.log(associatedIngredient);
@@ -28,7 +28,7 @@ function UpdateRecipeIngredientCard({
   return (
     <>
       <div className="recipe-ingredient">
-      <img
+        <img
           className="new-recipe-ingredient-img"
           alt={associatedIngredient.name}
           src={associatedIngredient.image}

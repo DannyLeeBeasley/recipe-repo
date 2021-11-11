@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ViewRecipeIngredientCard from "../ViewRecipeIngredientCard/ViewRecipeIngredientCard";
-import './ViewRecipe.css';
+import "./ViewRecipe.css";
 
-function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user }) {
+function ViewRecipe({
+  recipes,
+  ingredients,
+  findAssociatedIngredientToView,
+  user,
+}) {
   let { id } = useParams();
-  console.log(user)
+  console.log(user);
 
-  let recipeToView = recipes.find(recipe => recipe.id == id);
+  let recipeToView = recipes.find((recipe) => recipe.id == id);
   console.log(recipeToView);
 
   const [recipeToViewRecipeIngredients, setRecipeToViewRecipeIngredients] =
@@ -32,9 +37,13 @@ function ViewRecipe({ recipes, ingredients, findAssociatedIngredientToView, user
     <div className="view-recipe-container">
       <h1 className="view-recipe-name">{recipeToView.name}</h1>
       <div className="view-recipe-content">
-      <img className="view-recipe-image" src={recipeToView.image} alt={recipeToView.name} />
-      <p className="view-recipe-description">{recipeToView.description}</p>
-        </div>
+        <img
+          className="view-recipe-image"
+          src={recipeToView.image}
+          alt={recipeToView.name}
+        />
+        <p className="view-recipe-description">{recipeToView.description}</p>
+      </div>
       <div className="view-recipe-ingredients">
         {recipeToViewRecipeIngredients.map(
           (recipeToViewRecipeIngredient, i) => (

@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-        <RecipesPage user={user} setUser={setUser}/>
+      <RecipesPage user={user} setUser={setUser} />
     </div>
   );
 }

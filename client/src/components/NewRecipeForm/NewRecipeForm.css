@@ -6,7 +6,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.new-recipe-form-container > label{
+.new-recipe-form-container > label {
   display: flex;
   flex-direction: column;
   align-items: center;

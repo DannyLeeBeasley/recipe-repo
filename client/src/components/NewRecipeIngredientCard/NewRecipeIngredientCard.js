@@ -3,10 +3,10 @@ import "./NewRecipeIngredientCard.css";
 
 function NewRecipeIngredientCard({
   newRecipeIngredient,
-  associatedIngredient, 
+  associatedIngredient,
   ingredientIndex,
   newRecipeIngredients,
-  setNewRecipeIngredients
+  setNewRecipeIngredients,
 }) {
   // console.log(newRecipeIngredient);
   // console.log(newRecipeIngredients);
@@ -21,7 +21,7 @@ function NewRecipeIngredientCard({
   return (
     <>
       <div className="recipe-ingredient">
-      <img
+        <img
           className="new-recipe-ingredient-img"
           alt={associatedIngredient.name}
           src={associatedIngredient.image}

@@ -12,8 +12,7 @@ function NavBar({ user, setUser }) {
   // }
 
   function handleLogout() {
-    fetch("/logout")
-    .then(() => setUser(null))
+    fetch("/logout").then(() => setUser(null));
     // history.push("/loggedout");
   }
 
@@ -23,9 +22,13 @@ function NavBar({ user, setUser }) {
         {NavBarItems.map((item, index) => {
           return (
             <span key={index}>
-              <Link onClick={(e) => {
-                item.onClick(e, user)
-                }} className={item.cName} to={item.url}>
+              <Link
+                onClick={(e) => {
+                  item.onClick(e, user);
+                }}
+                className={item.cName}
+                to={item.url}
+              >
                 {item.name}
               </Link>
             </span>

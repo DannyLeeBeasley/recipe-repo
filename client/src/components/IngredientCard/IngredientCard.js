@@ -1,5 +1,5 @@
 import React from "react";
-import "./IngredientCard.css"
+import "./IngredientCard.css";
 
 function IngredientCard({ name, image, handleDeleteIngredient }) {
   return (

@@ -31,18 +31,20 @@ function RecipeCard({
       />
       <p className="recipe-description">{description}</p>
       {recipe.user_id === user?.id && (
-      <button className="update-recipe-button" onClick={handleClick}>
-        Update Recipe
-      </button>)}
+        <button className="update-recipe-button" onClick={handleClick}>
+          Update Recipe
+        </button>
+      )}
       {recipe.user_id === user?.id && (
-      <button
-        className="delete-recipe-button"
-        onClick={(e) => {
-          handleDeleteRecipe(recipe.id);
-        }}
-      >
-        Delete Recipe
-      </button>)}
+        <button
+          className="delete-recipe-button"
+          onClick={(e) => {
+            handleDeleteRecipe(recipe.id);
+          }}
+        >
+          Delete Recipe
+        </button>
+      )}
     </li>
   );
 }

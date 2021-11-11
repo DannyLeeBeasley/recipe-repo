@@ -3,7 +3,7 @@ import "./ViewRecipeIngredientCard.css";
 
 function ViewRecipeIngredientCard({
   recipeToViewRecipeIngredient,
-  associatedIngredient
+  associatedIngredient,
 }) {
   console.log(recipeToViewRecipeIngredient);
   console.log(associatedIngredient);
@@ -11,7 +11,7 @@ function ViewRecipeIngredientCard({
   return (
     <>
       <div className="recipe-ingredient">
-      <img
+        <img
           className="new-recipe-ingredient-img"
           alt={associatedIngredient.name}
           src={associatedIngredient.image}

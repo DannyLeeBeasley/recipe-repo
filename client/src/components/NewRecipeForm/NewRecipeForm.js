@@ -13,8 +13,8 @@ function NewRecipeForm({
 }) {
   let history = useHistory();
 
-  let newRecipeId = (recipes.length + 1)
-  console.log(newRecipeId)
+  let newRecipeId = recipes.length + 1;
+  console.log(newRecipeId);
 
   // const [userId, setUserId] = useState("");
   const [newRecipeName, setNewRecipeName] = useState("");
@@ -132,11 +132,11 @@ function NewRecipeForm({
             ></input>
           </label>
           <div className="submit-button">
-          <input
-            className="submit-recipe-button"
-            type="submit"
-            value="Submit Recipe"
-          ></input>
+            <input
+              className="submit-recipe-button"
+              type="submit"
+              value="Submit Recipe"
+            ></input>
           </div>
         </form>
       </div>

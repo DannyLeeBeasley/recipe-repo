@@ -5,7 +5,7 @@ function NewRecipeIngredientForm({
   ingredients,
   newRecipeIngredients,
   setNewRecipeIngredients,
-  newRecipeId
+  newRecipeId,
 }) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
@@ -22,7 +22,7 @@ function NewRecipeIngredientForm({
         unit: unitOfMeasurement,
       },
     ]);
-    console.log(newRecipeIngredients)
+    console.log(newRecipeIngredients);
   }
 
   return (
