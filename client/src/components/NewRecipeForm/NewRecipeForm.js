@@ -53,9 +53,8 @@ function NewRecipeForm({
       <h1 className="new-recipe-form-head">Submit A New Recipe:</h1>
       <div className="new-recipe-form-container">
         <form onSubmit={handleSubmit}>
-          <br />
-          <label>
-            Recipe Name
+          <div className="new-recipe-input-container">
+            <label>Recipe Name:</label>
             <input
               className="new-recipe-input"
               type="text"
@@ -66,10 +65,9 @@ function NewRecipeForm({
                 setNewRecipeName(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
-          <label>
-            Recipe Image
+          </div>
+          <div className="new-recipe-input-container">
+            <label>Recipe Image:</label>
             <input
               className="new-recipe-input"
               type="text"
@@ -80,10 +78,9 @@ function NewRecipeForm({
                 setNewRecipeImage(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
-          <label>
-            Description
+          </div>
+          <div className="new-recipe-input-container">
+            <label>Description:</label>
             <input
               className="new-recipe-input"
               type="text"
@@ -94,8 +91,7 @@ function NewRecipeForm({
                 setNewRecipeDescription(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
+          </div>
           <NewRecipeIngredientForm
             ingredients={ingredients}
             newRecipeIngredients={newRecipeIngredients}
@@ -117,20 +113,22 @@ function NewRecipeForm({
               />
             ))}
           </div>
-          <br />
-          <label>
-            Instructions
-            <input
-              className="new-recipe-input"
-              type="text"
+          <p className="new-recipe-instructions-head">
+            Recipe Instructions:
+            </p>
+          <div className="new-recipe-instructions-input-container">
+            <textarea
+              className="new-recipe-instructions-input"
+              rows="10"
+              cols="58"
               name="recipeInstructions"
               placeholder="Step-By-Step Instructions"
               value={newRecipeInstructions}
               onChange={(e) => {
                 setNewRecipeInstructions(e.target.value);
               }}
-            ></input>
-          </label>
+            ></textarea>
+          </div>
           <div className="submit-button">
             <input
               className="submit-recipe-button"

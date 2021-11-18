@@ -1,5 +1,5 @@
 .update-recipe-button {
-  background-color: #3cbb41; /* Green */
+  background-color: #3cbb41;
   border: none;
   color: white;
   padding: 10px 24px;
@@ -45,7 +45,7 @@
 .recipe-name {
   padding-left: 15px;
   text-align: center;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .recipe-image {
@@ -58,6 +58,7 @@
 .recipe-description {
   margin-top: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
 }
 
 .recipe-card:hover {

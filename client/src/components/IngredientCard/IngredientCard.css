@@ -2,7 +2,7 @@
   position: relative;
   text-align: center;
   width: 65%;
-  height: 65%;
+  height: 85%;
   background: white;
   border-radius: 5%;
   display: inline-grid;
@@ -13,16 +13,18 @@
 }
 
 .ingredient-name {
-  padding-left: 15px;
+  /* padding-left: 15px; */
   background-color: rgb(236, 181, 97);
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-size: 1.3rem;
 }
 
 .ingredient-image {
-  max-height: 73%;
-  max-width: 73%;
+  max-height: 10vh;
+  max-width: 10vw;
 }
 
 /* On mouse-over, add a deeper shadow */
-.ingredient-card:hover {
+/* .ingredient-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
+} */

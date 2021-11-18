@@ -14,9 +14,9 @@
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 70vw;
+  width: 150vw;
   justify-content: end;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 .nav-links {

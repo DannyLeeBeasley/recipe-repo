@@ -1,3 +1,12 @@
+.new-recipe-form {
+  width: 65%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 10% 0 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .new-recipe-form-container {
   display: flex;
   flex-direction: column;
@@ -6,26 +15,25 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.new-recipe-form-container > label {
+.new-recipe-input-container > label {
+  width: 18%;
+}
+
+.new-recipe-form-container > form {
+  width: 70%;
+  height: 550px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  justify-content: space-evenly;
 }
 
-.submit-recipe-button {
-  background-color: rgb(243, 74, 32);
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.new-recipe-input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .new-recipe-form-head {
@@ -38,24 +46,42 @@
 .new-recipe-input {
   width: 80%;
   padding: 10px 17px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
-  margin: 0 10% 0 10%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #ffc34d;
 }
 
-.new-recipe-form {
-  width: 65%;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  margin: 0 10% 0 10%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.new-recipe-instructions-head {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.new-recipe-instructions-input-container {
+  display: flex;
+}
+
+.new-recipe-instructions-input {
+  /* height: 100px;
+  width: 500px; */
+  padding: 10px 17px;
+  background-color: #ffc34d;
 }
 
 .submit-button {
   display: flex;
   justify-content: center;
 }
+.submit-recipe-button {
+  background-color: rgb(243, 74, 32);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+

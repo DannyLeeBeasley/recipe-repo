@@ -39,39 +39,40 @@ function LoginPage({ setUser, user }) {
   return (
     <div className="login-container">
       <h1 className="login-head">Welcome Back!</h1>
-      <h3>Log In Below</h3>
+      <p className="login-sub-title">Log In Below</p>
       <form onSubmit={onSubmit}>
+      <div className="login-input-container">
         <label>
-          Username
-          <br />
+          USERNAME
+          </label>
           <input
-            className="login-username-input"
+            className="login-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
+          ></input>
+          </div>
+        <div className="login-input-container">
         <label>
-          Password
-          <br />
+          PASSWORD
+          </label>
           <input
-            className="login-password-input"
+            className="login-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
+          ></input>
+        </div>
         <input
           className="login-button"
           type="submit"
-          value="Login!"
+          value="Log In"
           onClick={() => setLogin(true)}
-        />
+        ></input>
       </form>
-      <h2 className="new-user-link">
-        <Link to="/signup">"New User? Sign Up Here"</Link>
-      </h2>
+      <p className="new-user-link">
+        <Link to="/signup">New User? Click Here To Sign Up!</Link>
+      </p>
     </div>
   );
 }

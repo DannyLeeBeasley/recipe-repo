@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
   border-radius: 3px;
+}
+
+.App {
   font-family: "Dancing Script", cursive;
   background-color: #ffc34d;
 }

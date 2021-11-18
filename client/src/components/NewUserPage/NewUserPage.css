@@ -6,23 +6,49 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.new-user-container > form {
+  width: 375px;
+  height: 250px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.new-user-input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.new-user-input-container > label {
+  width: 25%;
+}
+
 .new-user-input {
-  width: 80%;
+  width: 70%;
   padding: 10px 17px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
-  margin: 0 10% 0 10%;
+  margin-left: 10px;
+  background-color: #ffc34d;
 }
 
 .submit-new-user-button {
   width: 60%;
   padding: 10px 17px;
   margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
   margin: 0 10% 0 10%;
   background-color: rgb(177, 114, 20);
+  font-weight: bolder;
+}
+
+.new-user-head {
+  font-size: 3rem;
+  padding-top: 1rem;
+}
+
+.new-user-sub-title {
+  font-size: 2rem;
+  padding-top: 1rem;
 }
