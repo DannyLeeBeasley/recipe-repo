@@ -17,9 +17,6 @@
 }
 
 .new-recipe-ingredient-input-container > label {
-  /* display:flex;
-      flex-direction: column;
-      margin-right: 1rem; */
   width: 60%;
 }
 
@@ -29,8 +26,6 @@
   margin: 10px;
   box-sizing: border-box;
   background-color: #ffc34d;
-  /* justify-content: center;
-    align-content: center; */
 }
 
 .new-recipe-amount {

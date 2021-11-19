@@ -11,19 +11,14 @@ function NewRecipeForm({
   user,
   findAssociatedIngredientNewRecipe,
 }) {
+  let newRecipeId = recipes.length + 1;
   let history = useHistory();
 
-  let newRecipeId = recipes.length + 1;
-  console.log(newRecipeId);
-
-  // const [userId, setUserId] = useState("");
   const [newRecipeName, setNewRecipeName] = useState("");
   const [newRecipeImage, setNewRecipeImage] = useState("");
   const [newRecipeDescription, setNewRecipeDescription] = useState("");
   const [newRecipeInstructions, setNewRecipeInstructions] = useState("");
   const [newRecipeIngredients, setNewRecipeIngredients] = useState([]);
-
-  console.log(newRecipeIngredients);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -72,7 +67,7 @@ function NewRecipeForm({
               className="new-recipe-input"
               type="text"
               name="recipeImage"
-              placeholder="Recipe Image"
+              placeholder="Google a JPG, right click it, copy image address, paste here."
               value={newRecipeImage}
               onChange={(e) => {
                 setNewRecipeImage(e.target.value);

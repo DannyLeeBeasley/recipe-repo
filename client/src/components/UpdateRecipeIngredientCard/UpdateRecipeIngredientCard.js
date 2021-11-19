@@ -9,10 +9,6 @@ function UpdateRecipeIngredientCard({
   ingredientIndex,
   recipeToUpdateRecipeId,
 }) {
-  // console.log(recipeToUpdateRecipeIngredient);
-  // console.log(associatedIngredient);
-  // console.log(recipeToUpdateRecipeIngredients);
-  console.log(recipeToUpdateRecipeIngredient.id);
 
   function handleRemoveClick() {
     const list = [...recipeToUpdateRecipeIngredients];

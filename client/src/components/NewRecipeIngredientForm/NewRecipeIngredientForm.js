@@ -22,7 +22,6 @@ function NewRecipeIngredientForm({
         unit: unitOfMeasurement,
       },
     ]);
-    console.log(newRecipeIngredients);
   }
 
   return (

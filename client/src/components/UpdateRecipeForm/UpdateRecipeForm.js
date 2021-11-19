@@ -18,13 +18,8 @@ function UpdateRecipeForm({
   let { id } = useParams();
   let history = useHistory();
 
-  // console.log(id);
-
   let recipeToUpdate = recipes.find((recipe) => recipe.id == id);
   let recipeToUpdateRecipeId = recipeToUpdate.id;
-
-  // console.log(recipeToUpdate);
-  // console.log(recipeToUpdateRecipeId);
 
   const [userId, setUserId] = useState(recipeToUpdate.user_id);
   const [recipeToUpdateName, setRecipeToUpdateName] = useState(
@@ -41,17 +36,9 @@ function UpdateRecipeForm({
   );
   const [recipeToUpdateRecipeIngredients, setRecipeToUpdateRecipeIngredients] =
     useState(recipeToUpdate.recipe_ingredients);
-  console.log(recipeToUpdateRecipeIngredients);
 
-  // let updatedRecipeIngredientIds = recipeToUpdate.ingredient_ids
-
-  // let updatedRecipeIngredients = recipeIngredients.filter(recipeIngredient => recipeIngredient.recipe_id === recipeToUpdate.id)
-
-  // const [recipeIngredients, setRecipeIngredients] = useState(updatedRecipeIngredients);
 
   function handleSubmit(e) {
-    console.log("hi");
-    console.log(recipeToUpdateRecipeIngredients);
     e.preventDefault();
     fetch(`/recipes/${id}`, {
       method: "PATCH",
@@ -78,9 +65,8 @@ function UpdateRecipeForm({
       <h1 className="update-recipe-form-head">Update Your Recipe</h1>
       <div className="update-recipe-form-container">
         <form onSubmit={handleSubmit}>
-          <br />
-          <label>
-            Recipe Name
+          <div className="update-recipe-input-container">
+          <label>Recipe Name:</label>
             <input
               className="update-recipe-input"
               type="text"
@@ -91,24 +77,22 @@ function UpdateRecipeForm({
                 setRecipeToUpdateName(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
-          <label>
-            Recipe Image
+            </div>
+            <div className="update-recipe-input-container">
+            <label>Recipe Image:</label>
             <input
               className="update-recipe-input"
               type="text"
               name="recipeImage"
-              placeholder="Recipe Image"
+              placeholder="Google a JPG, right click it, copy image address, paste here."
               value={recipeToUpdateImage}
               onChange={(e) => {
                 setRecipeToUpdateImage(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
-          <label>
-            Description
+            </div>
+            <div className="update-recipe-input-container">
+            <label>Description:</label>
             <input
               className="update-recipe-input"
               type="text"
@@ -119,8 +103,7 @@ function UpdateRecipeForm({
                 setRecipeToUpdateDescription(e.target.value);
               }}
             ></input>
-          </label>
-          <br />
+            </div>
           <UpdateRecipeIngredientForm
             recipeToUpdateRecipeId={recipeToUpdateRecipeId}
             ingredients={ingredients}
@@ -153,25 +136,25 @@ function UpdateRecipeForm({
               )
             )}
           </div>
-          <br />
-          <label>
-            Instructions
-            <input
-              className="update-recipe-input"
-              type="text"
+          <p className="update-recipe-instructions-head">Recipe Instructions:</p>
+          <div className="new-recipe-instructions-input-container">
+            <textarea
+              className="update-recipe-instructions-input"
+              rows="10"
+              cols="58"
               name="recipeInstructions"
               placeholder="Step-By-Step Instructions"
               value={recipeToUpdateInstructions}
               onChange={(e) => {
                 setRecipeToUpdateInstructions(e.target.value);
               }}
-            ></input>
-          </label>
+            ></textarea>
+          </div>
           <div className="submit-button">
             <input
               className="submit-update-recipe-button"
               type="submit"
-              value="Submit"
+              value="Update Recipe"
             ></input>
           </div>
         </form>

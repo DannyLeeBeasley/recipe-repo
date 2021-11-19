@@ -26,29 +26,28 @@ function UpdateRecipeIngredientForm({
 
   return (
     <>
-      <h3>Add Ingredients</h3>
+      <p className="update-recipe-ingredient-form-head">Add Ingredients:</p>
       <div className="update-recipe-ingredient-form">
-        <div className="update-recipe-ingredient-form">
-          <label>Ingredient Amount:</label>
+        <div className="update-recipe-ingredient-input-container update-recipe-amount">
+          <label>Amount:</label>
           <input
             className="update-recipe-ingredient-input"
             type="text"
             name="ingredientAmount"
-            placeholder="Ingredient Amount"
+            placeholder="0.00"
             value={ingredientAmount}
             onChange={(e) => {
               setIngredientAmount(e.target.value);
             }}
           ></input>
         </div>
-        <br />
-        <div className="update-recipe-ingredient-input">
-          <label>Unit Of Measurement:</label>
+        <div className="update-recipe-ingredient-input-container update-recipe-unit">
+          <label>Unit:</label>
           <input
             className="update-recipe-ingredient-input"
             type="text"
             name="unitOfMeasurement"
-            placeholder="Unit Of Measurement"
+            // placeholder="Unit"
             value={unitOfMeasurement}
             onChange={(e) => {
               setUnitOfMeasurement(e.target.value);
@@ -68,6 +67,7 @@ function UpdateRecipeIngredientForm({
           })}
         </select>
         <input
+          className="add-recipe-ingredient-button"
           type="button"
           value="Add Ingredient"
           onClick={handleAddClick}
