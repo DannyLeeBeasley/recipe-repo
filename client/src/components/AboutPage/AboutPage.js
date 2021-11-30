@@ -3,11 +3,14 @@ import "./AboutPage.css";
 
 function AboutPage() {
   return (
-    <h1 className="about-page-text">
-      Recipe Repo was created for the people by Daniel Beasley as a capstone
-      project for a 15-Week Software Engineering Bootcamp through Flatiron
-      School.
-    </h1>
+    <div className="about-page-container">
+    <p className="about-page-text">
+      Recipe Repo was created to help family, friends, and strangers share the love of food, cooking, and culture.
+    </p>
+    <p className="about-page-text">
+       Enjoy!
+    </p>
+    </div>
   );
 }
 

@@ -41,21 +41,17 @@ function LoginPage({ setUser, user }) {
       <h1 className="login-head">Welcome Back!</h1>
       <p className="login-sub-title">Log In Below</p>
       <form onSubmit={onSubmit}>
-      <div className="login-input-container">
-        <label>
-          USERNAME
-          </label>
+        <div className="login-input-container">
+          <label>USERNAME:</label>
           <input
             className="login-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-          </div>
+        </div>
         <div className="login-input-container">
-        <label>
-          PASSWORD
-          </label>
+          <label>PASSWORD:</label>
           <input
             className="login-input"
             type="password"
@@ -71,7 +67,11 @@ function LoginPage({ setUser, user }) {
         ></input>
       </form>
       <p className="new-user-link">
-        <Link to="/signup">New User? Click Here To Sign Up!</Link>
+        New User?{" "}
+        <Link className="link-to-new-user" to="/signup">
+          Click Here
+        </Link>{" "}
+        To Sign Up!
       </p>
     </div>
   );

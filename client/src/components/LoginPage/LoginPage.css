@@ -52,10 +52,13 @@
   background-color: rgb(177, 114, 20);
   font-weight: bolder;
 }
-
 .new-user-link {
   margin: 0 auto;
   display: block;
   text-align: center;
   font-weight: bolder;
+}
+
+.link-to-new-user {
+  font-style: italic;
 }
