@@ -29,6 +29,7 @@ function RecipeCard({
         alt={"recipe"}
         onClick={viewRecipe}
       />
+      <div className="recipe-card-bottom">
       <p className="recipe-description">{description}</p>
       {recipe.user_id === user?.id && (
         <button className="update-recipe-button" onClick={handleClick}>
@@ -45,6 +46,7 @@ function RecipeCard({
           Delete Recipe
         </button>
       )}
+      </div>
     </li>
   );
 }

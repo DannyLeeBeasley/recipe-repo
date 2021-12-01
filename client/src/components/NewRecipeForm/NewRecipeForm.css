@@ -16,12 +16,13 @@
 }
 
 .new-recipe-input-container > label {
-  width: 18%;
+  width: 13%;
+  margin-right: 15px;
 }
 
 .new-recipe-form-container > form {
   width: 70%;
-  height: 550px;
+  min-height: 550px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;
@@ -33,7 +34,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  transform: translateX(-66px);
 }
 
 .new-recipe-form-head {
@@ -44,7 +46,7 @@
 }
 
 .new-recipe-input {
-  width: 80%;
+  width: 60%;
   padding: 10px 17px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #ffc34d;

@@ -13,8 +13,8 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="NavBarItems">
-      <div>
+    <nav className="nav-bar-container">
+      <div className="nav-bar-items">
         {NavBarItems.map((item, index) => {
           return (
             <span key={index}>

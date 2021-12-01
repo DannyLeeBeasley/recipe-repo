@@ -18,6 +18,7 @@
 
 .new-user-input-container {
   width: 100%;
+  transform: translateX(-53px);
   display: flex;
   align-items: center;
   justify-content: space-evenly;

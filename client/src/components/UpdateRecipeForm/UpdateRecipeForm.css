@@ -21,7 +21,7 @@
 
 .update-recipe-form-container > form {
   width: 70%;
-  height: 550px;
+  min-height: 550px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   flex-direction: column;

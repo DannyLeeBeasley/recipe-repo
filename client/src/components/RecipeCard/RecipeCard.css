@@ -37,9 +37,11 @@
   margin: 1rem, 2rem;
   background-color: transparent;
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   padding-left: 15px;
   padding-right: 15px;
+  min-height: 400px;
+  /* justify-content: space-evenly; */
 }
 
 .recipe-name {
@@ -53,6 +55,19 @@
   max-width: 50vw;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.recipe-card-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  min-height: 35%;
+}
+
+.recipe-card-bottom > button {
+  width: 80%
 }
 
 .recipe-description {

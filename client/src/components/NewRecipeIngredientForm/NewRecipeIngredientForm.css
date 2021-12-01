@@ -29,11 +29,50 @@
 }
 
 .new-recipe-amount {
-  width: 20%;
+  width: 15%;
 }
 
 .new-recipe-unit {
-  width: 20%;
+  width: 15%;
+}
+
+.new-recipe-ingredient-select {
+width: 20%;
+}
+
+.new-recipe-prep-notes {
+  width: 30%;
+}
+
+.add-recipe-ingredient-button {
+  padding: 3px;
+  background-color: rgb(99, 146, 11);
+  font-weight: 500;
+  width: 11%
+}
+
+.new-recipe-amount > label{
+  width: 60%;
+}
+
+.new-recipe-amount > input{
+  width: 35%;
+}
+
+.new-recipe-unit > label{
+  width: 35%;
+}
+
+.new-recipe-unit > input{
+  width: 60%;
+}
+
+.new-recipe-prep-notes > label{
+  width: 40%;
+}
+
+.new-recipe-prep-notes > input{
+  width: 55%;
 }
 
 select {
@@ -41,8 +80,3 @@ select {
   background-color: #ffc34d;
 }
 
-.add-recipe-ingredient-button {
-  padding: 5px;
-  background-color: rgb(99, 146, 11);
-  font-weight: 500;
-}

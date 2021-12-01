@@ -117,7 +117,7 @@ function NewRecipeForm({
             <textarea
               className="new-recipe-instructions-input"
               rows="10"
-              cols="58"
+              cols="62"
               name="recipeInstructions"
               placeholder="Step-By-Step Instructions"
               value={newRecipeInstructions}

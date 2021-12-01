@@ -57,6 +57,7 @@ function NewRecipeIngredientForm({
           ></input>
         </div>
         <select
+        className="new-recipe-ingredient-select"
           name="ingredient"
           value={selectedIngredientId}
           onChange={(e) => {
