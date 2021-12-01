@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./NewRecipeIngredientCard.css";
 
 function NewRecipeIngredientCard({
@@ -25,8 +25,9 @@ function NewRecipeIngredientCard({
         ></img>
         <p className="new-recipe-ingredient-text">
           {newRecipeIngredient.amount}&nbsp;
-          {newRecipeIngredient.unit}
-          &nbsp;{associatedIngredient.name}
+          {newRecipeIngredient.unit}&nbsp;
+          {associatedIngredient.name}&nbsp;
+          {newRecipeIngredient.prep_notes}
         </p>
         <input
           className="recipe-ingredient-delete-button"

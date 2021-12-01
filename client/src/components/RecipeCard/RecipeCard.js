@@ -26,7 +26,7 @@ function RecipeCard({
       <img
         className="recipe-image"
         src={image}
-        alt={"recipe image"}
+        alt={"recipe"}
         onClick={viewRecipe}
       />
       <p className="recipe-description">{description}</p>

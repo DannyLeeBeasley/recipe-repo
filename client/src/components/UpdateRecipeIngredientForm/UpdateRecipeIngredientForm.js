@@ -10,6 +10,7 @@ function UpdateRecipeIngredientForm({
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
+  const [prepNotes, setPrepNotes] = useState("");
 
   function handleAddClick() {
     if (selectedIngredientId === 0) return;
@@ -20,6 +21,7 @@ function UpdateRecipeIngredientForm({
         ingredient_id: selectedIngredientId,
         amount: ingredientAmount,
         unit: unitOfMeasurement,
+        prep_notes: prepNotes,
       },
     ]);
   }
@@ -66,6 +68,19 @@ function UpdateRecipeIngredientForm({
             return <option value={ingredient.id}>{ingredient.name}</option>;
           })}
         </select>
+        <div className="update-recipe-ingredient-input-container update-recipe-prep-notes">
+          <label>Prep Notes:</label>
+          <input
+            className="update-recipe-ingredient-input"
+            type="text"
+            name="prepNotes"
+            placeholder="Prep Notes"
+            value={prepNotes}
+            onChange={(e) => {
+              setPrepNotes(e.target.value);
+            }}
+          ></input>
+        </div>
         <input
           className="add-recipe-ingredient-button"
           type="button"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ViewRecipeIngredientCard.css";
 
 function ViewRecipeIngredientCard({
@@ -18,8 +18,9 @@ function ViewRecipeIngredientCard({
         ></img>
         <p className="new-recipe-ingredient-text">
           {recipeToViewRecipeIngredient.amount}&nbsp;
-          {recipeToViewRecipeIngredient.unit}
-          &nbsp;{associatedIngredient.name}
+          {recipeToViewRecipeIngredient.unit}&nbsp;
+          {associatedIngredient.name}&nbsp;
+          {recipeToViewRecipeIngredient.prep_notes}
         </p>
       </div>
     </>

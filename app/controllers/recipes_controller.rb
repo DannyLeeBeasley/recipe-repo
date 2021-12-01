@@ -17,23 +17,18 @@ class RecipesController < ApplicationController
         recipe_attributes = recipe_params.slice("user_id", "name", "image", "description", "instructions")
         recipe = Recipe.create(recipe_attributes)
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
-            rpi = RecipeIngredient.create(ingredient_id: recipe_ingredient["ingredient_id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"])
-            # recipe.update(:recipe_ingredients => [:id, :recipe_id, :ingredient_id, :amount, :unit])
+            rpi = RecipeIngredient.create(ingredient_id: recipe_ingredient["ingredient_id"], recipe: recipe, amount: recipe_ingredient["amount"], unit: recipe_ingredient["unit"], prep_notes: recipe_ingredient["prep_notes"])
         end
         render json: recipe, status: :created
     end
 
     def update
-        # byebug
         recipe = find_recipe
         recipe_attributes = recipe_params.slice("user_id", "name", "image", "description", "instructions")
         recipe.update(recipe_attributes)
         recipe_params["recipe_ingredients"].each do |recipe_ingredient|
             update_or_create_recipe_ingredient(recipe_ingredient)
         end
-        # recipe.recipe_ingredients each do |recipe_ingredient|
-        #     delete_recipe_ingredient(recipe_ingredient)
-        # end
         render json: recipe, status: :created 
     end
 
@@ -46,8 +41,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        # params.require(:recipe).permit(:user_id, :name, :image, :description, :recipe_ingredients =>[])
-        @recipe_params ||= params.permit(:id, :user_id, :name, :image, :description, :instructions, :recipe_ingredients => [:id, :recipe_id, :ingredient_id, :amount, :unit])
+        @recipe_params ||= params.permit(:id, :user_id, :name, :image, :description, :instructions, :recipe_ingredients => [:id, :recipe_id, :ingredient_id, :amount, :unit, :prep_notes])
     end
 
     def find_recipe
@@ -65,11 +59,5 @@ class RecipesController < ApplicationController
             RecipeIngredient.create(recipe_ingredient)
         end
     end
-
-    # def delete_recipe_ingredient(recipe_ingredient)
-    #     unless recipe_params[].includes?(recipe_ingredient["id"])
-    #         RecipeIngredient.find_by(recipe_ingredient["id"]).destroy
-    #     end
-    # end
-            
+         
 end

@@ -20,6 +20,8 @@ function NewRecipeForm({
   const [newRecipeInstructions, setNewRecipeInstructions] = useState("");
   const [newRecipeIngredients, setNewRecipeIngredients] = useState([]);
 
+  console.log(newRecipeIngredients);
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/recipes", {
