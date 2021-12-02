@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavBarItems } from "./NavBarItems";
 import { Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
