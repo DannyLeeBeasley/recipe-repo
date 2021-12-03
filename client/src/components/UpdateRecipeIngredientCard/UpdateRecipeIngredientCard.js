@@ -9,7 +9,6 @@ function UpdateRecipeIngredientCard({
   ingredientIndex,
   recipeToUpdateRecipeId,
 }) {
-
   function handleRemoveClick() {
     const list = [...recipeToUpdateRecipeIngredients];
     list.splice(ingredientIndex, 1);

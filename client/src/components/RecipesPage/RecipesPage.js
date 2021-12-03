@@ -43,6 +43,8 @@ function RecipesPage({ user, setUser }) {
       });
   }, []);
 
+  const unitList = ["Tsp", "Tbls", "C", "Cloves", "Oz", "Lbs"];
+
   function addNewIngredient(newIngredient) {
     const updatedIngredientsArray = [...ingredients, newIngredient];
     setIngredients(updatedIngredientsArray);
@@ -125,6 +127,7 @@ function RecipesPage({ user, setUser }) {
           user={user}
           ingredients={ingredients}
           recipes={recipes}
+          unitList={unitList}
           findAssociatedIngredientNewRecipe={findAssociatedIngredientNewRecipe}
           addNewRecipe={addNewRecipe}
         />
@@ -145,6 +148,7 @@ function RecipesPage({ user, setUser }) {
           ingredients={ingredients}
           recipes={recipes}
           recipeIngredients={recipeIngredients}
+          unitList={unitList}
           updateRecipe={updateRecipe}
           findAssociatedIngredientToUpdate={findAssociatedIngredientToUpdate}
           setRecipeIngredients={setRecipeIngredients}

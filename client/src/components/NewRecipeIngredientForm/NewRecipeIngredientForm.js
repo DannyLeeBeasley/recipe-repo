@@ -6,6 +6,7 @@ function NewRecipeIngredientForm({
   newRecipeIngredients,
   setNewRecipeIngredients,
   newRecipeId,
+  unitList,
 }) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
@@ -45,19 +46,22 @@ function NewRecipeIngredientForm({
         </div>
         <div className="new-recipe-ingredient-input-container new-recipe-unit">
           <label>Unit:</label>
-          <input
-            className="new-recipe-ingredient-input"
-            type="text"
-            name="unitOfMeasurement"
-            // placeholder="Unit"
+          <select
+            className="new-recipe-unit-select"
+            name="unit"
             value={unitOfMeasurement}
             onChange={(e) => {
-              setUnitOfMeasurement(e.target.value);
+              setUnitOfMeasurement(String(e.target.value));
             }}
-          ></input>
+          >
+            <option>-Unit Of Measurement-</option>
+            {unitList.map((unit) => {
+              return <option value={unit}>{unit}</option>;
+            })}
+          </select>
         </div>
         <select
-        className="new-recipe-ingredient-select"
+          className="new-recipe-ingredient-select"
           name="ingredient"
           value={selectedIngredientId}
           onChange={(e) => {

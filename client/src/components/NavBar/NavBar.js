@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar({ user, setUser }) {
-
   function handleLogout() {
     fetch("/logout").then(() => setUser(null));
     // history.push("/loggedout");

@@ -8,7 +8,6 @@ function NewRecipeIngredientCard({
   newRecipeIngredients,
   setNewRecipeIngredients,
 }) {
-
   function handleRemoveClick() {
     const list = [...newRecipeIngredients];
     list.splice(ingredientIndex, 1);

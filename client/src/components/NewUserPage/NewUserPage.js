@@ -24,12 +24,12 @@ function NewUserPage() {
   return (
     <div className="new-user-container">
       <h1 className="new-user-head">New User?</h1>
-      <p className="new-user-sub-title">Enter Username and Password Below To Create An Account</p>
+      <p className="new-user-sub-title">
+        Enter Username and Password Below To Create An Account
+      </p>
       <form onSubmit={handleSubmit}>
         <div className="new-user-input-container">
-        <label>
-          USERNAME:
-          </label>
+          <label>USERNAME:</label>
           <input
             className="new-user-input"
             type="text"
@@ -38,11 +38,9 @@ function NewUserPage() {
               setUsername(e.target.value);
             }}
           ></input>
-       </div>
+        </div>
         <div className="new-user-input-container">
-        <label>
-          PASSWORD:
-          </label>
+          <label>PASSWORD:</label>
           <input
             className="new-user-input"
             type="password"

@@ -16,8 +16,8 @@
 }
 
 .new-recipe-input-container > label {
-  width: 13%;
-  margin-right: 15px;
+  width: 14%;
+  margin-right: 5px;
 }
 
 .new-recipe-form-container > form {
@@ -85,4 +85,3 @@
   margin-right: auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-

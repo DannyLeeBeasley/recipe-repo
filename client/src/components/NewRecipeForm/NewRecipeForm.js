@@ -10,6 +10,7 @@ function NewRecipeForm({
   ingredients,
   user,
   findAssociatedIngredientNewRecipe,
+  unitList,
 }) {
   let newRecipeId = recipes.length + 1;
   let history = useHistory();
@@ -91,6 +92,7 @@ function NewRecipeForm({
           </div>
           <NewRecipeIngredientForm
             ingredients={ingredients}
+            unitList={unitList}
             newRecipeIngredients={newRecipeIngredients}
             setNewRecipeIngredients={setNewRecipeIngredients}
             newRecipeId={newRecipeId}
@@ -110,9 +112,7 @@ function NewRecipeForm({
               />
             ))}
           </div>
-          <p className="new-recipe-instructions-head">
-            Recipe Instructions:
-            </p>
+          <p className="new-recipe-instructions-head">Recipe Instructions:</p>
           <div className="new-recipe-instructions-input-container">
             <textarea
               className="new-recipe-instructions-input"
