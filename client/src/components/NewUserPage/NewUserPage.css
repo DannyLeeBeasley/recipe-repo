@@ -18,7 +18,7 @@
 
 .new-user-input-container {
   width: 100%;
-  transform: translateX(-53px);
+  transform: translateX(-53.5px);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -42,6 +42,7 @@
   margin: 0 10% 0 10%;
   background-color: rgb(177, 114, 20);
   font-weight: bolder;
+  font-size: large;
 }
 
 .new-user-head {

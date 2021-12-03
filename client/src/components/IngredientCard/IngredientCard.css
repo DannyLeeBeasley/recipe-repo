@@ -7,7 +7,7 @@
   border-radius: 5%;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 10px 12px #353333;
+  box-shadow: 5px 6px #353333;
   background-color: rgb(236, 181, 97);
   justify-items: center;
 }
@@ -15,16 +15,11 @@
 .ingredient-name {
   /* padding-left: 15px; */
   background-color: rgb(236, 181, 97);
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-size: 1.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8rem;
 }
 
 .ingredient-image {
-  max-height: 10vh;
-  max-width: 10vw;
+  max-height: 15vh;
+  /* max-width: 10vw; */
 }
-
-/* On mouse-over, add a deeper shadow */
-/* .ingredient-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-} */

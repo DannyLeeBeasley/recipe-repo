@@ -1,11 +1,9 @@
 import React from "react";
 import { NavBarItems } from "./NavBarItems";
 import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import "./NavBar.css";
 
 function NavBar({ user, setUser }) {
-  const [clicked, setClicked] = useState(false);
 
   function handleLogout() {
     fetch("/logout").then(() => setUser(null));

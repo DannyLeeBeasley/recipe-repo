@@ -28,7 +28,7 @@ function NewUserPage() {
       <form onSubmit={handleSubmit}>
         <div className="new-user-input-container">
         <label>
-          USERNAME
+          USERNAME:
           </label>
           <input
             className="new-user-input"
@@ -41,7 +41,7 @@ function NewUserPage() {
        </div>
         <div className="new-user-input-container">
         <label>
-          PASSWORD
+          PASSWORD:
           </label>
           <input
             className="new-user-input"
