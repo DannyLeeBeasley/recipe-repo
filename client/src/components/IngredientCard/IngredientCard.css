@@ -7,13 +7,12 @@
   border-radius: 5%;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 5px 6px #353333;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   background-color: rgb(236, 181, 97);
   justify-items: center;
 }
 
 .ingredient-name {
-  /* padding-left: 15px; */
   background-color: rgb(236, 181, 97);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8rem;
@@ -21,5 +20,4 @@
 
 .ingredient-image {
   max-height: 15vh;
-  /* max-width: 10vw; */
 }
