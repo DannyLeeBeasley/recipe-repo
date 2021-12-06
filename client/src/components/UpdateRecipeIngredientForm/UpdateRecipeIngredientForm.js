@@ -6,6 +6,7 @@ function UpdateRecipeIngredientForm({
   recipeToUpdateRecipeIngredients,
   setRecipeToUpdateRecipeIngredients,
   recipeToUpdateRecipeId,
+  unitList
 }) {
   const [selectedIngredientId, setSelectedIngredientId] = useState(0);
   const [ingredientAmount, setIngredientAmount] = useState("");
@@ -45,18 +46,22 @@ function UpdateRecipeIngredientForm({
         </div>
         <div className="update-recipe-ingredient-input-container update-recipe-unit">
           <label>Unit:</label>
-          <input
-            className="update-recipe-ingredient-input"
-            type="text"
-            name="unitOfMeasurement"
-            // placeholder="Unit"
+          <select
+            className="new-recipe-unit-select"
+            name="unit"
             value={unitOfMeasurement}
             onChange={(e) => {
-              setUnitOfMeasurement(e.target.value);
+              setUnitOfMeasurement(String(e.target.value));
             }}
-          ></input>
+          >
+            <option> ------- </option>
+            {unitList.map((unit) => {
+              return <option value={unit}>{unit}</option>;
+            })}
+          </select>
         </div>
         <select
+        className="update-recipe-ingredient-select"
           name="ingredient"
           value={selectedIngredientId}
           onChange={(e) => {
@@ -74,7 +79,7 @@ function UpdateRecipeIngredientForm({
             className="update-recipe-ingredient-input"
             type="text"
             name="prepNotes"
-            placeholder="Prep Notes"
+            placeholder='e.g. "seeded and chopped"'
             value={prepNotes}
             onChange={(e) => {
               setPrepNotes(e.target.value);
@@ -82,7 +87,7 @@ function UpdateRecipeIngredientForm({
           ></input>
         </div>
         <input
-          className="update-add-recipe-ingredient-button"
+          className="add-recipe-ingredient-button"
           type="button"
           value="Add Ingredient"
           onClick={handleAddClick}

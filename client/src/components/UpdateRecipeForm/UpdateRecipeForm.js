@@ -9,6 +9,7 @@ function UpdateRecipeForm({
   updateRecipe,
   ingredients,
   findAssociatedIngredientToUpdate,
+  unitList,
   recipeIngredients,
   setRecipeIngredients,
   recipe,
@@ -84,7 +85,7 @@ function UpdateRecipeForm({
               className="update-recipe-input"
               type="text"
               name="recipeImage"
-              placeholder="Google a JPG, right click it, copy image address, paste here."
+              placeholder="Google a JPG, right click, copy image address, paste it here"
               value={recipeToUpdateImage}
               onChange={(e) => {
                 setRecipeToUpdateImage(e.target.value);
@@ -105,15 +106,17 @@ function UpdateRecipeForm({
             ></input>
             </div>
           <UpdateRecipeIngredientForm
+          className="update-recipe-ingredient-form-container"
             recipeToUpdateRecipeId={recipeToUpdateRecipeId}
             ingredients={ingredients}
+            unitList={unitList}
             recipeToUpdateRecipeIngredients={recipeToUpdateRecipeIngredients}
             setRecipeToUpdateRecipeIngredients={
               setRecipeToUpdateRecipeIngredients
             }
           />
           <br></br>
-          <div className="update-recipe-body">
+          <div className="update-recipe-ingredients-container">
             {recipeToUpdateRecipeIngredients.map(
               (recipeToUpdateRecipeIngredient, i) => (
                 <UpdateRecipeIngredientCard
@@ -137,11 +140,11 @@ function UpdateRecipeForm({
             )}
           </div>
           <p className="update-recipe-instructions-head">Recipe Instructions:</p>
-          <div className="new-recipe-instructions-input-container">
+          <div className="update-recipe-instructions-input-container">
             <textarea
               className="update-recipe-instructions-input"
               rows="10"
-              cols="58"
+              cols="63"
               name="recipeInstructions"
               placeholder="Step-By-Step Instructions"
               value={recipeToUpdateInstructions}
@@ -150,7 +153,7 @@ function UpdateRecipeForm({
               }}
             ></textarea>
           </div>
-          <div className="submit-button">
+          <div className="submit-update-button">
             <input
               className="submit-update-recipe-button"
               type="submit"

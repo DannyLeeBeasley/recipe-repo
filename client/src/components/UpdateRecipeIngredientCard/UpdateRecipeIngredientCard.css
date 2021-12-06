@@ -1,0 +1,37 @@
+.update-recipe-ingredient {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  width: 30rem;
+  margin: 1rem 0;
+}
+
+.update-recipe-ingredient-img {
+  max-height: 5rem;
+  height: 4.5rem;
+}
+
+.update-recipe-ingredient-text {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.update-recipe-ingredient-prep-notes-text {
+  font-style: italic;
+}
+
+.recipe-ingredient-delete-button {
+  background-color: rgb(146, 11, 11);
+  border: none;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}

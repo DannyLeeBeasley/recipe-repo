@@ -20,6 +20,7 @@ function RecipesPage({ user, setUser }) {
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
+  const unitList = ["C", "Cloves", "Handful", "Lbs", "Oz", "Tsp", "Tbls"];
 
   useEffect(() => {
     fetch("/ingredients")
@@ -42,8 +43,6 @@ function RecipesPage({ user, setUser }) {
         setRecipeIngredients(recipeIngredientsArr);
       });
   }, []);
-
-  const unitList = ["C", "Cloves", "Handful", "Lbs", "Oz", "Tsp", "Tbls"];
 
   function addNewIngredient(newIngredient) {
     const updatedIngredientsArray = [...ingredients, newIngredient];
