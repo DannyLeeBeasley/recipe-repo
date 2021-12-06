@@ -54,7 +54,7 @@ function NewRecipeIngredientForm({
               setUnitOfMeasurement(String(e.target.value));
             }}
           >
-            <option>-Unit Of Measurement-</option>
+            <option> ------- </option>
             {unitList.map((unit) => {
               return <option value={unit}>{unit}</option>;
             })}

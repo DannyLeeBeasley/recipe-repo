@@ -11,7 +11,7 @@ katie = User.create(username: "KatieBeasley", password: "NeverGuess27!")
 
 puts "Creating ingredients..."
 salt = Ingredient.create(name: "Salt", image:"https://w2.chabad.org/media/images/745/WiIZ7453042.jpg")
-fresh_cracked_black_pepper = Ingredient.create(name: "Fresh Cracked Black Pepper", image: "https://cdn11.bigcommerce.com/s-9d454/images/stencil/1280x1280/products/5091/9704/black-pepper-cafe-restaraunt-grind__51833.1540751690.jpg?c=2")
+cracked_black_pepper = Ingredient.create(name: "Cracked Black Pepper", image: "https://cdn11.bigcommerce.com/s-9d454/images/stencil/1280x1280/products/5091/9704/black-pepper-cafe-restaraunt-grind__51833.1540751690.jpg?c=2")
 crushed_red_pepper = Ingredient.create(name: "Crushed Red Pepper", image: "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/5097/9708/crushed-red-pepper__12390.1540713424.jpg?c=2")
 garlic_powder = Ingredient.create(name: "Garlic Powder", image: "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4950/10693/garlic-powder__80779.1540713339.jpg?c=2")
 chili_powder = Ingredient.create(name: "Chili Powder", image: "https://cdn11.bigcommerce.com/s-9d454/images/stencil/2560w/products/4871/11141/ChiliPowder__58800.1621928606.jpg?c=2")

@@ -17,7 +17,7 @@ function IngredientList({ ingredients, handleDeleteIngredient, user }) {
           <h2 className="ingredient-list-header">
             These are the ingredients currently supported by Recipe Repo.
           </h2>
-          <h2 className="ingredient-list-header">
+          <h2 className="ingredient-list-header2">
             Click the button below to add a new ingredient to our database!
           </h2>
         </>
@@ -26,7 +26,7 @@ function IngredientList({ ingredients, handleDeleteIngredient, user }) {
           <h2 className="ingredient-list-header">
             These are the ingredients currently supported by Recipe Repo.
           </h2>
-          <h2 className="ingredient-list-header">
+          <h2 className="ingredient-list-header2">
             Create an Account or Log In to add ingredients and recipes to our
             database!
           </h2>

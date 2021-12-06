@@ -12,7 +12,7 @@ export const NavBarItems = [
     onClick: (e, user) => {
       if (!user) {
         e.preventDefault();
-        alert("Create An Account Or Log In To Share Your Recipes!");
+        alert("Create an Account Or Log In To Share Your Recipes!");
       }
     },
   },

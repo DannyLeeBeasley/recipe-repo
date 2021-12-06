@@ -16,12 +16,7 @@
   justify-content: space-evenly;
 }
 
-.new-recipe-ingredient-input-container > label {
-  width: 60%;
-}
-
 .new-recipe-ingredient-input {
-  width: 35%;
   padding: 5px;
   margin: 10px;
   box-sizing: border-box;
@@ -29,34 +24,19 @@
 }
 
 .new-recipe-amount {
-  width: 10%;
-}
-
-.new-recipe-unit {
   width: 15%;
 }
 
-.new-recipe-ingredient-select {
-  width: 20%;
-}
-
-.new-recipe-prep-notes {
-  width: 30%;
-}
-
-.add-recipe-ingredient-button {
-  padding: 3px;
-  background-color: rgb(99, 146, 11);
-  font-weight: 500;
-  width: 11%;
-}
-
 .new-recipe-amount > label {
-  width: 50%;
+  width: 48%;
 }
 
 .new-recipe-amount > input {
-  width: 50%;
+  width: 32%;
+}
+
+.new-recipe-unit {
+  width: 14%;
 }
 
 .new-recipe-unit > label {
@@ -64,15 +44,31 @@
 }
 
 .new-recipe-unit > select {
-  width: 60%;
+  width: 62%;
+}
+
+.new-recipe-ingredient-select {
+  width: 20%;
+}
+
+.new-recipe-prep-notes {
+  width: 37%;
 }
 
 .new-recipe-prep-notes > label {
-  width: 40%;
+  width: 33%;
 }
 
 .new-recipe-prep-notes > input {
-  width: 55%;
+  width: 60%;
+}
+
+.add-recipe-ingredient-button {
+  padding: 3px;
+  background-color: rgb(99, 146, 11);
+  font-weight: 500;
+  font-style: italic;
+  width: 12.5%;
 }
 
 select {

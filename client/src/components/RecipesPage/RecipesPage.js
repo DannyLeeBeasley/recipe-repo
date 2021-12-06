@@ -43,7 +43,7 @@ function RecipesPage({ user, setUser }) {
       });
   }, []);
 
-  const unitList = ["Tsp", "Tbls", "C", "Cloves", "Oz", "Lbs"];
+  const unitList = ["C", "Cloves", "Handful", "Lbs", "Oz", "Tsp", "Tbls"];
 
   function addNewIngredient(newIngredient) {
     const updatedIngredientsArray = [...ingredients, newIngredient];
