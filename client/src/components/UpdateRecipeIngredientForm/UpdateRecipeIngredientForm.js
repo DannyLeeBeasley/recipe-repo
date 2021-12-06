@@ -82,7 +82,7 @@ function UpdateRecipeIngredientForm({
           ></input>
         </div>
         <input
-          className="add-recipe-ingredient-button"
+          className="update-add-recipe-ingredient-button"
           type="button"
           value="Add Ingredient"
           onClick={handleAddClick}

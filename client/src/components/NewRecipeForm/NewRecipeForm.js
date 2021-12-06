@@ -48,7 +48,7 @@ function NewRecipeForm({
   }
   return (
     <>
-      <h1 className="new-recipe-form-head">Submit A New Recipe:</h1>
+      <h1 className="new-recipe-form-head">Share A New Recipe:</h1>
       <div className="new-recipe-form-container">
         <form onSubmit={handleSubmit}>
           <div className="new-recipe-input-container">
@@ -70,7 +70,7 @@ function NewRecipeForm({
               className="new-recipe-input"
               type="text"
               name="recipeImage"
-              placeholder="Google a JPG, right click it, copy image address, paste here."
+              placeholder="Google a JPG, right click, copy image address, paste it here"
               value={newRecipeImage}
               onChange={(e) => {
                 setNewRecipeImage(e.target.value);
@@ -89,8 +89,9 @@ function NewRecipeForm({
                 setNewRecipeDescription(e.target.value);
               }}
             ></input>
-          </div>
+          </div >
           <NewRecipeIngredientForm
+          className="new-recipe-ingredient-form-container"
             ingredients={ingredients}
             unitList={unitList}
             newRecipeIngredients={newRecipeIngredients}
@@ -98,7 +99,7 @@ function NewRecipeForm({
             newRecipeId={newRecipeId}
           />
           <br></br>
-          <div className="new-recipe-body">
+          <div className="new-recipe-ingredients-container">
             {newRecipeIngredients.map((newRecipeIngredient, i) => (
               <NewRecipeIngredientCard
                 newRecipeIngredients={newRecipeIngredients}
@@ -130,7 +131,7 @@ function NewRecipeForm({
             <input
               className="submit-recipe-button"
               type="submit"
-              value="Submit Recipe"
+              value="Share Recipe"
             ></input>
           </div>
         </form>

@@ -79,7 +79,7 @@ function NewRecipeIngredientForm({
             className="new-recipe-ingredient-input"
             type="text"
             name="prepNotes"
-            placeholder="Prep Notes"
+            placeholder='e.g. "seeded and chopped"'
             value={prepNotes}
             onChange={(e) => {
               setPrepNotes(e.target.value);

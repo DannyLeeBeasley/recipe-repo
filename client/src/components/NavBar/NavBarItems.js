@@ -29,7 +29,7 @@ export const NavBarItems = [
     onClick: () => {},
   },
   {
-    name: "Sign Up/Sign In",
+    name: "Sign In/Sign Up",
     url: "/signin",
     cName: "nav-links",
     onClick: () => {},

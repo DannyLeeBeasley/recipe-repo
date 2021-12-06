@@ -28,11 +28,11 @@ function NewIngredientForm({ addNewIngredient }) {
 
   return (
     <div className="new-ingredient-container">
-      <h1 className="new-ingredient-head">Add Ingredient</h1>
+      <h1 className="new-ingredient-head">Add an Ingredient</h1>
       <form className="new-ingredient-form" onSubmit={handleSubmit}>
+      <div className="new-ingredient-input-container">
         <label>
-          Ingredient Name
-          <br />
+          Name:</label>
           <input
             className="new-ingredient-input"
             type="text"
@@ -43,26 +43,26 @@ function NewIngredientForm({ addNewIngredient }) {
               setName(e.target.value);
             }}
           />
-        </label>
+        </div>
+        <div className="new-ingredient-input-container">
         <label>
-          Image
-          <br />
+          Image:
+          </label>
           <input
             className="new-ingredient-input"
             type="text"
             name="ingredientImage"
-            placeholder="Ingredient JPG Link"
+            placeholder="Google a JPG, right click, copy image address, paste here"
             value={image}
             onChange={(e) => {
               setImage(e.target.value);
             }}
           />
-        </label>
-        <br />
+        </div>
         <input
           type="submit"
           className="new-ingredient-submit-button"
-          value="Submit"
+          value="Add New Ingredient"
         ></input>
       </form>
     </div>

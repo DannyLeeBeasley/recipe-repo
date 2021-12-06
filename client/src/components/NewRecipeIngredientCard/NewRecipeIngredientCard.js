@@ -22,16 +22,18 @@ function NewRecipeIngredientCard({
           alt={associatedIngredient.name}
           src={associatedIngredient.image}
         ></img>
-        <p className="new-recipe-ingredient-text">
-          {newRecipeIngredient.amount}&nbsp;
-          {newRecipeIngredient.unit}&nbsp;
-          {associatedIngredient.name}&nbsp;
-          {newRecipeIngredient.prep_notes}
-        </p>
+        <div>
+          <p className="new-recipe-ingredient-text">
+            {newRecipeIngredient.amount}&nbsp;
+            {newRecipeIngredient.unit}&nbsp;
+            {associatedIngredient.name}&nbsp;
+          </p>
+          <p className="new-recipe-ingredient-text new-recipe-ingredient-prep-notes-text">{newRecipeIngredient.prep_notes}</p>
+        </div>
         <input
           className="recipe-ingredient-delete-button"
           type="button"
-          value="Remove Ingredient"
+          value="X"
           onClick={() => handleRemoveClick()}
         ></input>
       </div>

@@ -21,7 +21,7 @@
 }
 
 .new-recipe-form-container > form {
-  width: 70%;
+  width: 85%;
   min-height: 550px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
@@ -43,6 +43,20 @@
   font-size: 25;
   margin: 1% 10% 0 10%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.new-recipe-ingredient-form-head {
+  padding-top: 1rem;
+}
+
+.new-recipe-ingredients-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: left;
 }
 
 .new-recipe-input {
@@ -72,7 +86,7 @@
 }
 
 .submit-recipe-button {
-  background-color: rgb(243, 74, 32);
+  background-color: rgb(99, 146, 11);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -84,6 +98,7 @@
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
 }

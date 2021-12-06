@@ -6,39 +6,51 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.new-ingredient-input {
-  width: 80%;
-  padding: 10px 17px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
-  margin: 0 10% 0 10%;
+.new-ingredient-head {
+  font-size: 2rem;
 }
 
-.login-password-input {
-  width: 80%;
+.new-ingredient-container > form {
+  width: 470px;
+  height: 250px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.new-ingredient-input-container {
+  width: 100%;
+  transform: translateX(-34.5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.new-ingredient-input-container > label {
+  width: 10%;
+}
+
+.new-ingredient-input {
+  width: 81%;
   padding: 10px 17px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
-  margin: 0 10% 0 10%;
+  margin-left: 10px;
+  background-color: #ffc34d;
 }
 
 .new-ingredient-submit-button {
-  width: 60%;
-  padding: 10px 17px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  justify-content: center;
-  align-content: center;
-  margin: 0 10% 0 10%;
-  background-color: rgb(177, 114, 20);
-}
-
-.new-user-link {
-  margin: 0 auto;
-  display: block;
+  background-color: rgb(99, 146, 11);
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
 }
