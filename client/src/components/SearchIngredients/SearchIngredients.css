@@ -1,0 +1,25 @@
+.search-ingredient-container {
+  width: 40%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.search-ingredient-container > label {
+  width: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transform: translateX(-3px);
+
+}
+
+.search-ingredient-container > input {
+  width: 45%;
+  padding: 5px 5px;
+  background-color: #ffc34d;
+  transform: translateX(-12px);
+}

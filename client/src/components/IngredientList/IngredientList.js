@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import IngredientCard from "../IngredientCard/IngredientCard";
+import SearchIngredients from "../SearchIngredients/SearchIngredients";
 import "./IngredientList.css";
 
 function IngredientList({ ingredients, handleDeleteIngredient, user }) {
+  
   let history = useHistory();
+
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const ingredientsToDisplay = ingredients.filter((ingredient) => {
+    return ingredient.name.toLowerCase().includes(searchTerm.toLowerCase())
+  })
 
   function handleClick() {
     history.push("/newingredient");
@@ -12,6 +20,7 @@ function IngredientList({ ingredients, handleDeleteIngredient, user }) {
 
   return (
     <>
+    <div className="ingredients-page-head-and-search-container">
       {user ? (
         <>
           <h2 className="ingredient-list-header">
@@ -37,9 +46,15 @@ function IngredientList({ ingredients, handleDeleteIngredient, user }) {
           Add New Ingredient
         </button>
       )}
+      <SearchIngredients 
+      className="ingredient-search"
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
+      </div>
       <div className="ingredients-list">
         <main className="ingredient-list">
-          {ingredients.map((ingredient) => {
+          {ingredientsToDisplay.map((ingredient) => {
             return (
               <IngredientCard
                 key={ingredient.id}
