@@ -7,8 +7,7 @@
 }
 
 .new-recipe-ingredient-img {
-  max-height: 5rem;
-  height: 4.5rem;
+  max-width: 6rem
 }
 
 .new-recipe-ingredient-text {

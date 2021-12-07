@@ -17,6 +17,7 @@
   padding-left: 20px;
   padding-right: 20px;
   min-height: 400px;
+  background-color: #ffc34d;
 }
 
 .recipe-name {
@@ -49,7 +50,9 @@
 
 .recipe-card-bottom > button {
   width: 100%;
-  border: none;
+  /* border: 1px solid #000000; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; */
   color: white;
   padding: 8px 24px;
   text-align: center;

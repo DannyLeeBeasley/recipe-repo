@@ -8,22 +8,12 @@
 .App {
   font-family: "Dancing Script", cursive;
   background-color: #ffc34d;
+  /* background-image: url(https://cdn.wallpapersafari.com/85/26/8WfUu4.jpg); */
 }
 
-/* .header {
-  text-align: center;
-} */
-
-.recipe-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 4rem;
-  margin: 2rem 2rem 4rem 2rem;
+button {
+  border: 5px solid #f1dab8;
 }
-
-/* ul {
-  display: flex;
-} */
 
 .submit {
   margin-top: 10px;

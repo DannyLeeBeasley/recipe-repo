@@ -13,7 +13,7 @@ import UpdateRecipeForm from "../UpdateRecipeForm/UpdateRecipeForm";
 import NewUserPage from "../NewUserPage/NewUserPage";
 import ViewRecipe from "../ViewRecipe/ViewRecipe";
 import AboutPage from "../AboutPage/AboutPage";
-import LogOutPage from "../LogOutPage/LogOutPage";
+import LoggedOutPage from "../LoggedOutPage/LoggedOutPage";
 import "./RecipesPage.css";
 
 function RecipesPage({ user, setUser }) {
@@ -174,7 +174,7 @@ function RecipesPage({ user, setUser }) {
         <AboutPage />
       </Route>
       <Route exact path="/loggedout">
-        <LogOutPage  />
+        <LoggedOutPage  />
       </Route>
     </Router>
   );

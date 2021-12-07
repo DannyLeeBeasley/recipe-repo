@@ -9,12 +9,13 @@ function NavBar({ user, setUser }) {
     .then((res) => res.json())
     .then(() => {
       setUser(null);
+      alert('You Have Been Logged Out');
       // history.push("/loggedout");
     });
   }
 
   return (
-    <nav className="nav-bar-container">
+    <nav className="nav-bar">
       <div className="nav-bar-items">
         {NavBarItems.map((item, index) => {
           return (
