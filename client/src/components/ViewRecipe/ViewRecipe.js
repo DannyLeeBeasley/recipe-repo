@@ -6,8 +6,9 @@ import "./ViewRecipe.css";
 function ViewRecipe({
   recipes,
   ingredients,
-  findAssociatedIngredientToView,
+  findAssociatedIngredient,
   user,
+  usersLoaded,
   ingredientsLoaded,
   recipesLoaded,
   recipeIngredientsLoaded,
@@ -40,7 +41,12 @@ function ViewRecipe({
   );
   console.log(recipeToViewIngredients);
 
-  if (!ingredientsLoaded || !recipesLoaded || !recipeIngredientsLoaded) {
+  if (
+    !usersLoaded ||
+    !ingredientsLoaded ||
+    !recipesLoaded ||
+    !recipeIngredientsLoaded
+  ) {
     return <p>Loading...</p>;
   }
 
@@ -61,7 +67,7 @@ function ViewRecipe({
             <ViewRecipeIngredientCard
               key={i}
               recipeToViewRecipeIngredient={recipeToViewRecipeIngredient}
-              associatedIngredient={findAssociatedIngredientToView(
+              associatedIngredient={findAssociatedIngredient(
                 recipeToViewRecipeIngredient
               )}
             />

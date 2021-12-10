@@ -9,7 +9,11 @@ function NewRecipeForm({
   addNewRecipe,
   ingredients,
   user,
-  findAssociatedIngredientNewRecipe,
+  usersLoaded,
+  ingredientsLoaded,
+  recipesLoaded,
+  recipeIngredientsLoaded,
+  findAssociatedIngredient,
   unitList,
 }) {
   let newRecipeId = recipes.length + 1;
@@ -44,6 +48,16 @@ function NewRecipeForm({
         history.push("/");
       });
   }
+
+  if (
+    !usersLoaded ||
+    !ingredientsLoaded ||
+    !recipesLoaded ||
+    !recipeIngredientsLoaded
+  ) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <h1 className="new-recipe-form-head">Share A New Recipe:</h1>
@@ -87,9 +101,9 @@ function NewRecipeForm({
                 setNewRecipeDescription(e.target.value);
               }}
             ></input>
-          </div >
+          </div>
           <NewRecipeIngredientForm
-          className="new-recipe-ingredient-form-container"
+            className="new-recipe-ingredient-form-container"
             ingredients={ingredients}
             unitList={unitList}
             newRecipeIngredients={newRecipeIngredients}
@@ -102,7 +116,7 @@ function NewRecipeForm({
               <NewRecipeIngredientCard
                 newRecipeIngredients={newRecipeIngredients}
                 setNewRecipeIngredients={setNewRecipeIngredients}
-                associatedIngredient={findAssociatedIngredientNewRecipe(
+                associatedIngredient={findAssociatedIngredient(
                   newRecipeIngredient
                 )}
                 newRecipeIngredient={newRecipeIngredient}

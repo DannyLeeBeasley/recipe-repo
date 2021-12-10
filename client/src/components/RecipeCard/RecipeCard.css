@@ -45,8 +45,19 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   min-height: 15%;
+}
+
+.recipe-from-text {
+  margin-top: 1px;
+  font-size: 2rem;
+  font-weight: 550;
+}
+
+.username-text {
+  font-size: 2rem;
+  font-weight: 550;
 }
 
 .recipe-card-bottom > button {

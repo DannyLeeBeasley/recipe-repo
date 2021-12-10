@@ -17,21 +17,32 @@ import LoggedOutPage from "../LoggedOutPage/LoggedOutPage";
 import "./RecipesPage.css";
 
 function RecipesPage({ user, setUser }) {
-  console.log(user);
+  
   const [recipes, setRecipes] = useState([]);
   const [recipesLoaded, setRecipesLoaded] = useState(false);
   const [ingredients, setIngredients] = useState([]);
   const [ingredientsLoaded, setIngredientsLoaded] = useState(false);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeIngredientsLoaded, setRecipeIngredientsLoaded] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [usersLoaded, setUsersLoaded] = useState(false);
   const unitList = ["C", "Cloves", "Handful", "Lbs", "Oz", "Tsp", "Tbls"];
+
+  useEffect(() => {
+    fetch("/users")
+      .then((r) => r.json())
+      .then((usersArr) => {
+        setUsers(usersArr);
+        setUsersLoaded(true);
+      });
+  }, []);
 
   useEffect(() => {
     fetch("/ingredients")
       .then((r) => r.json())
       .then((ingredientsArr) => {
-        setIngredients(ingredientsArr)
-        setIngredientsLoaded(true)
+        setIngredients(ingredientsArr);
+        setIngredientsLoaded(true);
       });
   }, []);
 
@@ -39,7 +50,7 @@ function RecipesPage({ user, setUser }) {
     fetch("/recipes")
       .then((r) => r.json())
       .then((recipesArr) => {
-        setRecipes(recipesArr)
+        setRecipes(recipesArr);
         setRecipesLoaded(true);
       });
   }, []);
@@ -48,7 +59,7 @@ function RecipesPage({ user, setUser }) {
     fetch("/recipe_ingredients")
       .then((r) => r.json())
       .then((recipeIngredientsArr) => {
-        setRecipeIngredients(recipeIngredientsArr)
+        setRecipeIngredients(recipeIngredientsArr);
         setRecipeIngredientsLoaded(true);
       });
   }, []);
@@ -63,7 +74,15 @@ function RecipesPage({ user, setUser }) {
     setRecipes(updatedRecipeArray);
   }
 
-  function handleDeleteIngredient(ingredientToDelete) {
+  function updateRecipe(recipeToUpdate) {
+    const recipesNotToUpdate = recipes.filter(
+      (recipe) => recipe.id != recipeToUpdate.id
+    );
+    const updatedRecipeArray = [...recipesNotToUpdate, recipeToUpdate];
+    setRecipes(updatedRecipeArray);
+  }
+
+  function deleteIngredient(ingredientToDelete) {
     const updatedIngredientsArray = [...ingredients].filter(
       (ingredient) => ingredient.id !== ingredientToDelete.id
     );
@@ -75,7 +94,7 @@ function RecipesPage({ user, setUser }) {
       .then(() => console.log("The Ingredient You Added Was Deleted"));
   }
 
-  function handleDeleteRecipe(recipeToDeleteId) {
+  function deleteRecipe(recipeToDeleteId) {
     fetch(`/recipes/${recipeToDeleteId}`, {
       method: "DELETE",
     })
@@ -84,39 +103,20 @@ function RecipesPage({ user, setUser }) {
     setRecipes(recipes.filter((recipe) => recipe.id !== recipeToDeleteId));
   }
 
-  function updateRecipe(recipeToUpdate) {
-    const recipesNotToUpdate = recipes.filter(
-      (recipe) => recipe.id != recipeToUpdate.id
-    );
-    const updatedRecipeArray = [...recipesNotToUpdate, recipeToUpdate];
-    setRecipes(updatedRecipeArray);
-  }
-
-  function findAssociatedIngredientToView(recipeIngredient) {
+  function findAssociatedIngredient(recipeIngredient) {
     let foundAssociatedIngredient = ingredients.find(
       (ingredient) => ingredient.id == recipeIngredient.ingredient_id
     );
     return foundAssociatedIngredient;
   }
 
-  function findAssociatedIngredientNewRecipe(recipeIngredient) {
-    // console.log(ingredients);
-    // console.log(recipeIngredient);
-    let foundAssociatedIngredient = ingredients.find(
-      (ingredient) =>
-        ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)
-    );
-    return foundAssociatedIngredient;
-  }
-
-  function findAssociatedIngredientToUpdate(recipeIngredient) {
-    // console.log(ingredients);
-    // console.log(recipeIngredient);
-    let foundAssociatedIngredient = ingredients.find(
-      (ingredient) =>
-        ingredient.id == (recipeIngredient.ingredient_id || recipeIngredient.id)
-    );
-    return foundAssociatedIngredient;
+  if (
+    !usersLoaded ||
+    !ingredientsLoaded ||
+    !recipesLoaded ||
+    !recipeIngredientsLoaded
+  ) {
+    return <p>Loading...</p>;
   }
 
   return (
@@ -127,10 +127,12 @@ function RecipesPage({ user, setUser }) {
         <RecipeList
           user={user}
           recipes={recipes}
+          users={users}
+          usersLoaded={usersLoaded}
           ingredientsLoaded={ingredientsLoaded}
           recipesLoaded={recipesLoaded}
           recipeIngredientsLoaded={recipeIngredientsLoaded}
-          handleDeleteRecipe={handleDeleteRecipe}
+          deleteRecipe={deleteRecipe}
         />
       </Route>
       <Route exact path="/newrecipe">
@@ -139,10 +141,11 @@ function RecipesPage({ user, setUser }) {
           ingredients={ingredients}
           recipes={recipes}
           unitList={unitList}
+          usersLoaded={usersLoaded}
           ingredientsLoaded={ingredientsLoaded}
           recipesLoaded={recipesLoaded}
           recipeIngredientsLoaded={recipeIngredientsLoaded}
-          findAssociatedIngredientNewRecipe={findAssociatedIngredientNewRecipe}
+          findAssociatedIngredient={findAssociatedIngredient}
           addNewRecipe={addNewRecipe}
         />
       </Route>
@@ -150,10 +153,11 @@ function RecipesPage({ user, setUser }) {
         <IngredientList
           user={user}
           ingredients={ingredients}
+          usersLoaded={usersLoaded}
           ingredientsLoaded={ingredientsLoaded}
           recipesLoaded={recipesLoaded}
           recipeIngredientsLoaded={recipeIngredientsLoaded}
-          handleDeleteIngredient={handleDeleteIngredient}
+          deleteIngredient={deleteIngredient}
         />
       </Route>
       <Route exact path="/newingredient">
@@ -166,11 +170,12 @@ function RecipesPage({ user, setUser }) {
           recipes={recipes}
           recipeIngredients={recipeIngredients}
           unitList={unitList}
+          usersLoaded={usersLoaded}
           ingredientsLoaded={ingredientsLoaded}
           recipesLoaded={recipesLoaded}
           recipeIngredientsLoaded={recipeIngredientsLoaded}
           updateRecipe={updateRecipe}
-          findAssociatedIngredientToUpdate={findAssociatedIngredientToUpdate}
+          findAssociatedIngredient={findAssociatedIngredient}
           setRecipeIngredients={setRecipeIngredients}
         />
       </Route>
@@ -180,11 +185,12 @@ function RecipesPage({ user, setUser }) {
           recipes={recipes}
           ingredients={ingredients}
           recipeIngredients={recipeIngredients}
+          usersLoaded={usersLoaded}
           ingredientsLoaded={ingredientsLoaded}
           recipesLoaded={recipesLoaded}
           recipeIngredientsLoaded={recipeIngredientsLoaded}
           updateRecipe={updateRecipe}
-          findAssociatedIngredientToView={findAssociatedIngredientToView}
+          findAssociatedIngredient={findAssociatedIngredient}
         />
       </Route>
       <Route exact path="/signin">
@@ -197,7 +203,7 @@ function RecipesPage({ user, setUser }) {
         <AboutPage />
       </Route>
       <Route exact path="/loggedout">
-        <LoggedOutPage  />
+        <LoggedOutPage />
       </Route>
     </Router>
   );

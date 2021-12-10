@@ -8,12 +8,16 @@ import "./UpdateRecipeForm.css";
 function UpdateRecipeForm({
   updateRecipe,
   ingredients,
-  findAssociatedIngredientToUpdate,
+  findAssociatedIngredient,
   unitList,
   recipeIngredients,
   setRecipeIngredients,
   recipe,
   user,
+  usersLoaded,
+  ingredientsLoaded,
+  recipesLoaded,
+  recipeIngredientsLoaded,
   recipes,
 }) {
   let { id } = useParams();
@@ -38,7 +42,6 @@ function UpdateRecipeForm({
   const [recipeToUpdateRecipeIngredients, setRecipeToUpdateRecipeIngredients] =
     useState(recipeToUpdate.recipe_ingredients);
 
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch(`/recipes/${id}`, {
@@ -61,13 +64,23 @@ function UpdateRecipeForm({
         history.push("/");
       });
   }
+
+  if (
+    !usersLoaded ||
+    !ingredientsLoaded ||
+    !recipesLoaded ||
+    !recipeIngredientsLoaded
+  ) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <h1 className="update-recipe-form-head">Update Your Recipe</h1>
       <div className="update-recipe-form-container">
         <form onSubmit={handleSubmit}>
           <div className="update-recipe-input-container">
-          <label>Recipe Name:</label>
+            <label>Recipe Name:</label>
             <input
               className="update-recipe-input"
               type="text"
@@ -78,8 +91,8 @@ function UpdateRecipeForm({
                 setRecipeToUpdateName(e.target.value);
               }}
             ></input>
-            </div>
-            <div className="update-recipe-input-container">
+          </div>
+          <div className="update-recipe-input-container">
             <label>Recipe Image:</label>
             <input
               className="update-recipe-input"
@@ -91,8 +104,8 @@ function UpdateRecipeForm({
                 setRecipeToUpdateImage(e.target.value);
               }}
             ></input>
-            </div>
-            <div className="update-recipe-input-container">
+          </div>
+          <div className="update-recipe-input-container">
             <label>Description:</label>
             <input
               className="update-recipe-input"
@@ -104,9 +117,9 @@ function UpdateRecipeForm({
                 setRecipeToUpdateDescription(e.target.value);
               }}
             ></input>
-            </div>
+          </div>
           <UpdateRecipeIngredientForm
-          className="update-recipe-ingredient-form-container"
+            className="update-recipe-ingredient-form-container"
             recipeToUpdateRecipeId={recipeToUpdateRecipeId}
             ingredients={ingredients}
             unitList={unitList}
@@ -131,7 +144,7 @@ function UpdateRecipeForm({
                     setRecipeToUpdateRecipeIngredients
                   }
                   ingredientIndex={i}
-                  associatedIngredient={findAssociatedIngredientToUpdate(
+                  associatedIngredient={findAssociatedIngredient(
                     recipeToUpdateRecipeIngredient
                   )}
                   recipeToUpdateRecipeId={recipeToUpdateRecipeId}
@@ -139,7 +152,9 @@ function UpdateRecipeForm({
               )
             )}
           </div>
-          <p className="update-recipe-instructions-head">Recipe Instructions:</p>
+          <p className="update-recipe-instructions-head">
+            Recipe Instructions:
+          </p>
           <div className="update-recipe-instructions-input-container">
             <textarea
               className="update-recipe-instructions-input"
