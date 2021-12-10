@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ViewRecipeIngredientCard from "../ViewRecipeIngredientCard/ViewRecipeIngredientCard";
 import "./ViewRecipe.css";
@@ -8,30 +8,41 @@ function ViewRecipe({
   ingredients,
   findAssociatedIngredientToView,
   user,
+  ingredientsLoaded,
+  recipesLoaded,
+  recipeIngredientsLoaded,
 }) {
   let { id } = useParams();
   console.log(user);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   let recipeToView = recipes.find((recipe) => recipe.id == id);
   console.log(recipeToView);
 
   const [recipeToViewRecipeIngredients, setRecipeToViewRecipeIngredients] =
-    useState(recipeToView.recipe_ingredients);
+    useState(recipeToView?.recipe_ingredients);
   console.log(recipeToViewRecipeIngredients);
 
   let recipeToViewRecipeIngredientsIngredientIds =
-    recipeToViewRecipeIngredients.map(
+    recipeToViewRecipeIngredients?.map(
       (recipeToViewRecipeIngredient) =>
-        recipeToViewRecipeIngredient.ingredient_id
+        recipeToViewRecipeIngredient?.ingredient_id
     );
   console.log(recipeToViewRecipeIngredientsIngredientIds);
 
   const [recipeToViewIngredients, setRecipeToViewIngredients] = useState(
-    ingredients.filter((ingredient) =>
-      recipeToViewRecipeIngredientsIngredientIds.includes(ingredient.id)
+    ingredients?.filter((ingredient) =>
+      recipeToViewRecipeIngredientsIngredientIds?.includes(ingredient.id)
     )
   );
   console.log(recipeToViewIngredients);
+
+  if (!ingredientsLoaded || !recipesLoaded || !recipeIngredientsLoaded) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="view-recipe-container">
@@ -45,7 +56,7 @@ function ViewRecipe({
         <p className="view-recipe-description">{recipeToView.description}</p>
       </div>
       <div className="view-recipe-ingredients">
-        {recipeToViewRecipeIngredients.map(
+        {recipeToViewRecipeIngredients?.map(
           (recipeToViewRecipeIngredient, i) => (
             <ViewRecipeIngredientCard
               key={i}

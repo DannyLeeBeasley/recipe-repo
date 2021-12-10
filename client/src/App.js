@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import RecipesPage from "./components/RecipesPage/RecipesPage";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("userSessions")) || null);
 
   return (
     <div className="App">

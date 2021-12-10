@@ -35,6 +35,7 @@
 
 .recipe-description {
   margin-top: 10px;
+  margin-bottom: 5px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.2rem;
 }
@@ -50,9 +51,6 @@
 
 .recipe-card-bottom > button {
   width: 100%;
-  /* border: 1px solid #000000; */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s; */
   color: white;
   padding: 8px 24px;
   text-align: center;

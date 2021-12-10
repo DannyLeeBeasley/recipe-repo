@@ -19,21 +19,28 @@ import "./RecipesPage.css";
 function RecipesPage({ user, setUser }) {
   console.log(user);
   const [recipes, setRecipes] = useState([]);
+  const [recipesLoaded, setRecipesLoaded] = useState(false);
   const [ingredients, setIngredients] = useState([]);
+  const [ingredientsLoaded, setIngredientsLoaded] = useState(false);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
+  const [recipeIngredientsLoaded, setRecipeIngredientsLoaded] = useState(false);
   const unitList = ["C", "Cloves", "Handful", "Lbs", "Oz", "Tsp", "Tbls"];
 
   useEffect(() => {
     fetch("/ingredients")
       .then((r) => r.json())
-      .then((ingredientsArr) => setIngredients(ingredientsArr));
+      .then((ingredientsArr) => {
+        setIngredients(ingredientsArr)
+        setIngredientsLoaded(true)
+      });
   }, []);
 
   useEffect(() => {
     fetch("/recipes")
       .then((r) => r.json())
       .then((recipesArr) => {
-        setRecipes(recipesArr);
+        setRecipes(recipesArr)
+        setRecipesLoaded(true);
       });
   }, []);
 
@@ -41,7 +48,8 @@ function RecipesPage({ user, setUser }) {
     fetch("/recipe_ingredients")
       .then((r) => r.json())
       .then((recipeIngredientsArr) => {
-        setRecipeIngredients(recipeIngredientsArr);
+        setRecipeIngredients(recipeIngredientsArr)
+        setRecipeIngredientsLoaded(true);
       });
   }, []);
 
@@ -119,6 +127,9 @@ function RecipesPage({ user, setUser }) {
         <RecipeList
           user={user}
           recipes={recipes}
+          ingredientsLoaded={ingredientsLoaded}
+          recipesLoaded={recipesLoaded}
+          recipeIngredientsLoaded={recipeIngredientsLoaded}
           handleDeleteRecipe={handleDeleteRecipe}
         />
       </Route>
@@ -128,6 +139,9 @@ function RecipesPage({ user, setUser }) {
           ingredients={ingredients}
           recipes={recipes}
           unitList={unitList}
+          ingredientsLoaded={ingredientsLoaded}
+          recipesLoaded={recipesLoaded}
+          recipeIngredientsLoaded={recipeIngredientsLoaded}
           findAssociatedIngredientNewRecipe={findAssociatedIngredientNewRecipe}
           addNewRecipe={addNewRecipe}
         />
@@ -136,6 +150,9 @@ function RecipesPage({ user, setUser }) {
         <IngredientList
           user={user}
           ingredients={ingredients}
+          ingredientsLoaded={ingredientsLoaded}
+          recipesLoaded={recipesLoaded}
+          recipeIngredientsLoaded={recipeIngredientsLoaded}
           handleDeleteIngredient={handleDeleteIngredient}
         />
       </Route>
@@ -149,6 +166,9 @@ function RecipesPage({ user, setUser }) {
           recipes={recipes}
           recipeIngredients={recipeIngredients}
           unitList={unitList}
+          ingredientsLoaded={ingredientsLoaded}
+          recipesLoaded={recipesLoaded}
+          recipeIngredientsLoaded={recipeIngredientsLoaded}
           updateRecipe={updateRecipe}
           findAssociatedIngredientToUpdate={findAssociatedIngredientToUpdate}
           setRecipeIngredients={setRecipeIngredients}
@@ -160,6 +180,9 @@ function RecipesPage({ user, setUser }) {
           recipes={recipes}
           ingredients={ingredients}
           recipeIngredients={recipeIngredients}
+          ingredientsLoaded={ingredientsLoaded}
+          recipesLoaded={recipesLoaded}
+          recipeIngredientsLoaded={recipeIngredientsLoaded}
           updateRecipe={updateRecipe}
           findAssociatedIngredientToView={findAssociatedIngredientToView}
         />

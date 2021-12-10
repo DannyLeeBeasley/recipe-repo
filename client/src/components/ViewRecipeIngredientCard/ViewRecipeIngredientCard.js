@@ -5,6 +5,24 @@ function ViewRecipeIngredientCard({
   recipeToViewRecipeIngredient,
   associatedIngredient,
 }) {
+
+  let amount = "";
+
+  if (parseFloat(recipeToViewRecipeIngredient.amount) % 1 === 0) {
+    amount = parseFloat(recipeToViewRecipeIngredient.amount).toFixed(0);
+  } else {
+    console.log(recipeToViewRecipeIngredient.amount)
+    const [,decimalPlaces] = recipeToViewRecipeIngredient.amount.split(".")
+    if (decimalPlaces.length === 1){
+      amount = parseFloat(recipeToViewRecipeIngredient.amount).toFixed(1);
+    } else if (decimalPlaces[decimalPlaces.length -1] === "0") {
+      amount = parseFloat(recipeToViewRecipeIngredient.amount).toFixed(1);
+    }
+    else {
+      amount = parseFloat(recipeToViewRecipeIngredient.amount).toFixed(2);
+    }
+  }
+
   return (
     <div className="recipe-ingredient">
       <img
@@ -14,7 +32,7 @@ function ViewRecipeIngredientCard({
       ></img>
       <div>
         <p className="recipe-ingredient-text">
-          {recipeToViewRecipeIngredient.amount}&nbsp;
+          {amount}&nbsp;
           {recipeToViewRecipeIngredient.unit}&nbsp;
           {associatedIngredient.name}&nbsp;
         </p>

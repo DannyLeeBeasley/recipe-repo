@@ -31,6 +31,7 @@ function LoginPage({ setUser, user }) {
           alert("Incorrect Username Or Password");
         } else {
           setUser(json);
+          localStorage.setItem("userSessions", JSON.stringify(json))
           history.push("/");
         }
       });
